@@ -1,11 +1,13 @@
 @extends('layouts.app_login')
 @section('css')
     <style>
-        --base-spacing-unit: 24px;
-        --half-spacing-unit: --base-spacing-unit / 2;
+        :root {
+            --base-spacing-unit: 24px;
+            --half-spacing-unit: --base-spacing-unit / 2;
 
-        --color-alpha: #1772FF;
-        --color-form-highlight: #EEEEEE;
+            --color-alpha: #1772FF;
+            --color-form-highlight: #EEEEEE;
+        }
 
         *,
         *:before,
