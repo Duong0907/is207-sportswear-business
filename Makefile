@@ -1,4 +1,6 @@
 run:
 	php artisan serve
-migration: 
+migrate: 
 	php artisan migrate
+seeding:
+	php artisan db:seed

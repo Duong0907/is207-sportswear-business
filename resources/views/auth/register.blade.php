@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register </title>
     <link rel="stylesheet" href="{{ asset('assets/css/auth/register.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/base.css') }}">
+    <link rel="icon" type="image/x-icon" href="../assets/icons/favicon.png">
 </head>
 
 <body>
@@ -13,7 +15,7 @@
         <div class="form">
             <div class="headForm">
                 <h2>Đăng ký</h2>
-                <p>Đã có tài khoản? <a href="../login/" class="loginText">Đăng nhập</a></p>
+                <p>Đã có tài khoản? <a href="{{ route('login') }}" class="loginText">Đăng nhập</a></p>
             </div>
             <div class="bodyForm">
                 <div class="firstRow">
@@ -40,6 +42,8 @@
                         <br>
                         <input type="text" , id="password">
                     </div>
+                </div>
+                <div class="thirdRow">
                     <div>
                         <label for="verify">Xác nhận mật khẩu</label>
                         <br>

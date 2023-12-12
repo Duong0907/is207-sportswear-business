@@ -4,7 +4,7 @@ use App\Http\Controllers\productsController;
 use Illuminate\Support\Facades\Route;
 
 // register, login
-Route::prefix('auth')->group(function () {
+Route::prefix('/auth')->group(function () {
     Route::get('/register', function () {
         return view('auth.register');
     })->name('register');
@@ -15,7 +15,7 @@ Route::prefix('auth')->group(function () {
 });
 
 // user not login
-Route::prefix('')->group(function () {
+Route::prefix('/')->group(function () {
     Route::get('/', function () {
         return view('homePage');
     })->name('homePage');

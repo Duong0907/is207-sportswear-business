@@ -1,13 +1,12 @@
-body {
-    background-color: #ffffff;
-}
-
 .nav {
     background-color: #000;
     width: 100%;
     position: fixed;
     z-index: 9900;
+    /* margin-bottom: 80px; */
     top: 0;
+    left: 0;
+    right: 0;
 }
 
 .navList {
@@ -17,7 +16,7 @@ body {
     display: flex;
     line-height: 3.5;
     width: 1400px;
-    margin: auto;
+    margin: 0 auto;
 }
 
 .navList li a,
@@ -29,13 +28,13 @@ body {
 
 .navListFirst,
 .navListMiddle,
-.navListEnd {
+.navListEndUn {
     display: flex;
 
 }
 
 .navListFirst {
-    flex: 1;
+    flex: 0.7;
     justify-content: flex-start;
     padding-left: 50px;
 }
@@ -45,13 +44,14 @@ body {
     flex: 3;
 }
 
-.navListEnd {
-    flex: 1.4;
+.navListEndUnlogined {
+    flex: 2;
     float: right;
-    padding-left: 50px;
+    /* padding-left: 50px;   */
     padding-right: 20px;
     justify-content: flex-end;
     gap: 1rem;
+    display: flex;
 }
 
 .subnavNewProduct,
@@ -69,6 +69,7 @@ body {
     background-color: #fff;
     color: #000;
     gap: 6rem;
+    z-index: 5;
 }
 
 
@@ -93,12 +94,24 @@ body {
     text-align: left;
     position: absolute;
     list-style-type: none;
-    padding: 1rem 2rem;
+    /* padding: 1rem 2rem;
     line-height: 1.5;
     top: 62px;
     background-color: #fff;
     color: #000;
     gap: 0.6rem;
+    z-index: 5; */
+
+    padding: 2rem 3rem;
+    line-height: 1.5;
+    top: 62px;
+    left: 0;
+    right: 0;
+    background-color: #fff;
+    color: #000;
+    /* gap: 6rem; */
+    align-items: center;
+    z-index: 5;
 }
 
 .navNewProduct,
@@ -130,3 +143,60 @@ body {
     border-bottom-color: rgb(204, 86, 86);
 
 }
+
+
+.navListEndUnlogined .navSearch {
+    display: flex;
+    align-items: center;
+}
+
+.navListEndUnlogined .navSearchContent input:focus {
+    outline: none;
+}
+
+.navListEndUnlogined .navSearchContent input {
+    border-style: hidden;
+    font-size: 14px;
+    line-height: 1.9;
+    width: 0;
+    transition: width 0.75s ease;
+}
+
+.navListEndUnlogined .navSearchContent div:hover {
+    background-color: rgba(146, 159, 168, 0.15);
+    border-radius: 50%;
+    cursor: pointer
+}
+
+
+.navListEndUnlogined .navSearchContent {
+    background-color: white;
+    display: flex;
+    /* height: 0px; */
+    border-radius: 0px;
+    padding: 3px 10px;
+    border-radius: 20px;
+}
+
+.navListEndUnlogined .navSearchContent:hover input {
+    width: 176px;
+    cursor: text;
+    padding-left: 6px;
+}
+
+.navListEndUnlogined .navSearchIcon {
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+}
+
+
+
+/* Mobile */
+/* @media only screen and (max-width: 426px) {
+    .navList {
+        display: none;
+    }
+} */

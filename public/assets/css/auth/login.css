@@ -1,5 +1,12 @@
+*,
+html {
+    padding: 0;
+    margin: 0;
+    /* font-family: Poppins, Helvetica, sans-serif; */
+    box-sizing: border-box;
+}
+
 .wrap {
-    /* min-width: 100%; */
     height: 100%;
     background-color: #FBFBFB;
     display: flex;
@@ -8,7 +15,6 @@
     column-gap: 10px;
     color: #333333;
     padding: 50px 150px 50px 50px;
-    /* align-items: center; */
 }
 
 .form {
@@ -55,7 +61,7 @@
     border: 1px rgba(16.87, 0.75, 0.75, 0.86) solid;
     font-size: 20px;
     line-height: 1.6;
-    padding: 7px;
+    padding: 0.5rem 1rem;
     margin-top: 8px;
     width: 100%;
 }
@@ -63,13 +69,18 @@
 .loginButton {
     color: white;
     font-size: 22px;
-    font-family: Poppins;
+    /* font-family: Poppins; */
     margin: auto;
     background-color: #000;
     border: 0;
     border-radius: 32px;
     padding: 14px 38px;
+}
 
+.loginButton:hover {
+    color: #fff;
+    background-color: #32ba9a;
+    cursor: pointer;
 }
 
 .logo-container {
@@ -135,3 +146,4 @@
     } 
 
 }
+*/

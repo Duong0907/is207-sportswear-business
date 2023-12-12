@@ -16,11 +16,11 @@ return new class extends Migration
                 $table->increments('id');
                 $table->string('product_name');
                 $table->integer('product_price');
-                $table->integer('product_discount_price');
+                $table->integer('product_discount_price')->default(0);
                 $table->integer('rating');
                 $table->integer('purchasing_quantity');
                 $table->integer('quantity');
-                $table->string('product_description');
+                $table->longText('product_description');
                 $table->unsignedInteger('product_object_id');
                 $table->unsignedInteger('product_type_id');
                 

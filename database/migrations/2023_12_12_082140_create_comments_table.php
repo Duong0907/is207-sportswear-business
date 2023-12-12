@@ -13,8 +13,9 @@ return new class extends Migration
     {
         Schema::create('comments', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('rating');
-            $table->string('content');
+            $table->integer('rating')->notNullable();
+            $table->string('title')->notNullable();
+            $table->string('content')->notNullable();
             $table->unsignedInteger('product_id');
             $table->unsignedInteger('user_id');
             $table->timestamp('created_at')->useCurrent();
