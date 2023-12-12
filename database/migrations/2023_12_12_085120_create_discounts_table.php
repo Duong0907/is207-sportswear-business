@@ -11,9 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('product_objects', function (Blueprint $table) {
+        Schema::create('discounts', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('object_name');
+            $table->dateTime('start_date');
+            $table->dateTime('end_date');
+            $table->integer('discount_percent')->notNullable();
+            $table->timestamp('created_at')->useCurrent();
         });
     }
 
@@ -22,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('product_objects');
+        Schema::dropIfExists('discounts');
     }
 };

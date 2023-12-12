@@ -16,16 +16,14 @@ return new class extends Migration
                 $table->increments('id');
                 $table->string('product_name');
                 $table->integer('product_price');
+                $table->integer('product_discount_price');
                 $table->integer('rating');
                 $table->integer('purchasing_quantity');
-                $table->integer('amount');
-                $table->date('production_day');
+                $table->integer('quantity');
                 $table->string('product_description');
-                $table->string('product_size');
-                $table->string('product_color');
-                $table->string('product_image');
                 $table->unsignedInteger('product_object_id');
                 $table->unsignedInteger('product_type_id');
+                
                 $table->foreign('product_object_id')
                     ->references('id')
                     ->on('product_objects')
@@ -36,7 +34,6 @@ return new class extends Migration
                     ->onDelete('cascade');
                 // casede mean when delete product_object or product_type, product will be deleted
                 // if you want to keep product, you can use restrict
-                $table->timestamps();
             });
         }
     }

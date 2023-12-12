@@ -18,12 +18,7 @@
 
 <body>
     @include('shared.navbar')
-    @include('shared.scroll_top_btn')
-
     @yield('content')
-
-    @include('shared.footer')
-    <script src="{{ asset('assets/js/shared/scroll_top_btn.js') }}"></script>
     @yield('js')
 </body>
 

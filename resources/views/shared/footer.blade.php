@@ -1,4 +1,4 @@
-<div class="footer">
+<footer class="footer">
     <div class="footer-container">
         <div class="footerAbove">
             <div class="footerProduct">
@@ -34,4 +34,4 @@
             </div>
         </div>
     </div>
-</div>
+</footer>

@@ -9,7 +9,6 @@
                 alt="img product" />
         </div>
 
-
         <div class="product-details">
             <h1 id="product-name">Nike Killshot 2 Leather</h1>
             <p id="product-price">2.779.000 VND</p>
