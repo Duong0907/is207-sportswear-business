@@ -19,9 +19,11 @@
 </head>
 
 <body>
-    @include('shared.navbar')
-    @yield('content')
-    @include('shared.footer')
+    <div class="root-main">
+        @include('shared.navbar')
+        @yield('content')
+        @include('shared.footer')
+    </div>
     @yield('js')
 </body>
 

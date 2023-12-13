@@ -39,8 +39,7 @@ class images_seeder extends Seeder
                 'product_id' => 6
             ],
             [
-                'image_link' => 'https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/jlhsgro2k4kjkczi63qt/killshot-2-leather-shoe-DqWZ4j.png'
-                ,
+                'image_link' => 'https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/jlhsgro2k4kjkczi63qt/killshot-2-leather-shoe-DqWZ4j.png',
                 'product_id' => 7
             ],
             [
