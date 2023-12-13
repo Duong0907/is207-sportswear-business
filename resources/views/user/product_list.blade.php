@@ -71,8 +71,12 @@
                     @foreach ($products as $product)
                         <div class="show-product">
                             <div class="product-img">
-                                <img class="product-img-inner" src="{{ $product->product_image }}" alt="product-img">
-                            </div>
+                                @if ($product->images)
+                                    <img class="product-img-inner" src="{{ $product->images[0]->image_link }}" alt="product-img">
+                                @else 
+                                    <img class="product-img-inner" src="https://st3.depositphotos.com/17828278/33150/v/450/depositphotos_331503262-stock-illustration-no-image-vector-symbol-missing.jpg" alt="product-img">
+                                @endif
+                                </div>
                             <div class="product-name"> {{ $product->product_name }} </div>
                             <div class="product-price"> {{ $product->product_price }} </div>
                         </div>

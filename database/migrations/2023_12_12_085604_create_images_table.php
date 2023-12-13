@@ -14,6 +14,12 @@ return new class extends Migration
         Schema::create('images', function (Blueprint $table) {
             $table->increments('id');
             $table->string('image_link');
+            $table->unsignedInteger('product_id');
+
+            $table->foreign('product_id')
+                ->references('id')
+                ->on('products')
+                ->onDelete('cascade');
         });
     }
 

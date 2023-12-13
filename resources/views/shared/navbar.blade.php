@@ -1,7 +1,7 @@
 <div class="nav">
     <ul class="navList">
         <li class="navListFirst navListFirst--animation">
-            <a href="/sportswear/pages">Sportswear</a>
+            <a href="{{ route('home') }}">Sportswear</a>
         </li>
 
         <li class="navListMiddle">

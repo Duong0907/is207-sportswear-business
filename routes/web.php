@@ -14,21 +14,25 @@ Route::prefix('/auth')->group(function () {
     })->name('login');
 });
 
-// user not login
+// unauthenticated users
 Route::prefix('/')->group(function () {
     Route::get('/', function () {
-        return view('homePage');
-    })->name('homePage');
-    Route::get('/product-list', [productsController::class, 'index'])->name('product-list');
+        return view('home');
+    })->name('home');
+
+    Route::prefix('/products')->group(function () {
+        Route::get('/new',  [productsController::class, 'index'])->name('new-products');
+        Route::get('/search',  [productsController::class, 'renderSearchProducts'])->name('search-products');
+    });
+        
+    Route::get('/product/{id}', [productsController::class, 'renderProductDetail'])->name('product-detail');
+    
     Route::get('/guide', function () {
         return view('user.guide');
     })->name('guide');
-    Route::get('/product-detail/1', function () {
-        return view('user.product_detail');
-    })->name('product-detail');
 });
 
-// user login
+// authenticated users
 Route::prefix('/after-login')->group(function () {
     Route::get('/', function () {
         return view('homePage_login');

@@ -12,11 +12,38 @@ class productsController extends Controller
      */
     public function index()
     {
-        $products = product::all();
-        return view('user.productList', [
+        // $products = product::all();
+        $products = Product::with('images')->get();
+        // decode images json in products
+        foreach ($products as $product) {
+            $product->images = json_decode($product->images);
+        }
+        // return json_encode($products);
+        return view('user.product_list', [
             'products' => $products
         ]);
         // compact('products') is the same as ['products' => $products]
+    }
+
+    public function renderNewProducts()
+    {
+        $products = product::all();
+        return view('user.product_list', [
+            'products' => $products
+        ]);
+    }
+
+    public function renderSearchProducts()
+    {
+        $products = product::all();
+        return view('user.product_list', [
+            'products' => $products
+        ]);
+    }
+
+    public function renderProductDetail(Request $request) {
+        return $request->id;
+        // return view('user.product_detail');
     }
 
     /**

@@ -21,11 +21,10 @@ class DatabaseSeeder extends Seeder
         $this->call([
             product_objects_seeder::class,
             product_types_seeder::class,
-            images_seeder::class,
             colors_seeder::class,
             sizes_seeder::class,
             products_seeder::class,
-            product_images_seeder::class,
+            images_seeder::class,
             product_colors_seeder::class,
             product_sizes_seeder::class,
             discounts_seeder::class,
