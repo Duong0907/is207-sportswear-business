@@ -5,8 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login </title>
-    <link rel="stylesheet" href="{{ asset('/assets/css/base.css') }}">
-    <link rel="stylesheet" href="{{ asset('/assets/css/auth/login.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/base.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/auth/login.css') }}">
+    <link rel="icon" type="image/x-icon" href="../assets/icons/favicon.png">
 </head>
 
 <body>
@@ -14,7 +15,7 @@
         <form action='' class="form">
             <div class="headForm">
                 <h2>Đăng nhập</h2>
-                <p>Chưa có tài khoản? <a href="../register/" class="registerText">Đăng ký</a></p>
+                <p>Chưa có tài khoản? <a href="{{ route('register') }}" class="registerText">Đăng ký</a></p>
             </div>
             <div class="bodyForm">
                 <div class="firstRow">

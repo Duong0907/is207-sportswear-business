@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::create('product_objects', function (Blueprint $table) {
             $table->increments('id');
             $table->string('object_name');
-            $table->timestamps();
         });
     }
 

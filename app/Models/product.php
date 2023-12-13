@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class product extends Model
+class Product extends Model
 {
     use HasFactory;
     protected $fillable = [
@@ -13,22 +13,24 @@ class product extends Model
         'product_price',
         'rating',
         'purchasing_quantity',
-        'amount',
-        'production_day',
+        'quantity',
         'product_description',
-        'product_size',
-        'product_color',
-        'product_image',
-        'product_object_id',
-        'product_type_id',
     ];
+
     public $timestamps = true;
+
     function productObject()
     {
-        return $this->belongsTo(productObjects::class);
+        return $this->belongsTo(ProductObject::class);
     }
+
     function productType()
     {
-        return $this->belongsTo(productTypes::class);
+        return $this->belongsTo(ProductType::class);
+    }
+
+    function images()
+    {
+        return $this->hasMany(Image::class);
     }
 }
