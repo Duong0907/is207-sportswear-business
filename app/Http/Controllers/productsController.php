@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\product;
+use App\Models\Product;
 
 class productsController extends Controller
 {
@@ -12,12 +12,12 @@ class productsController extends Controller
      */
     public function index()
     {
-        // $products = product::all();
+        // take all products and images of each product
         $products = Product::with('images')->get();
         // decode images json in products
-        foreach ($products as $product) {
-            $product->images = json_decode($product->images);
-        }
+        // foreach ($products as $product) {
+        //     $product->images = json_decode($product->images);
+        // }
         // return json_encode($products);
         return view('user.product_list', [
             'products' => $products
@@ -41,7 +41,8 @@ class productsController extends Controller
         ]);
     }
 
-    public function renderProductDetail(Request $request) {
+    public function renderProductDetail(Request $request)
+    {
         return $request->id;
         // return view('user.product_detail');
     }

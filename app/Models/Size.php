@@ -5,12 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class ProductObject extends Model
+class Size extends Model
 {
     use HasFactory;
-    protected $table = 'product_objects';
+    protected $table = 'sizes';
     protected $fillable = [
-        'object_name',
+        'size_name',
     ];
     public $timestamps = true;
     function products()

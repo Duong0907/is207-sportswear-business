@@ -5,16 +5,21 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Image extends Model
+class ProductSize extends Model
 {
-    protected $table = 'images';
-    protected $fillable = [
-        'image_link'
-    ];
     use HasFactory;
-
+    protected $table = 'product_sizes';
+    protected $fillable = [
+        'product_id',
+        'size_id',
+    ];
+    public $timestamps = true;
     function product()
     {
         return $this->belongsTo(Product::class);
+    }
+    function size()
+    {
+        return $this->belongsTo(Size::class);
     }
 }

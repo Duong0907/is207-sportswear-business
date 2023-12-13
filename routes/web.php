@@ -60,10 +60,24 @@ Route::prefix('admin')->group(function () {
     Route::get('/customer', function () {
         return view('admin.customer.index');
     })->name('admin_customer');
+
+
     // product
-    Route::get('/product', function () {
-        return view('admin.product.index');
-    })->name('admin_product');
+    Route::prefix('/product')->group(function () {
+        Route::get('/', function () {
+            return view('admin.product.index');
+        })->name('admin_product');
+
+        Route::get('/create', function () {
+            return view('admin.product.create');
+        })->name('admin_product_create');
+
+        Route::get('/edit', function () {
+            return view('admin.product.edit');
+        })->name('admin_product_edit');
+    });
+
+
     // report
     Route::get('/report', function () {
         return view('admin.report.index');
