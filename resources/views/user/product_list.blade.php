@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('css')
-    <link rel="stylesheet" href=" {{ asset('assets/css/user/productList.css') }} ">
+    <link rel="stylesheet" href=" {{ asset('assets/css/user/product_list.css') }} ">
 @endsection
 @section('content')
     <header class="show-product-list-header">
@@ -70,7 +70,7 @@
                 <div id="show-product-list">
                     @foreach ($products as $product)
                         <div class="show-product">
-                            <div class="product-img">
+                            <div class="product-img" onclick="window.location.href='/product/{{ $product->id }}'">
                                 @if ($product->images)
                                     <img class="product-img-inner" src="{{ $product->images[0]->image_link }}" alt="product-img">
                                 @else 

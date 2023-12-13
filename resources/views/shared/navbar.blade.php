@@ -6,7 +6,7 @@
 
         <li class="navListMiddle">
             <div class="navNewProduct nav-subnav-item">
-                <a href="/sportswear/pages/product-list/">Sản phẩm mới</a>
+                <a href="{{ route('new-products') }}">Sản phẩm mới</a>
                 <ol class="subnavNewProduct subnav-blur sub-navbar--animation">
                     <!-- Nam -->
                     <li>

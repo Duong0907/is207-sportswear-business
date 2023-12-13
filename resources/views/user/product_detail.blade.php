@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('css')
-    <link rel="stylesheet" href="{{ asset('assets/css/user/productDetail.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/user/product_detail.css') }}">
 @endsection
 @section('content')
     <div class="product-container">
@@ -10,13 +10,11 @@
         </div>
 
         <div class="product-details">
-            <h1 id="product-name">Nike Killshot 2 Leather</h1>
-            <p id="product-price">2.779.000 VND</p>
+            <h1 id="product-name">{{ $data['product']['product_name']}}</h1>
+            <p id="product-price">{{ $data['product']['product_price'] }}</p>
             <div id="p-decription">
                 <p id="product-decription">
-                    Nhanh hơn 1, 2, 3 - đôi giày thể thao gốc giúp bạn dễ dàng đi và bắt đầu. Hệ thống EasyOn đặc trưng giúp
-                    bạn trải nghiệm không sử dụng tay, trong khi da mịn mang màu trắng tinh khôi tạo điểm nhấn hoàn hảo.
-                    Đúng vậy, nó là tất cả những gì bạn yêu thích và
+                    {{ $data['product']['product_description'] }}
                 </p>
             </div>
 
@@ -109,7 +107,7 @@
                         </div>
                     </div>
 
-                </div>
+                </div>  
             </div>
         </div>
     </div>

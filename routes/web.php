@@ -21,7 +21,7 @@ Route::prefix('/')->group(function () {
     })->name('home');
 
     Route::prefix('/products')->group(function () {
-        Route::get('/new',  [productsController::class, 'index'])->name('new-products');
+        Route::get('/new',  [productsController::class, 'renderNewProducts'])->name('new-products');
         Route::get('/search',  [productsController::class, 'renderSearchProducts'])->name('search-products');
     });
         
