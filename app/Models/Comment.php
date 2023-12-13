@@ -8,4 +8,21 @@ use Illuminate\Database\Eloquent\Model;
 class Comment extends Model
 {
     use HasFactory;
+    protected $table = 'comments';
+    protected $fillable = [
+        'rating',
+        'title',
+        'content',
+        'product_id',
+        'user_id',
+    ];
+    public $timestamps = true;
+    function product()
+    {
+        return $this->belongsTo(Product::class);
+    }
+    function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

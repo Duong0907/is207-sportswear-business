@@ -7,12 +7,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class Discount extends Model
 {
-    protected $table = 'discounts';
-    protected $fillable = ['start_date', 'end_date', 'discount_percent'];
     use HasFactory;
-
+    protected $table = 'discounts';
+    protected $fillable = [
+        'start_date',
+        'end_date',
+        'discount_percent',
+    ];
+    public $timestamps = true;
     function product()
     {
-        return $this->belongsToMany(Product::class);
+        return $this->belongsTo(Product::class);
     }
 }

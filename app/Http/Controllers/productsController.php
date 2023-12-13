@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Image;
 use App\Models\product;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+use App\Models\Product;
 
 class productsController extends Controller
 {
@@ -14,12 +14,16 @@ class productsController extends Controller
      */
     public function index()
     {
+        // take all products and images of each product
         $products = Product::with('images')->get();
-        foreach ($products as $product) {
-            $product->images = json_decode($product->images);
-        }
-
-        return view('user.product_list', compact('products'));
+        // decode images json in products
+        // foreach ($products as $product) {
+        //     $product->images = json_decode($product->images);
+        // }
+        // return json_encode($products);
+        return view('user.product_list', [
+            'products' => $products
+        ]);
         // compact('products') is the same as ['products' => $products]
     }
 
@@ -41,40 +45,10 @@ class productsController extends Controller
         ]);
     }
 
-    public function renderProductDetail(Request $request) {
-        $product_id = $request->id;
-
-        // $products = Product::where('id', $product_id)->first();
-        // $images = Image::where('product_id', $product_id)->get();
-        // $colors = DB::select('select * from colors join product_colors on colors.id = product_colors.color_id where product_colors.product_id = ?', [$product_id]);
-        // $sizes = DB::select('select * from sizes join product_sizes on sizes.id = product_sizes.size_id  where product_sizes.product_id = ?', [$product_id]);
-
-        $product = Product::with('colors', 'sizes', 'images')->find($product_id);
-
-        foreach ($product->colors as $color) {
-            echo $color->name;
-        }
-
-        foreach ($product->sizes as $size) {
-            echo $size->name;
-        }
-
-        foreach ($product->images as $image) {
-            echo $image->url;
-        }
-
-        return json_encode($product);
-
-        // $data = [
-        //     'product' => $products,
-        //     'images' => $images,
-        //     'colors' => $colors,
-        //     'sizes' => $sizes
-        // ];
-
-        // $products = DB::select('select * from products join product_colors on products.id = product_colors.product_id join colors on product_colors.color_id = colors.id join product_sizes on products.id = product_sizes.product_id join sizes on product_sizes.size_id = sizes.id join images on products.id = images.product_id where products.id = ?', [$product_id]);
-        // return json_encode($data);
-        return view('user.product_detail', compact('data'));
+    public function renderProductDetail(Request $request)
+    {
+        return $request->id;
+        // return view('user.product_detail');
     }
 
     /**

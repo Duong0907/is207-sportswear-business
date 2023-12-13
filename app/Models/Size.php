@@ -7,12 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Size extends Model
 {
-    protected $table = 'sizes';
-    protected $fillable = ['size_name'];
     use HasFactory;
-
-    function product()
+    protected $table = 'sizes';
+    protected $fillable = [
+        'size_name',
+    ];
+    public $timestamps = true;
+    function products()
     {
-        return $this->belongsToMany(Product::class);
+        return $this->hasMany(product::class);
     }
 }
