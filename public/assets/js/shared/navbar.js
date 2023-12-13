@@ -51,33 +51,5 @@ if (accountBtn) {
         e.stopPropagation();
     }
     body.onclick = hideAccountModal;
-
-    // logoutBtn.onclick = e => {
-    //     fetch('http://localhost/sportswear/controllers/logout.php', {
-    //         method: 'POST'
-
-    //     })
-    //         .then(res => res.json())
-    //         .then(data => {
-    //             if (!data.error) {
-    //                 window.location.href = "http://localhost/sportswear/";
-    //             } else {
-    //                 alert(data.message);
-    //             }
-    //         })
-    // }
 }
 
-// Hide login and signup when hover input search
-// const search = document.querySelector('.navSearchContent');
-// const loginBtn = document.querySelector('.login');
-// const signupBtn = document.querySelector('.signup');
-
-// search.onmouseover = e => {
-//     loginBtn.style.display = 'none';
-//     signupBtn.style.display = 'none';
-// }
-// search.onmouseout = e => {
-//     loginBtn.style.display = 'inline-block';
-//     signupBtn.style.display = 'inline-block';
-// }

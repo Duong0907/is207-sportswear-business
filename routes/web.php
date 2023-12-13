@@ -4,7 +4,7 @@ use App\Http\Controllers\productsController;
 use Illuminate\Support\Facades\Route;
 
 // register, login
-Route::prefix('/auth')->group(function () {
+Route::prefix('auth')->group(function () {
     Route::get('/register', function () {
         return view('auth.register');
     })->name('register');
@@ -14,25 +14,26 @@ Route::prefix('/auth')->group(function () {
     })->name('login');
 });
 
-// unauthenticated users
-Route::prefix('/')->group(function () {
+// user not login
+Route::prefix('')->group(function () {
     Route::get('/', function () {
         return view('home');
     })->name('home');
-
-    Route::prefix('/products')->group(function () {
-        Route::get('/new',  [productsController::class, 'index'])->name('new-products');
-        Route::get('/search',  [productsController::class, 'renderSearchProducts'])->name('search-products');
-    });
-        
-    Route::get('/product/{id}', [productsController::class, 'renderProductDetail'])->name('product-detail');
-    
+    Route::get('/product-list', [productsController::class, 'index'])->name('product-list');
     Route::get('/guide', function () {
         return view('user.guide');
     })->name('guide');
+
+    Route::get('/introduce', function () {
+        return view('user.introduce');
+    })->name('introduce');
+
+    Route::get('/product-detail/1', function () {
+        return view('user.product_detail');
+    })->name('product-detail');
 });
 
-// authenticated users
+// user login
 Route::prefix('/after-login')->group(function () {
     Route::get('/', function () {
         return view('homePage_login');
