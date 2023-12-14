@@ -13,6 +13,7 @@ class ProductObject extends Model
         'object_name',
     ];
     public $timestamps = true;
+    
     function products()
     {
         return $this->hasMany(product::class);

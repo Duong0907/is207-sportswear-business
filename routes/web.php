@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\productsController;
+use App\Http\Controllers\ProductsController;
 use Illuminate\Support\Facades\Route;
 
 // register, login
@@ -21,11 +21,11 @@ Route::prefix('')->group(function () {
     })->name('home');
 
     Route::prefix('/products')->group(function () {
-        Route::get('/new',  [productsController::class, 'renderNewProducts'])->name('new-products');
-        Route::get('/search',  [productsController::class, 'renderSearchProducts'])->name('search-products');
+        Route::get('/new',  [ProductsController::class, 'renderNewProducts'])->name('new-products');
+        Route::get('/search',  [ProductsController::class, 'renderSearchProducts'])->name('search-products');
     });
         
-    Route::get('/product/{id}', [productsController::class, 'renderProductDetail'])->name('product-detail');
+    Route::get('/product/{id}', [ProductsController::class, 'renderProductDetail'])->name('product-detail');
 
     Route::get('product-list', function () {
         return view('user.product_list');

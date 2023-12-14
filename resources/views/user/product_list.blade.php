@@ -69,7 +69,7 @@
 
                 <div id="show-product-list">
                     @foreach ($products as $product)
-                        <div class="show-product">
+                        <div class="show-product" onclick="window.location.href='/product/{{ $product->id }}'">
                             <div class="product-img">
                                 @if ($product->images->isNotEmpty())
                                     @foreach ($product->images as $image)
@@ -93,4 +93,9 @@
         </article>
     </main>
 </div>
+@endsection
+
+@section('js')
+    <script src="{{ asset('assets/js/base.js') }}"></script>
+    <script src="{{ asset('assets/js/user/product_list.js') }}"></script>
 @endsection

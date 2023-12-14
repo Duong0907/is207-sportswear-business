@@ -17,6 +17,7 @@ class Comment extends Model
         'user_id',
     ];
     public $timestamps = true;
+
     function product()
     {
         return $this->belongsTo(Product::class);

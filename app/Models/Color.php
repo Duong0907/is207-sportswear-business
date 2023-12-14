@@ -14,8 +14,9 @@ class Color extends Model
         'hex_code',
     ];
     public $timestamps = true;
+    
     function product()
     {
-        return $this->belongsTo(Product::class);
+        return $this->belongsToMany(Product::class, 'product_colors', 'product_id', 'color_id');
     }
 }
