@@ -45,51 +45,19 @@
                     <th><label>Số lượt mua</label></th>
                     <th><label>Hành động</label></th>
                 </tr>
-
-                <tr class="product-management-table-row">
-                    <th><input type="checkbox" class="product-row"></th>
-                    <th><label class="product-row">SP001</label></th>
-                    <th><label class="product-row">giay thuong dinh</label></th>
-                    <th><label class="product-row">100000 vnd</label></th>
-                    <th><label class="product-row">100</label></th>
-                    <th>
-                        <a href=""><img src="{{ asset('assets/svg/detail.svg') }}" alt="detail"></a>
-                        <a href=""><img src="{{ asset('assets/svg/delete.svg') }}" alt="detail"></a>
-                    </th>
-                </tr>
-                <tr class="product-management-table-row">
-                    <th><input type="checkbox" class="product-row"></th>
-                    <th><label class="product-row">SP001</label></th>
-                    <th><label class="product-row">giay thuong dinh</label></th>
-                    <th><label class="product-row">100000 vnd</label></th>
-                    <th><label class="product-row">100</label></th>
-                    <th>
-                        <a href=""><img src="{{ asset('assets/svg/detail.svg') }}" alt="detail"></a>
-                        <a href=""><img src="{{ asset('assets/svg/delete.svg') }}" alt="detail"></a>
-                    </th>
-                </tr>
-                <tr class="product-management-table-row">
-                    <th><input type="checkbox" class="product-row"></th>
-                    <th><label class="product-row">SP001</label></th>
-                    <th><label class="product-row">giay thuong dinh</label></th>
-                    <th><label class="product-row">100000 vnd</label></th>
-                    <th><label class="product-row">100</label></th>
-                    <th>
-                        <a href=""><img src="{{ asset('assets/svg/detail.svg') }}" alt="detail"></a>
-                        <a href=""><img src="{{ asset('assets/svg/delete.svg') }}" alt="detail"></a>
-                    </th>
-                </tr>
-                <tr class="product-management-table-row">
-                    <th><input type="checkbox" class="product-row"></th>
-                    <th><label class="product-row">SP001</label></th>
-                    <th><label class="product-row">giay thuong dinh</label></th>
-                    <th><label class="product-row">100000 vnd</label></th>
-                    <th><label class="product-row">100</label></th>
-                    <th>
-                        <a href=""><img src="{{ asset('assets/svg/detail.svg') }}" alt="detail"></a>
-                        <a href=""><img src="{{ asset('assets/svg/delete.svg') }}" alt="detail"></a>
-                    </th>
-                </tr>
+                @foreach ($products as $product)
+                    <tr class="product-management-table-row">
+                        <th><input type="checkbox" class="product-row"></th>
+                        <th><label class="product-row">{{ $product->id }}</label></th>
+                        <th><label class="product-row"> {{ $product->product_name }} </label></th>
+                        <th><label class="product-row"> {{ $product->product_price }} </label></th>
+                        <th><label class="product-row">5</label></th>
+                        <th>
+                            <a href=""><img src="{{ asset('assets/svg/detail.svg') }}" alt="detail"></a>
+                            <a href=""><img src="{{ asset('assets/svg/delete.svg') }}" alt="detail"></a>
+                        </th>
+                    </tr>
+                @endforeach
             </table>
 
             <div class="product-management-add-product">

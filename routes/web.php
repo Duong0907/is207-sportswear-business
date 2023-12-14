@@ -23,13 +23,13 @@ Route::prefix('/')->group(function () {
         Route::get('/new',  [ProductsController::class, 'renderNewProducts'])->name('new-products');
         Route::get('/search',  [ProductsController::class, 'renderSearchProducts'])->name('search-products');
     });
-        
+
     Route::get('/product/{id}', [ProductsController::class, 'renderProductDetail'])->name('product-detail');
 
     Route::get('product-list', function () {
         return view('user.product_list');
     })->name('product-list');
-    
+
     Route::get('/guide', function () {
         return view('user.guide');
     })->name('guide');
@@ -74,13 +74,9 @@ Route::prefix('admin')->group(function () {
 
     // product
     Route::prefix('/product')->group(function () {
-        Route::get('/', function () {
-            return view('admin.product.index');
-        })->name('admin_product');
+        Route::get('/', [ProductsController::class, 'adminIndex'])->name('admin_product');
 
-        Route::get('/create', function () {
-            return view('admin.product.create');
-        })->name('admin_product_create');
+        Route::get('/create', [ProductsController::class, 'create'])->name('admin_product_create');
 
         Route::get('/edit', function () {
             return view('admin.product.edit');
