@@ -52,6 +52,10 @@ html, * {
     color: white;
 }
 
+.cursor-pointer {
+    cursor: pointer;
+}
+
 /* Snackbar  */
 /* The snackbar - position it at the bottom and in the middle of the screen */
 #snackbar {

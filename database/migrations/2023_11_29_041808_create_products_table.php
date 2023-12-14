@@ -23,6 +23,8 @@ return new class extends Migration
                 $table->longText('product_description');
                 $table->unsignedInteger('product_object_id');
                 $table->unsignedInteger('product_type_id');
+                $table->timestamp('created_at')->useCurrent();
+                $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();
                 
                 $table->foreign('product_object_id')
                     ->references('id')

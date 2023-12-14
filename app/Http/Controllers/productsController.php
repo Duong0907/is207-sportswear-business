@@ -2,45 +2,187 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Size;
+use App\Models\Color;
 use App\Models\Image;
-use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\ProductType;
+use Illuminate\Http\Request;
+use App\Models\ProductObject;
 
 class ProductsController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        // take all products and images of each product
-        $products = Product::with('images')->get();
-        // decode images json in products
-        // foreach ($products as $product) {
-        //     $product->images = json_decode($product->images);
-        // }
-        // return json_encode($products);
-        return view('user.product_list', [
-            'products' => $products
-        ]);
-        // compact('products') is the same as ['products' => $products]
+        $title = "";
+        $products = Product::select("*");
+        if ($request->has('type')) {
+            $products = $products->where('product_type_id', $request->type);
+            $type = ProductType::find($request->type);
+            $title .= $type->type_name . ' ';
+        }
+
+        if ($request->has('object')) {
+            $products = $products->where('product_object_id', $request->object)
+                                ->orWhere('product_object_id', 4); // Unisex;
+            $object = ProductObject::find($request->object);
+            $title .= $object->object_name . ' ';
+        }
+
+        if ($title == "")
+            $title = "Sản phẩm mới";
+
+        $products = $products->get();
+
+        // For filters
+        $product_types = ProductType::all();
+        $product_types = $product_types->map(function ($product_type) {
+            return ['item' => $product_type->type_name];
+        });
+
+
+        $product_objects = ProductObject::all();
+        $product_objects = $product_objects->map(function ($product_object) {
+            return ['item' => $product_object->object_name];
+        });
+
+        $colors = Color::all()->take(5);
+        $colors = $colors->map(function ($color) {
+            return ['item' => $color->color_name];
+        });
+
+        $sizes = Size::all();
+        $sizes = $sizes->map(function ($size) {
+            return ['item' => $size->size_name];
+        });
+
+        $data = [
+            'title' => $title,
+            'subtitle' => 'Đắm chìm trong thế giới thể thao với những sản phẩm mới nhất tại cửa hàng của chúng tôi! Dòng sản phẩm mới này bao gồm đủ phụ kiện để bạn có thể chuẩn bị cho mọi hoạt động thể thao của mình.',
+            'products' => $products,
+            'filter' => [
+                'Loại' => $product_types,
+                'Đối tượng' => $product_objects,
+                'Màu' => $colors,
+                'Kích thước' => $sizes
+            ]
+        ];
+
+        return view('user.product_list', compact('data'));
     }
 
-    public function renderNewProducts()
+    public function renderNewProducts(Request $request)
     {
-        $products = Product::all();
+        $title = "";
+        $products = Product::select("*");
+        if ($request->has('type')) {
+            $products = $products->where('product_type_id', $request->type);
+            $type = ProductType::find($request->type);
+            $title .= $type->type_name . ' ';
+        }
+
+        if ($request->has('object')) {
+            $products = $products->where('product_object_id', $request->object)
+                                ->orWhere('product_object_id', 4); // Unisex;
+            $object = ProductObject::find($request->object);
+            $title .= $object->object_name . ' ';
+        }
+
+        if ($title == "")
+            $title = "Sản phẩm mới";
+
+        $products->orderBy('created_at','desc');
+        $products = $products->get();
+
+        // For filters
+        $product_types = ProductType::all();
+        $product_types = $product_types->map(function ($product_type) {
+            return ['item' => $product_type->type_name];
+        });
+
+
+        $product_objects = ProductObject::all();
+        $product_objects = $product_objects->map(function ($product_object) {
+            return ['item' => $product_object->object_name];
+        });
+
+        $colors = Color::all();
+        $colors = $colors->map(function ($color) {
+            return ['item' => $color->color_name];
+        });
+
+        $sizes = Size::all();
+        $sizes = $sizes->map(function ($size) {
+            return ['item' => $size->size_name];
+        });
+
+        $data = [
+            'title' => $title,
+            'subtitle' => 'Đắm chìm trong thế giới thể thao với những sản phẩm mới nhất tại cửa hàng của chúng tôi! Dòng sản phẩm mới này bao gồm đủ phụ kiện để bạn có thể chuẩn bị cho mọi hoạt động thể thao của mình.',
+            'products' => $products,
+            'filter' => [
+                'Loại' => $product_types,
+                'Đối tượng' => $product_objects,
+                'Màu' => $colors,
+                'Kích thước' => $sizes
+            ]
+        ];
 
         // return json_encode($products->colors());
 
-        return view('user.product_list', compact('products'));
+        return view('user.product_list', compact('data'));
     }
 
-    public function renderSearchProducts()
+    public function renderSearchProducts(Request $request)
     {
-        $products = Product::all();
-        return view('user.product_list', [
-            'products' => $products
-        ]);
+        $keyword = $request->keyword;
+        $products = Product::where('product_name', 'like', '%' . $keyword . '%')->get();
+
+        // For filters
+        $product_types = ProductType::all();
+        $product_types = $product_types->map(function ($product_type) {
+            return ['item' => $product_type->type_name];
+        });
+
+
+        $product_objects = ProductObject::all();
+        $product_objects = $product_objects->map(function ($product_object) {
+            return ['item' => $product_object->object_name];
+        });
+
+        $colors = Color::all();
+        $colors = $colors->map(function ($color) {
+            return ['item' => $color->color_name];
+        });
+
+        $sizes = Size::all();
+        $sizes = $sizes->map(function ($size) {
+            return ['item' => $size->size_name];
+        });
+
+        $data = [
+            'title' => "Tìm kiếm",
+            'subtitle' => 'Kết quả tìm kiếm cho: ' . $keyword,
+            'products' => $products,
+            'filter' => [
+                'Loại' => $product_types,
+                'Đối tượng' => $product_objects,
+                'Màu' => $colors,
+                'Kích thước' => $sizes
+            ]
+        ];
+
+        return view('user.product_list', compact('data'));
+    }
+
+    public function renderHome(Request $request) 
+    {
+        // purchasing_quantity
+        $products = Product::all()->sortByDesc('purchasing_quantity')->take(3);
+        return view('user.home', compact('products'));
     }
 
     public function renderProductDetail(Request $request)

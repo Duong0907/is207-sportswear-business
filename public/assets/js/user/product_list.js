@@ -9,22 +9,6 @@ formatPrices();
 
 
 let page = 1;
-// const productItems = document.querySelectorAll('.show-product');
-// productItems.forEach((productItem) => {
-//     productItem.onclick = (event) => {
-//         var target = event.target;
-//         if (event.target.classList.contains('show-product') == false) {
-//             if (event.target.classList.contains('product-img-inner') == true) {
-//                 target = target.parentElement;
-//             }
-//             target = target.parentElement;
-//         }
-//         const id = target.id.substring(11);
-//         window.location.href = '/sportswear/pages/product-detail/?id=' + id;
-//     }
-// });
-
-
 const loadMoreProduct = () => {
     const searchParams = new URLSearchParams(window.location.search);
     let objectOfPage = searchParams.get('object');

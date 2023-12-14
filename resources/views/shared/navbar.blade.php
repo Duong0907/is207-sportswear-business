@@ -12,22 +12,22 @@
                     <li>
                         <ul>
                             <li class="bold mb1">
-                                <a href="{{ route('product-list') }}">Nam</a>
+                                <a href="/products/new?object=1">Nam</a>
                             </li>
                             <li>
-                                <a href="{{ route('product-list') }}">Tất cả sản phẩm</a>
+                                <a href="/products/new?object=1">Tất cả sản phẩm</a>
                             </li>
                             <li>
-                                <a href="{{ route('product-list') }}">Giày</a>
+                                <a href="/products/new?object=1&type=2">Giày</a>
                             </li>
                             <li>
-                                <a href="{{ route('product-list') }}">Áo</a>
+                                <a href="/products/new?object=1&type=1">Áo</a>
                             </li>
                             <li>
-                                <a href="{{ route('product-list') }}">Quần</a>
+                                <a href="/products/new?object=1&type=2">Quần</a>
                             </li>
                             <li>
-                                <a href="{{ route('product-list') }}">Tất</a>
+                                <a href="/products/new?object=1&type=4">Tất</a>
                             </li>
                         </ul>
                     </li>
@@ -35,22 +35,22 @@
                     <li>
                         <ul>
                             <li class="bold mb1">
-                                <a href="{{ route('product-list') }}">Nữ</a>
+                                <a href="/products/new?object=2">Nữ</a>
                             </li>
                             <li>
-                                <a href="{{ route('product-list') }}">Tất cả sản phẩm</a>
+                                <a href="/products/new?object=2">Tất cả sản phẩm</a>
                             </li>
                             <li>
-                                <a href="{{ route('product-list') }}">Giày</a>
+                                <a href="/products/new?object=2&type=3">Giày</a>
                             </li>
                             <li>
-                                <a href="{{ route('product-list') }}">Áo</a>
+                                <a href="/products/new?object=2&type=1">Áo</a>
                             </li>
                             <li>
-                                <a href="{{ route('product-list') }}">Quần</a>
+                                <a href="/products/new?object=2&type=2">Quần</a>
                             </li>
                             <li>
-                                <a href="{{ route('product-list') }}">Tất</a>
+                                <a href="/products/new?object=2&type=4">Tất</a>
                             </li>
                         </ul>
                     </li>
@@ -58,22 +58,22 @@
                     <li>
                         <ul>
                             <li class="bold mb1">
-                                <a href="{{ route('product-list') }}">Trẻ em</a>
+                                <a href="/products/new?object=3">Trẻ em</a>
                             </li>
                             <li>
-                                <a href="{{ route('product-list') }}">Tất cả sản phẩm</a>
+                                <a href="/products/new?object=3">Tất cả sản phẩm</a>
                             </li>
                             <li>
-                                <a href="{{ route('product-list') }}">Giày</a>
+                                <a href="/products/new?object=3&type=3">Giày</a>
                             </li>
                             <li>
-                                <a href="{{ route('product-list') }}">Áo</a>
+                                <a href="/products/new?object=3&type=1">Áo</a>
                             </li>
                             <li>
-                                <a href="{{ route('product-list') }}">Quần</a>
+                                <a href="/products/new?object=3&type=2">Quần</a>
                             </li>
                             <li>
-                                <a href="{{ route('product-list') }}">Tất</a>
+                                <a href="/products/new?object=3&type=4">Tất</a>
                             </li>
                         </ul>
                     </li>
@@ -81,63 +81,63 @@
             </div>
 
             <div class="navMen subnav-blur nav-subnav-item">
-                <a href="{{ route('product-list') }}">Nam</a>
+                <a href="/products?object=1">Nam</a>
                 <div class="wrapSubnavMen clearfix">
                     <ul class="subnavMen sub-navbar--animation">
-                        <li><a href="{{ route('product-list') }}">Tất cả sản phẩm</a></li>
-                        <li><a href="{{ route('product-list') }}">Giày</a></li>
-                        <li><a href="{{ route('product-list') }}">Áo</a></li>
-                        <li><a href="{{ route('product-list') }}">Quần</a></li>
-                        <li><a href="{{ route('product-list') }}">Tất</a></li>
+                        <li><a href="/products?object=1">Tất cả sản phẩm</a></li>
+                        <li><a href="/products?object=1&type=3">Giày</a></li>
+                        <li><a href="/products?object=1&type=1">Áo</a></li>
+                        <li><a href="/products?object=1&type=2">Quần</a></li>
+                        <li><a href="/products?object=1&type=4">Tất</a></li>
                     </ul>
                 </div>
             </div>
 
             <div class="navWomen subnav-blur nav-subnav-item">
-                <a href="{{ route('product-list') }}">Nữ</a>
+                <a href="/products?object=2">Nữ</a>
                 <ul class="subnavWomen sub-navbar--animation">
-                    <li><a href="{{ route('product-list') }}">Tất cả sản phẩm</a></li>
-                    <li><a href="{{ route('product-list') }}">Giày</a></li>
-                    <li><a href="{{ route('product-list') }}">Áo</a></li>
-                    <li><a href="{{ route('product-list') }}">Quần</a></li>
-                    <li><a href="{{ route('product-list') }}">Tất</a></li>
+                    <li><a href="/products?object=2">Tất cả sản phẩm</a></li>
+                    <li><a href="/products?object=2&type=3">Giày</a></li>
+                    <li><a href="/products?object=2&type=1">Áo</a></li>
+                    <li><a href="/products?object=2&type=2">Quần</a></li>
+                    <li><a href="/products?object=2&type=4">Tất</a></li>
                 </ul>
             </div>
 
             <div class="navKids subnav-blur nav-subnav-item">
-                <a href="{{ route('product-list') }}">Trẻ em</a>
+                <a href="/products?object=3">Trẻ em</a>
                 <ul class="subnavKids sub-navbar--animation">
-                    <li><a href="{{ route('product-list') }}">Tất cả sản phẩm</a></li>
-                    <li><a href="{{ route('product-list') }}">Giày</a></li>
-                    <li><a href="{{ route('product-list') }}">Áo</a></li>
-                    <li><a href="{{ route('product-list') }}">Quần</a></li>
-                    <li><a href="{{ route('product-list') }}">Tất</a></li>
+                    <li><a href="/products?object=3">Tất cả sản phẩm</a></li>
+                    <li><a href="/products?object=3&type=3">Giày</a></li>
+                    <li><a href="/products?object=3&type=1">Áo</a></li>
+                    <li><a href="/products?object=3&type=2">Quần</a></li>
+                    <li><a href="/products?object=3&type=4">Tất</a></li>
                 </ul>
             </div>
 
             <div class="navPromotion subnav-blur nav-subnav-item">
-                <a href="{{ route('product-list') }}">Khuyến mãi</a>
+                <a href="/products?object=1&type=1">Khuyến mãi</a>
                 <ol class="subnavPromotion sub-navbar--animation">
                     <!-- Nam -->
                     <li>
                         <ul>
                             <li class="bold mb1">
-                                <a href="{{ route('product-list') }}">Nam</a>
+                                <a href="/products?object=1&type=1">Nam</a>
                             </li>
                             <li>
-                                <a href="{{ route('product-list') }}">Tất cả sản phẩm</a>
+                                <a href="/products?object=1&type=1">Tất cả sản phẩm</a>
                             </li>
                             <li>
-                                <a href="{{ route('product-list') }}">Giày</a>
+                                <a href="/products?object=1&type=1">Giày</a>
                             </li>
                             <li>
-                                <a href="{{ route('product-list') }}">Áo</a>
+                                <a href="/products?object=1&type=1">Áo</a>
                             </li>
                             <li>
-                                <a href="{{ route('product-list') }}">Quần</a>
+                                <a href="/products?object=1&type=1">Quần</a>
                             </li>
                             <li>
-                                <a href="{{ route('product-list') }}">Tất</a>
+                                <a href="/products?object=1&type=1">Tất</a>
                             </li>
                         </ul>
                     </li>
@@ -146,22 +146,22 @@
                     <li>
                         <ul>
                             <li class="bold mb1">
-                                <a href="{{ route('product-list') }}">Nữ</a>
+                                <a href="/products?object=1&type=1">Nữ</a>
                             </li>
                             <li>
-                                <a href="{{ route('product-list') }}">Tất cả sản phẩm</a>
+                                <a href="/products?object=1&type=1">Tất cả sản phẩm</a>
                             </li>
                             <li>
-                                <a href="{{ route('product-list') }}">Giày</a>
+                                <a href="/products?object=1&type=1">Giày</a>
                             </li>
                             <li>
-                                <a href="{{ route('product-list') }}">Áo</a>
+                                <a href="/products?object=1&type=1">Áo</a>
                             </li>
                             <li>
-                                <a href="{{ route('product-list') }}">Quần</a>
+                                <a href="/products?object=1&type=1">Quần</a>
                             </li>
                             <li>
-                                <a href="{{ route('product-list') }}">Tất</a>
+                                <a href="/products?object=1&type=1">Tất</a>
                             </li>
                         </ul>
                     </li>
@@ -170,22 +170,22 @@
                     <li>
                         <ul>
                             <li class="bold mb1">
-                                <a href="{{ route('product-list') }}">Trẻ em</a>
+                                <a href="/products?object=1&type=1">Trẻ em</a>
                             </li>
                             <li>
-                                <a href="{{ route('product-list') }}">Tất cả sản phẩm</a>
+                                <a href="/products?object=1&type=1">Tất cả sản phẩm</a>
                             </li>
                             <li>
-                                <a href="{{ route('product-list') }}">Giày</a>
+                                <a href="/products?object=1&type=1">Giày</a>
                             </li>
                             <li>
-                                <a href="{{ route('product-list') }}">Áo</a>
+                                <a href="/products?object=1&type=1">Áo</a>
                             </li>
                             <li>
-                                <a href="{{ route('product-list') }}">Quần</a>
+                                <a href="/products?object=1&type=1">Quần</a>
                             </li>
                             <li>
-                                <a href="{{ route('product-list') }}">Tất</a>
+                                <a href="/products?object=1&type=1">Tất</a>
                             </li>
                         </ul>
                     </li>
