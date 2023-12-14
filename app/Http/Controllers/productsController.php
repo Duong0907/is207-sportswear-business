@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
 use App\Models\Size;
 use App\Models\Color;
 use App\Models\Image;
 use App\Models\Product;
 use App\Models\ProductType;
-use Illuminate\Http\Request;
 use App\Models\ProductObject;
 
 class ProductsController extends Controller
@@ -27,7 +27,7 @@ class ProductsController extends Controller
 
         if ($request->has('object')) {
             $products = $products->where('product_object_id', $request->object)
-                                ->orWhere('product_object_id', 4); // Unisex;
+                ->orWhere('product_object_id', 4); // Unisex;
             $object = ProductObject::find($request->object);
             $title .= $object->object_name . ' ';
         }
@@ -86,7 +86,7 @@ class ProductsController extends Controller
 
         if ($request->has('object')) {
             $products = $products->where('product_object_id', $request->object)
-                                ->orWhere('product_object_id', 4); // Unisex;
+                ->orWhere('product_object_id', 4); // Unisex;
             $object = ProductObject::find($request->object);
             $title .= $object->object_name . ' ';
         }
@@ -94,7 +94,7 @@ class ProductsController extends Controller
         if ($title == "")
             $title = "Sản phẩm mới";
 
-        $products->orderBy('created_at','desc');
+        $products->orderBy('created_at', 'desc');
         $products = $products->get();
 
         // For filters
@@ -178,7 +178,7 @@ class ProductsController extends Controller
         return view('user.product_list', compact('data'));
     }
 
-    public function renderHome(Request $request) 
+    public function renderHome(Request $request)
     {
         // purchasing_quantity
         $products = Product::all()->sortByDesc('purchasing_quantity')->take(3);
@@ -219,7 +219,16 @@ class ProductsController extends Controller
 
     public function create()
     {
-        return view('admin.product.create');
+        $sizes = Size::all();
+        $colors = Color::all();
+        $productTypes = ProductType::all();
+        $productObjects = ProductObject::all();
+        return view('admin.product.create', [
+            'sizes' => $sizes,
+            'colors' => $colors,
+            'productTypes' => $productTypes,
+            'productObjects' => $productObjects
+        ]);
     }
 
     /**
