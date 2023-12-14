@@ -15,8 +15,9 @@ class Discount extends Model
         'discount_percent',
     ];
     public $timestamps = true;
+
     function product()
     {
-        return $this->belongsTo(Product::class);
+        return $this->belongsToMany(Product::class, 'discount_products', 'discount_id', 'product_id');
     }
 }

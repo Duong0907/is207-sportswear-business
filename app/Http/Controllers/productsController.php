@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Image;
 use Illuminate\Http\Request;
 use App\Models\Product;
 
-class productsController extends Controller
+class ProductsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -27,15 +28,16 @@ class productsController extends Controller
 
     public function renderNewProducts()
     {
-        $products = product::all();
-        return view('user.product_list', [
-            'products' => $products
-        ]);
+        $products = Product::all();
+
+        // return json_encode($products->colors());
+
+        return view('user.product_list', compact('products'));
     }
 
     public function renderSearchProducts()
     {
-        $products = product::all();
+        $products = Product::all();
         return view('user.product_list', [
             'products' => $products
         ]);
@@ -43,8 +45,22 @@ class productsController extends Controller
 
     public function renderProductDetail(Request $request)
     {
-        return $request->id;
-        // return view('user.product_detail');
+        $id = $request->id;
+
+        $product = Product::find($id);
+        // $images = $product->images();
+        // $colors = $product->colors();
+        // $sizes = $product->sizes();
+        // $comments = $product->comments();
+
+        // return json_encode([
+        //     'product' => $product,
+        //     'images' => $product->images,
+        //     'colors' => $product->colors,
+        //     'sizes' => $product->sizes,
+        //     'comments' => $product->comments
+        // ]);
+        return view('user.product_detail', compact('product'));
     }
 
     /**

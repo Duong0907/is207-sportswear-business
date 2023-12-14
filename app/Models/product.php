@@ -34,4 +34,32 @@ class Product extends Model
     {
         return $this->hasMany(Image::class);
     }
+
+    function colors()
+    {
+        return $this->belongsToMany(Color::class, 'product_colors', 'product_id', 'color_id');
+    }
+
+    function sizes()
+    {
+        return $this->belongsToMany(Size::class, 'product_sizes', 'product_id', 'size_id');
+    }
+
+    function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
+
+    function discounts()
+    {
+        return $this->belongsToMany(Discount::class, 'discount_products', 'product_id', 'discount_id');
+    }
+
+    function orders()
+    {
+        return $this->belongsToMany(Order::class, 'order_details', 'product_id', 'order_id')
+                    ->withPivot('quantity')
+                    ->withTimestamps();
+    }
 }
+    

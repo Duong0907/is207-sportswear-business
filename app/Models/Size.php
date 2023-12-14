@@ -13,8 +13,9 @@ class Size extends Model
         'size_name',
     ];
     public $timestamps = true;
-    function products()
+    
+    function product()
     {
-        return $this->hasMany(product::class);
+        return $this->belongsToMany(Product::class, 'product_sizes', 'product_id', 'size_id');
     }
 }

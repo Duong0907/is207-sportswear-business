@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('css')
-    <link rel="stylesheet" href=" {{ asset('assets/css/user/homePage.css') }} ">
+    <link rel="stylesheet" href=" {{ asset('assets/css/user/home.css') }} ">
     <link rel="stylesheet" href=" {{ asset('assets/css/shared/carousel_pro.css') }} ">
     <link rel="stylesheet" href=" {{ asset('assets/css/shared/marquee.css') }} ">
     <link rel="stylesheet" href=" {{ asset('assets/css/shared/marquee_shirt.css') }} ">

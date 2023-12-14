@@ -19,13 +19,18 @@ class Order extends Model
         'shipping_firstname',
         'shipping_lastname',
     ];
+
     public $timestamps = true;
+
     function user()
     {
         return $this->belongsTo(User::class);
     }
-    function orderDetail()
+    
+    function products() 
     {
-        return $this->hasMany(OrderDetail::class);
+        return $this->hasMany(Product::class, 'order_details', 'order_id', 'product_id')
+                    ->withPivot('quantity')
+                    ->withTimestamps();
     }
 }

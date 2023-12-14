@@ -13,8 +13,9 @@ class ProductType extends Model
         'type_name',
     ];
     public $timestamps = true;
+
     function products()
     {
-        return $this->hasMany(product::class);
+        return $this->hasMany(Product::class);
     }
 }
