@@ -10,9 +10,9 @@
 </head>
 
 <body>
-    <header>
+    {{-- <header>
         <h2>Thêm sản phẩm</h2>
-    </header>
+    </header> --}}
     <div class="main">
         <div class="container">
             <form action="" method="POST">
@@ -64,10 +64,23 @@
                     <!-- các màu đã thêm -->
                 </div>
                 <div>
-                    <label for="productColor">Màu : </label>
-                    <input type="color" name="color" id="color">
-                    <input class="form-control" type="text" id="productColor" name="productColor"
-                        placeholder="Các màu đã thêm">
+                    <label for="color" id="color">Màu : </label>
+                    <input type="checkbox" name="color" class="color-btn" value="xanh" onchange="updateColor(this)">
+                    xanh
+                    <input type="checkbox" name="color" class="color-btn" value="vàng" onchange="updateColor(this)">
+                    vàng
+                    <input type="checkbox" name="color" class="color-btn" value="đỏ" onchange="updateColor(this)">
+                    đỏ
+                    <input type="checkbox" name="color" class="color-btn" value="tím" onchange="updateColor(this)">
+                    tím
+                    <input type="checkbox" name="color" class="color-btn" value="đen" onchange="updateColor(this)">
+                    đen
+                    <input type="checkbox" name="color" class="color-btn" value="trắng" onchange="updateColor(this)">
+                    trắng
+                    <br>
+                    <br>
+                    <label for="productColor">Các màu đã chọn : </label>
+                    <input class="form-control" type="text" name="productColor" id="productColor" readonly>
                 </div>
 
                 <!-- size -->
@@ -80,8 +93,9 @@
                 <!-- ảnh -->
                 <div>
                     <label for="productImage">Ảnh : </label>
-                    <input class="form-control" type="text" id="productImage" name="productImage"
-                        placeholder="nhập image link của sản phẩm">
+                    <input class="form-control" type="file" id="productImage" name="productImage" multiple>
+                    {{-- <input class="form-control" type="text" id="productImage" name="productImage"
+                        placeholder="nhập image link của sản phẩm"> --}}
                 </div>
                 <button style="cursor: pointer;">
                     Lưu
@@ -90,17 +104,34 @@
         </div>
     </div>
     <script>
-        const colorPicker = document.getElementById('color');
-        const colorInput = document.getElementById('productColor');
-
-        colorPicker.addEventListener('change', (event) => {
-            if (colorInput.value == '' || colorInput.value == null)
-                colorInput.value = event.target.value;
-            else {
-                colorInput.value += ',';
-                colorInput.value += event.target.value;
+        // let productColor = document.getElementById('productColor');
+        const updateColor = (checkbox) => {
+            let selectedColorsInput = document.getElementById('productColor');
+            let selectedColors = selectedColorsInput.value.split(', ');
+            if (selectedColorsInput.value === '') {
+                selectedColors = [];
             }
-        });
+
+            if (checkbox.checked) {
+                selectedColors.push(checkbox.value);
+            } else {
+                var index = selectedColors.indexOf(checkbox.value);
+                if (index > -1) {
+                    selectedColors.splice(index, 1);
+                }
+            }
+            if (selectedColors.length === 0) {
+                selectedColorsInput.value = '';
+                return;
+            }
+            for (let i = 0; i < selectedColors.length; ++i) {
+                if (i === 0) {
+                    selectedColorsInput.value = selectedColors[i];
+                } else {
+                    selectedColorsInput.value += ', ' + selectedColors[i];
+                }
+            }
+        }
     </script>
 </body>
 
