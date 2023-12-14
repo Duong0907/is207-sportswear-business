@@ -182,3 +182,8 @@ div.product-img {
     transform: scale(1.1);
     transition: all .2s ease-in-out;
 }
+
+.apply-filter-btn {
+    padding: 5px 10px;
+    cursor: pointer;
+}

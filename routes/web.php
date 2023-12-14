@@ -14,13 +14,12 @@ Route::prefix('auth')->group(function () {
     })->name('login');
 });
 
-// user not login
-Route::prefix('')->group(function () {
-    Route::get('/', function () {
-        return view('home');
-    })->name('home');
+// unauthorized users
+Route::prefix('/')->group(function () {
+    Route::get('/', [ProductsController::class, 'renderHome'])->name('home');
 
     Route::prefix('/products')->group(function () {
+        Route::get('/', [ProductsController::class, 'index'])->name('products');
         Route::get('/new',  [ProductsController::class, 'renderNewProducts'])->name('new-products');
         Route::get('/search',  [ProductsController::class, 'renderSearchProducts'])->name('search-products');
     });
@@ -44,7 +43,7 @@ Route::prefix('')->group(function () {
     })->name('product-detail');
 });
 
-// user login
+// authorized users
 Route::prefix('/after-login')->group(function () {
     Route::get('/', function () {
         return view('homePage_login');

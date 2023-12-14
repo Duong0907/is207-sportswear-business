@@ -5,9 +5,8 @@
 @section('content')
     <header class="show-product-list-header">
         <div>
-            <h1>Sản phẩm mới</h1>
-            <p>Đắm chìm trong thế giới thể thao với những sản phẩm mới nhất tại cửa hàng của chúng tôi!
-                Dòng sản phẩm mới này bao gồm đủ phụ kiện để bạn có thể chuẩn bị cho mọi hoạt động thể thao của mình.</p>
+            <h1>{{ $data['title'] }}</h1>
+            <p>{{ $data['subtitle'] }}</p>
         </div>
     </header>
     <div class="main-container">
@@ -16,41 +15,19 @@
                 <label>Bộ lọc</label> <button id="show-product-list-clear-filter">Xoá bộ lọc</button><br>
 
                 <div class="show-product-list-filter-option">
-                    <label>Hạng mục</label>
+                    @foreach ($data['filter'] as $filter_key => $filter_values)
+                    <label>{{ $filter_key }}</label>
+                    @foreach ($filter_values as $key => $value)
+                    <div>
+                        <input type="checkbox">
+                        <label>{{ $value['item'] }}</label>
+                        <br>
+                    </div>
+                    @endforeach
                     <br>
-
-                    <div>
-                        <input type="checkbox">
-                        <label>Giày</label>
-                        <br>
-                    </div>
-
-                    <div>
-                        <input type="checkbox">
-                        <label>Áo</label>
-                        <br>
-                    </div>
-                    <div>
-                        <input type="checkbox">
-                        <label>Quần</label>
-                        <br>
-                    </div>
-
-                    <div>
-                        <input type="checkbox">
-                        <label>Tất</label>
-                        <br>
-                    </div>
-
-                    <div>
-                        <input type="checkbox">
-                        <label>Mũ</label>
-                        <br>
-                    </div>
-                </div>
-
-
+                    @endforeach
                 <br>
+                <button class="apply-filter-btn">Áp dụng bộ lọc</button>
 
             </aside>
 
@@ -68,7 +45,7 @@
                 <br>
 
                 <div id="show-product-list">
-                    @foreach ($products as $product)
+                    @foreach ($data['products'] as $product)
                         <div class="show-product" onclick="window.location.href='/product/{{ $product->id }}'">
                             <div class="product-img">
                                 @if ($product->images->isNotEmpty())
