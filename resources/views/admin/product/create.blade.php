@@ -29,20 +29,19 @@
                 <div>
                     <label for="productObject">Đối tượng : </label>
                     <select name="productObject" id="productObject">
-                        <option value=1>Nam</option>
-                        <option value=2>Nữ</option>
-                        <option value=3>Trẻ em</option>
-                        <option value=4>unisex</option>
+                        @foreach ($productObjects as $productObject)
+                            <option value={{ $productObject->id }}> {{ $productObject->object_name }} </option>
+                        @endforeach
+
                     </select>
                 </div>
 
                 <div>
                     <label for="productType">Loại sản phẩm : </label>
-                    <select name="productType" id="productType">
-                        <option value=1>Áo</option>
-                        <option value=2>Quần</option>
-                        <option value=3>Giày</option>
-                        <option value=4>Tất</option>
+                    <select name="productType" id="productType" onchange="changSize()">
+                        @foreach ($productTypes as $productType)
+                            <option value={{ $productType->id }}>{{ $productType->type_name }}</option>
+                        @endforeach
                     </select>
                 </div>
 
@@ -65,19 +64,12 @@
                 </div>
                 <div>
                     <label for="color" id="color">Màu : </label>
-                    <input type="checkbox" name="color" class="color-btn" value="xanh" onchange="updateColor(this)">
-                    xanh
-                    <input type="checkbox" name="color" class="color-btn" value="vàng" onchange="updateColor(this)">
-                    vàng
-                    <input type="checkbox" name="color" class="color-btn" value="đỏ" onchange="updateColor(this)">
-                    đỏ
-                    <input type="checkbox" name="color" class="color-btn" value="tím" onchange="updateColor(this)">
-                    tím
-                    <input type="checkbox" name="color" class="color-btn" value="đen" onchange="updateColor(this)">
-                    đen
-                    <input type="checkbox" name="color" class="color-btn" value="trắng" onchange="updateColor(this)">
-                    trắng
+                    @foreach ($colors as $color)
+                        <input type="checkbox" name="color" class="checkbox-btn" value="{{ $color->id }}"
+                            onchange="updateColor(this)"><span>{{ $color->color_name }}</span>
+                    @endforeach
                     <br>
+                    <input style="display: none" type="text" name="productColorId" id="productColorId" readonly>
                     <br>
                     <label for="productColor">Các màu đã chọn : </label>
                     <input class="form-control" type="text" name="productColor" id="productColor" readonly>
@@ -85,9 +77,16 @@
 
                 <!-- size -->
                 <div>
-                    <label for="productSize">Size : </label>
-                    <input class="form-control" type="text" id="productSize" name="productSize"
-                        placeholder="Nhập size của sản phẩm">
+                    <label for="size" id="size">Size : </label>
+                    @foreach ($sizes as $size)
+                        <input type="checkbox" name="size" class="checkbox-btn size-btn" value="{{ $size->id }}"
+                            onchange="updateSize(this)"> <span>{{ $size->size_name }}</span>
+                    @endforeach
+                    <br>
+                    <input style="display: none" type="text" name="productSizeId" id="productSizeId" readonly>
+                    <br>
+                    <label for="productSize">Các size đã chọn : </label>
+                    <input class="form-control" type="text" id="productSize" name="productSize" readonly>
                 </div>
 
                 <!-- ảnh -->
@@ -103,36 +102,7 @@
             </form>
         </div>
     </div>
-    <script>
-        // let productColor = document.getElementById('productColor');
-        const updateColor = (checkbox) => {
-            let selectedColorsInput = document.getElementById('productColor');
-            let selectedColors = selectedColorsInput.value.split(', ');
-            if (selectedColorsInput.value === '') {
-                selectedColors = [];
-            }
-
-            if (checkbox.checked) {
-                selectedColors.push(checkbox.value);
-            } else {
-                var index = selectedColors.indexOf(checkbox.value);
-                if (index > -1) {
-                    selectedColors.splice(index, 1);
-                }
-            }
-            if (selectedColors.length === 0) {
-                selectedColorsInput.value = '';
-                return;
-            }
-            for (let i = 0; i < selectedColors.length; ++i) {
-                if (i === 0) {
-                    selectedColorsInput.value = selectedColors[i];
-                } else {
-                    selectedColorsInput.value += ', ' + selectedColors[i];
-                }
-            }
-        }
-    </script>
+    <script src="{{ asset('assets/js/admin/product/create.js') }}"></script>
 </body>
 
 </html>

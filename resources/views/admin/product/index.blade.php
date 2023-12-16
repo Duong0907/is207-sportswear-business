@@ -53,7 +53,8 @@
                         <th><label class="product-row"> {{ $product->product_price }} </label></th>
                         <th><label class="product-row">5</label></th>
                         <th>
-                            <a href=""><img src="{{ asset('assets/svg/detail.svg') }}" alt="detail"></a>
+                            <a href="/admin/product/edit/{{ $product->id }}"><img
+                                    src="{{ asset('assets/svg/detail.svg') }}" alt="detail"></a>
                             <a href=""><img src="{{ asset('assets/svg/delete.svg') }}" alt="detail"></a>
                         </th>
                     </tr>
@@ -61,7 +62,7 @@
             </table>
 
             <div class="product-management-add-product">
-                <a href="{{ route('admin_product_create') }}">
+                <a href="{{ route('admin-product-create') }}">
                     <button>Thêm sản phẩm</button>
                 </a>
             </div>
