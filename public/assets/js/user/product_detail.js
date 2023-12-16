@@ -1,5 +1,5 @@
 const sizeButtons = document.querySelectorAll('.radio-button-size input');
-const colorButtons = document.querySelectorAll('.radio-button-color input');
+const colorButtons = document.querySelectorAll('.radio-button-color');
 const quantityButtons = document.querySelectorAll('.product-quantity-option button');
 const quantityDisplay = document.getElementById('product-quantity');
 const addToCartButton = document.querySelector('.add-to-cart');
@@ -9,6 +9,12 @@ addToCartButton.innerHTML = `Thêm vào giỏ hàng - ${formatPrice(productPrice
 
 // Format price
 productPrice.textContent = formatPrice(productPrice.textContent);
+
+// Format date
+const dates = document.querySelectorAll('.date');
+dates.forEach(element => {
+    element.textContent = getReadableDateFromSQLDate(element.textContent);
+})
 
 const handleQuantityButtonClick = (calculaton) => {
     let val = parseInt(quantityDisplay.value);
@@ -52,9 +58,9 @@ sizeButtons.forEach(element => {
 colorButtons.forEach(element => {
     element.addEventListener('click', () => {
         for (let colorButton of colorButtons) {
-            colorButton.parentElement.style.borderColor = '#b7b7b7'
+            colorButton.style.borderColor = '#b7b7b7'
         }
-        element.parentElement.style.borderColor = 'black';
+        element.style.borderColor = 'black';
     })
 });
 
@@ -78,8 +84,6 @@ function handleAddToCartButton() {
         notify('Bạn cần đăng nhập để thêm sản phẩm vào giỏ hàng');
     }
 }
-
-
 
 // Add to cart 
 function addProductToCart() {

@@ -1,8 +1,8 @@
 <?php
 
-use App\Http\Controllers\ProductsController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\adminController;
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 
 // register, login
@@ -16,19 +16,16 @@ Route::prefix('auth')->group(function () {
 
 // unauthorized users
 Route::prefix('/')->group(function () {
-    Route::get('/', [ProductsController::class, 'renderHome'])->name('home');
+    Route::get('/', [ProductController::class, 'renderHome'])->name('home');
 
     Route::prefix('/products')->group(function () {
-        Route::get('/', [ProductsController::class, 'index'])->name('products');
-        Route::get('/new',  [ProductsController::class, 'renderNewProducts'])->name('new-products');
-        Route::get('/search',  [ProductsController::class, 'renderSearchProducts'])->name('search-products');
+        Route::get('/', [ProductController::class, 'index'])->name('products');
+        Route::get('/new',  [ProductController::class, 'renderNewProducts'])->name('new-products');
+        Route::get('/search',  [ProductController::class, 'renderSearchProducts'])->name('search-products');
+        Route::get('/filter',  [ProductController::class, 'renderFilterProducts'])->name('filter-products');
     });
 
-    Route::get('/product/{id}', [ProductsController::class, 'renderProductDetail'])->name('product-detail');
-
-    Route::get('product-list', function () {
-        return view('user.product_list');
-    })->name('product-list');
+    Route::get('/product/{id}', [ProductController::class, 'renderProductDetail'])->name('product-detail');
 
     Route::get('/guide', function () {
         return view('user.guide');
@@ -55,9 +52,10 @@ Route::prefix('/user')->middleware('auth')->group(function () {
 
 // admin login
 Route::prefix('/admin')->group(function () {
-    Route::get('/login', [adminController::class, 'login'])->name('admin-login');
-    Route::post('/login', [adminController::class, 'postLogin'])->name('admin-post-login');
+    Route::get('/login', [AdminController::class, 'login'])->name('admin-login');
+    Route::post('/login', [AdminController::class, 'postLogin'])->name('admin-post-login');
 });
+
 // admin
 Route::prefix('admin')->middleware('adminAuth')->group(function () {
     // category
@@ -76,20 +74,19 @@ Route::prefix('admin')->middleware('adminAuth')->group(function () {
 
     // product
     Route::prefix('/product')->group(function () {
-        Route::get('/', [ProductsController::class, 'adminIndex'])->name('admin-product');
+        Route::get('/', [ProductController::class, 'adminIndex'])->name('admin-product');
 
-        Route::get('/create', [ProductsController::class, 'create'])->name('admin-product-create');
+        Route::get('/create', [ProductController::class, 'create'])->name('admin-product-create');
 
-        Route::get('/edit/{id}', [ProductsController::class, 'edit']);
+        Route::get('/edit/{id}', [ProductController::class, 'edit']);
     });
-
 
     // report
     Route::get('/report', function () {
         return view('admin.report.index');
     })->name('admin-report');
     // logout
-    Route::get('/logout', [adminController::class, 'logout'])->name('admin-logout');
+    Route::get('/logout', [AdminController::class, 'logout'])->name('admin-logout');
 });
 
 Route::get('/error', function () {
