@@ -16,12 +16,11 @@
 
 <body>
     @csrf
-    <div class="wrap">
-        <form action="{{ route('post-login') }}" class="form" method="POST">
+    <div class="wrap" style="display: flex; padding: 0; justify-content:center; padding-top: 100px;">
+        <form action="{{ route('admin-post-login') }}" class="form" method="POST" style="width: 30%">
             @csrf
             <div class="headForm">
                 <h2>Đăng nhập</h2>
-                <p>Chưa có tài khoản? <a href="{{ route('register') }}" class="registerText">Đăng ký</a></p>
             </div>
             <div class="bodyForm">
                 <div class="firstRow">
@@ -34,23 +33,14 @@
                     <br>
                     <input type="password" id="password" name='password' required>
                 </div>
-                <div class="thirdRow">
-                    <div>
-                        <input type="checkbox" id="check">
-                        <label for="check">Ghi nhớ đăng nhập</label>
-                    </div>
-                    <div>
-                        <a class="forgetPass" href="">Quên mật khẩu</a>
-                    </div>
-                </div>
             </div>
             <button class="loginButton">Đăng nhập</button>
         </form>
-        <div class="logo-container">
+        {{-- <div class="logo-container">
             <div class="logo">
                 <img src="{{ asset('/assets/images/logo/logo-removebg-preview.png') }}" alt="Store's logo">
             </div>
-        </div>
+        </div> --}}
     </div>
     <script src="{{ asset('assets/js/shared/toast.js') }}"></script>
     <div id="toast"></div>

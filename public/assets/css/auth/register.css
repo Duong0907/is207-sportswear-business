@@ -1,3 +1,11 @@
+*,
+html {
+    padding: 0;
+    margin: 0;
+    /* font-family: Poppins, Helvetica, sans-serif; */
+    box-sizing: border-box;
+}
+
 .wrap {
     /* min-width: 100%; */
     height: 100%;
@@ -50,6 +58,13 @@
     column-gap: 20px;
 }
 
+.fifthRow input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    transform: translateY(5px);
+}
+
+
 .form input[type="password"],
 .form input[type="text"] {
     border-radius: 12px;
@@ -64,7 +79,6 @@
 .registerButton {
     color: white;
     font-size: 22px;
-    /* font-family: Poppins; */
     margin: auto;
     background-color: #000;
     border: 0;
@@ -131,5 +145,4 @@
     .logo img {
         width: 100%;
     }
-
 }
