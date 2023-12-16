@@ -10,7 +10,7 @@ use App\Models\Product;
 use App\Models\ProductType;
 use App\Models\ProductObject;
 
-class ProductsController extends Controller
+class ProductController extends Controller
 {
     /**
      * Display a listing of the resource.
