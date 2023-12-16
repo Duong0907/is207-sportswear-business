@@ -1,4 +1,4 @@
-@extends('layouts.app_login')
+@extends('layouts.app')
 @section('css')
     <link rel="stylesheet" href="{{ asset('assets/css/user/cart.css') }}">
 @endsection
@@ -9,7 +9,7 @@
             <!-- Chèn link direct đến page danh sách sản phẩm  -->
             <div class="direct-text">
                 <p>Sẵn sàng thanh toán ?
-                    <a href="#">Tiếp tục mua sắm</a>
+                    <a href="/products/new">Tiếp tục mua sắm</a>
                 </p>
             </div>
             <div class="cart-product-list" id="style-3">
@@ -32,7 +32,7 @@
                         <div class="under-line"></div>
                     </div>
                 </div>
-                <div class="cart-product-container">
+                {{-- <div class="cart-product-container">
                     <div class="cart-product-img">
                         <img src="https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/jlhsgro2k4kjkczi63qt/killshot-2-leather-shoe-DqWZ4j.png"
                             alt="Hình ảnh sản phẩm">
@@ -102,8 +102,8 @@
                     <div class="cart-product-delete">
                         <p>Loại bỏ</p>
                         <div class="under-line"></div>
-                    </div>
-                </div>
+                    </div> 
+                </div> --}}
             </div>
         </div>
         <div class="total-container">

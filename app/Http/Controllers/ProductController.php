@@ -178,7 +178,7 @@ class ProductController extends Controller
         $color_products = getProductsByFilter($type_products, 'colors', 'color_name', $color_names);
         $size_products = getProductsByFilter($color_products, 'sizes', 'size_name', $size_names);
         
-        $products = $size_products->get();
+        // $products = $size_products->get();
 
         // Pagination
         $result = $this->paginateProducts($request, $size_products);
