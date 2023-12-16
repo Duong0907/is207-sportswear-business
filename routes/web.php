@@ -22,13 +22,10 @@ Route::prefix('/')->group(function () {
         Route::get('/', [ProductsController::class, 'index'])->name('products');
         Route::get('/new',  [ProductsController::class, 'renderNewProducts'])->name('new-products');
         Route::get('/search',  [ProductsController::class, 'renderSearchProducts'])->name('search-products');
+        Route::get('/filter',  [ProductsController::class, 'renderFilterProducts'])->name('filter-products');
     });
 
     Route::get('/product/{id}', [ProductsController::class, 'renderProductDetail'])->name('product-detail');
-
-    Route::get('product-list', function () {
-        return view('user.product_list');
-    })->name('product-list');
 
     Route::get('/guide', function () {
         return view('user.guide');

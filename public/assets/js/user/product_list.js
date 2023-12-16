@@ -1,67 +1,131 @@
+// Format price to string with comma, Vietnamese currency
 function formatPrices() {
-    console.log('format prices');
     const productPrices = document.querySelectorAll('.product-price');
     productPrices.forEach(productPrice => {
-        productPrice.textContent = formatPrice(parseInt(productPrice.textContent));
+        if (productPrice.textContent.indexOf('₫') == -1)
+            productPrice.textContent = formatPrice(parseInt(productPrice.textContent));
     });
 }
 formatPrices();
 
 
-let page = 1;
-const loadMoreProduct = () => {
-    const searchParams = new URLSearchParams(window.location.search);
-    let objectOfPage = searchParams.get('object');
-    let typeOfPage = searchParams.get('type');
+
+// FILTER FEATURE
+const filterBtn = document.querySelector('.apply-filter-btn');
+const filterItems = document.querySelectorAll('.filter-item');
+const filterValues = document.querySelectorAll('.filter-values');
+const filterValueInputs = document.querySelectorAll('.filter-values input');
 
 
-    let data = new FormData();
-    data.append('object', objectOfPage);
-    data.append('type', typeOfPage);
-    data.append('page', page);
+function getFitlerURL() {
+    var filterData = {
+        'Đối tượng': [],
+        'Loại': [],
+        'Màu': [],
+        'Kích thước': [],
+    };
 
-    const xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function () {
-        if (xhttp.readyState == 4 && xhttp.status == 200) {
-            if (this.responseText == 'no data') {
-                document.querySelector('.show-product-list-more button').style.display = 'none';
+    // Get filter data from filter items
+    filterItems.forEach(filterItem => {
+        const filterValueInputs = filterItem.querySelectorAll('.filter-values input'); // Các giá trị của đối tượng, ...
+        
+        filterValueInputs.forEach(filterValueInput => {
+            const parentElement = filterValueInput.parentElement;
+            const filterName = parentElement.parentElement.querySelector('label').innerText; // Đối tượng, ...
+            if (filterValueInput.checked) {
+                const value = parentElement.querySelector('label').innerText;
+                filterData[filterName].push(value);
             }
+        });
+    });
 
-            var result = JSON.parse(this.responseText);
-            if (result.length < 12) {
-                document.querySelector('.show-product-list-more button').style.display = 'none';
-            }
-            for (let i = 0; i < result.length; i++) {
-                let product = document.createElement('div');
-                product.id = 'product-id-' + result[i]['id'];
-                product.classList.add('show-product');
+    console.log(filterData);
 
-                let productImg = document.createElement('div');
-                productImg.classList.add('product-img');
-
-                let productImgInner = document.createElement('img');
-                productImgInner.classList.add('product-img-inner');
-                productImgInner.src = result[i]['product_image'];
-                productImgInner.alt = 'product-img';
-                productImg.appendChild(productImgInner);
-
-                let productName = document.createElement('div');
-                productName.classList.add('product-name');
-                productName.textContent = result[i]['product_name'];
-
-                let productPrice = document.createElement('div');
-                productPrice.classList.add('product-price');
-                productPrice.textContent = result[i]['product_price'];
-                product.appendChild(productImg);
-                product.appendChild(productName);
-                product.appendChild(productPrice);
-                document.getElementById('show-product-list').appendChild(product);
-            }
-            formatPrices();
-        };
-        page++;
+    // Convert filterData to string to add to URL
+    let filterDataSubmit = filterData;
+    for (let key in filterData) {
+        filterDataSubmit[key] = filterData[key].join(',');
     }
-    let url = '../../controllers/load-more.php';
-    xhttp.open('POST', url, true);
-    xhttp.send(data);
+
+    let url = '/products/filter?';
+
+    for (let key in filterDataSubmit) {
+        url += key + '=' + filterDataSubmit[key] + '&';
+    }
+    if (url[url.length - 1] == '&') {
+        url = url.slice(0, url.length - 1);
+    }
+
+    return url;
 }
+
+filterBtn.addEventListener('click', () => {
+    let url = getFitlerURL();
+    window.location.href = url;
+});
+
+
+// filterValueInputs.forEach(filterValueInput => {
+//     // Event listener for checkbox input when checked or unchecked 
+//     // -> add or remove value to filterData
+//     filterValueInput.addEventListener('change', (event) => {
+//         const parentElement = event.target.parentElement;
+//         const value = parentElement.querySelector('label').innerText;
+//         const label = parentElement.parentElement.querySelector('label').innerText;
+
+//         if (event.target.checked) {
+//             filterData[label].push(value);
+//         } else {
+//             filterData[label].splice(filterData[label].indexOf(value), 1);
+//         }
+//     });
+// });
+
+
+// VIEW MORE FEATURE
+let page = 1;
+const viewMoreBtn = document.querySelector('.show-product-list-more');
+function nextPageURL() {
+    if (window.location.href.indexOf('?') == -1) {
+        return window.location.href + '?page=' + (page + 1);
+    }
+    return window.location.href + '&page=' + (page + 1);
+}
+
+
+function newProductItem(product_id, image_link, product_name, product_price) {
+    let html = `
+        <div class="product-img" onclick="window.location.href='/product/${product_id}'">
+                <img class="product-img-inner" src="${image_link}" alt="product-img">
+        </div>
+        <div class="product-name">${product_name}</div>
+        <div class="product-price">${product_price}</div>                 
+    `;
+
+    let product = document.createElement('div');
+    product.classList.add('show-product');
+    product.innerHTML = html;
+    return product;
+}
+
+
+// Each time click view more button, fetch data from server and append to product list
+viewMoreBtn.addEventListener('click', () => {
+    fetch(nextPageURL())
+        .then(response => response.json())
+        .then(res => {
+            page++;
+
+            // If no more products to show, hide view more button
+            if (!res['hasNext']) {
+                viewMoreBtn.style.display = 'none';
+            }
+
+            res['products'].forEach(product => {
+                let productItem = newProductItem(product['id'], product['image_link'], product['product_name'], product['product_price']);
+                document.getElementById('show-product-list').appendChild(productItem);
+            });
+
+            formatPrices();
+        });
+});
