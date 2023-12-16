@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
 use App\Models\Size;
 use App\Models\Color;
 use App\Models\Image;
 use App\Models\Product;
 use App\Models\ProductType;
-use Illuminate\Http\Request;
+use App\Models\ProductObject;
 
 class ProductsController extends Controller
 {
@@ -229,7 +230,16 @@ class ProductsController extends Controller
 
     public function create()
     {
-        return view('admin.product.create');
+        $sizes = Size::all();
+        $colors = Color::all();
+        $productTypes = ProductType::all();
+        $productObjects = ProductObject::all();
+        return view('admin.product.create', [
+            'sizes' => $sizes,
+            'colors' => $colors,
+            'productTypes' => $productTypes,
+            'productObjects' => $productObjects
+        ]);
     }
 
     /**
@@ -253,7 +263,31 @@ class ProductsController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        // dd($id);
+        $sizes = Size::all();
+        $colors = Color::all();
+        $productTypes = ProductType::all();
+        $productObjects = ProductObject::all();
+        $product = Product::find($id);
+        // take all size of product
+        $allSizeOfProduct = helperConvertAttribute($product->sizes, 'size_name');
+        // take all sizeId of product
+        $allSizeIdOfProduct = helperConvertAttribute($product->sizes, 'id');
+        // take all color of product
+        $allColorOfProduct = helperConvertAttribute($product->colors, 'color_name');
+        // take all colorId of product
+        $allColorIdOfProduct = helperConvertAttribute($product->colors, 'id');
+        return view('admin.product.edit', [
+            'product' => $product,
+            'allSizeOfProduct' => $allSizeOfProduct,
+            'allColorOfProduct' => $allColorOfProduct,
+            'allSizeIdOfProduct' => $allSizeIdOfProduct,
+            'allColorIdOfProduct' => $allColorIdOfProduct,
+            'sizes' => $sizes,
+            'colors' => $colors,
+            'productTypes' => $productTypes,
+            'productObjects' => $productObjects
+        ]);
     }
 
     /**

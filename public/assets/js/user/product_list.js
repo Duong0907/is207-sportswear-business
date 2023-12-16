@@ -65,22 +65,13 @@ filterBtn.addEventListener('click', () => {
 });
 
 
-// filterValueInputs.forEach(filterValueInput => {
-//     // Event listener for checkbox input when checked or unchecked 
-//     // -> add or remove value to filterData
-//     filterValueInput.addEventListener('change', (event) => {
-//         const parentElement = event.target.parentElement;
-//         const value = parentElement.querySelector('label').innerText;
-//         const label = parentElement.parentElement.querySelector('label').innerText;
-
-//         if (event.target.checked) {
-//             filterData[label].push(value);
-//         } else {
-//             filterData[label].splice(filterData[label].indexOf(value), 1);
-//         }
-//     });
-// });
-
+// CLEAR FILTER 
+const clearFilterBtn = document.querySelector('#show-product-list-clear-filter');
+clearFilterBtn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-values input').forEach(input => {
+        input.checked = false;
+    });
+});
 
 // VIEW MORE FEATURE
 let page = 1;

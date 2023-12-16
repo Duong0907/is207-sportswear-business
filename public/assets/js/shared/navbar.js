@@ -7,7 +7,7 @@ searchInput.addEventListener('keydown', (e) => {
     }
 });
 searchBtn.onclick = (e) => {
-    window.location.href = `/productsf/search?keyword=${searchInput.value}`;
+    window.location.href = `/products/search?keyword=${searchInput.value}`;
 };
 
 // const navItem = document.querySelectorAll('.nav-subnav-item');

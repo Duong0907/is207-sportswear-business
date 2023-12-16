@@ -52,7 +52,7 @@
                         <p>Đơn hàng</p>
                     </div>
                 </a>
-                <a href="{{ route('admin_product') }}" class="sidebar-item">
+                <a href="{{ route('admin-product') }}" class="sidebar-item">
                     <div class="sidebar-item-container" id="product">
                         <div class="sidebar-item-icon">
                             <i class="fa-solid fa-bag-shopping"></i>
@@ -60,7 +60,7 @@
                         <p>Sản phẩm</p>
                     </div>
                 </a>
-                <a href="{{ route('admin_customer') }}" class="sidebar-item">
+                <a href="{{ route('admin-customer') }}" class="sidebar-item">
                     <div class="sidebar-item-container" id="customer">
                         <div class="sidebar-item-icon">
                             <i class="fa-solid fa-person"></i>
@@ -68,7 +68,7 @@
                         <p>Khách hàng</p>
                     </div>
                 </a>
-                <a href="{{ route('admin_category') }}" class="sidebar-item">
+                <a href="{{ route('admin-category') }}" class="sidebar-item">
                     <div class="sidebar-item-container" id="category">
                         <div class="sidebar-item-icon">
                             <i class="fa-solid fa-shapes"></i>
@@ -76,7 +76,7 @@
                         <p>Hạng mục</p>
                     </div>
                 </a>
-                <a href="{{ route('admin_coupon') }}" class="sidebar-item">
+                <a href="{{ route('admin-coupon') }}" class="sidebar-item">
                     <div class="sidebar-item-container" id="discount">
                         <div class="sidebar-item-icon">
                             <i class="fa-solid fa-piggy-bank"></i>
@@ -84,7 +84,7 @@
                         <p>Giảm giá</p>
                     </div>
                 </a>
-                <a href="{{ route('admin_report') }}" class="sidebar-item">
+                <a href="{{ route('admin-report') }}" class="sidebar-item">
                     <div class="sidebar-item-container" id="revenue">
                         <div class="sidebar-item-icon">
                             <i class="fa-solid fa-dollar-sign"></i>

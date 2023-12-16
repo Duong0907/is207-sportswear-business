@@ -8,12 +8,13 @@ html,
 
 @font-face {
     font-family: 'Helvetica-Vietnamese';
-    src: url(../../assets/fonts/Helvetica-Vietnamese/helvetica-neue-regular.ttf);
+    src: url(../fonts/Helvetica-Vietnamese/helvetica-neue-regular.ttf);
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
 
-html, * {
+html,
+* {
     font-family: 'Roboto', 'Helvetica-Vietnamese', Helvetica, sans-serif;
 }
 

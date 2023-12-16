@@ -203,39 +203,44 @@
         </li>
 
         {{-- if(not login) --}}
-        <li class="navListEndUnlogined">s
-            <div class="navSearch">
-                <div class="navSearchContent">
-                    <input type="text" id="search-input" placeholder='Bạn muốn lựa gì :3'>
-                    <div class="navSearchIcon">
-                        <i class="ti-search"></i>
+        {{-- user in secsion --}}
+        @if (auth()->guest())
+            <li class="navListEndUnlogined">s
+                <div class="navSearch">
+                    <div class="navSearchContent">
+                        <input type="text" id="search-input" placeholder='Bạn muốn lựa gì :3'>
+                        <div class="navSearchIcon">
+                            <i class="ti-search"></i>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <a class="login" href="{{ route('login') }}">Đăng nhập</a>
-            <a class="signup" href="{{ route('register') }}">Đăng ký</a>
-        </li>
-        {{-- else --}}
-        {{-- <li class="navListEndLogined">s
-            <div class="navSearch">
-                <div class="navSearchContent">
-                    <input type="text" id="search-input" placeholder='Bạn muốn lựa gì :3'>
-                    <div class="navSearchIcon">
-                        <i class="ti-search"></i>
+                <a class="login" href="{{ route('login') }}">Đăng nhập</a>
+                <a class="signup" href="{{ route('register') }}">Đăng ký</a>
+            </li>
+        @else
+            {{-- else --}}
+            <li class="navListEndLogined">s
+                <div class="navSearch">
+                    <div class="navSearchContent">
+                        <input type="text" id="search-input" placeholder='Bạn muốn lựa gì :3'>
+                        <div class="navSearchIcon">
+                            <i class="ti-search"></i>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <a class="cartImg" href="/sportswear/pages/cart/">
-                <img src="{{ asset('assets/svg/navbar_logined/cart.svg') }}" alt="">
-                <p>10</p>
-            </a>
-            <div id="account" class="accountImg" href="#">
-                <img src="{{ asset('assets/svg/navbar_logined/account_circle.svg') }}" alt="">
-            </div>
-        </li> --}}
-    </ul>
+                <a class="cartImg" href="/sportswear/pages/cart/">
+                    <img src="{{ asset('assets/svg/navbar_logined/cart.svg') }}" alt="">
+                    <p>10</p>
+                </a>
+                <div id="account" class="accountImg" href="#">
+                    <img src="{{ asset('assets/svg/navbar_logined/account_circle.svg') }}" alt="">
+                </div>
+            </li>
+        @endguest
+</ul>
 </div>
-{{-- <div class="modalAccount">
+@if (auth()->check())
+<div class="modalAccount">
     <div class="modalInfo">
         <img src="{{ asset('assets/svg/navbar_logined/avatar.svg') }}" class="modalImg" alt="">
         <h2> Jacob Jones</h2>
@@ -257,11 +262,12 @@
             <p>Lịch sử mua hàng</p>
             <i class="ti-angle-right"></i>
         </a>
-        <a class="modalDetailLogout modalDetailItem">
+        <a class="modalDetailLogout modalDetailItem" href="{{ route('logout') }}">
             <img src="{{ asset('assets/svg/navbar_logined/logout2.svg') }}" alt="">
             <p>Đăng xuất</p>
             <i class="ti-angle-right"></i>
         </a>
     </div>
-</div> --}}
+</div>
+@endif
 <script src="{{ asset('assets/js/shared/navbar.js') }}"></script>

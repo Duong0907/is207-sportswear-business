@@ -26,3 +26,8 @@ function parsePrice(formattedPrice) {
         throw new Error('Invalid formatted price');
     }
 }
+
+function getReadableDateFromSQLDate(sqlData) {
+    const date = new Date(sqlData);
+    return date.toLocaleDateString('vi-VN');
+}

@@ -30,12 +30,15 @@ nav {
     height: 40vw;
     overflow: hidden;
     position: relative;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
 }
 
 .product-imgs img {
-    /* width: 250px; */
-    /* width: 40vw;
-    height: 40vw; */
+    height: 250px;
+    width: 250px;
+    /* width: 25%;
+    height: 25%; */
     margin: auto;
     bottom: 0;
     position: relative;
@@ -82,6 +85,7 @@ label.radio-button-size {
     justify-content: center;
 }
 
+
 label.radio-button-color {
     display: inline-block;
     margin-right: 10px;
@@ -92,9 +96,10 @@ label.radio-button-color {
     transition: all 0.2s ease;
 }
 
-label.radio-button-color :hover {
+label.radio-button-color:hover {
     transform: scale(1.2);
 }
+
 
 /* Style the selected radio button */
 input[type="radio"]:checked+label.radio-button {

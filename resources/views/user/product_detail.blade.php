@@ -15,8 +15,6 @@
                 <img src="https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/jlhsgro2k4kjkczi63qt/killshot-2-leather-shoe-DqWZ4j.png"
                 alt="img product" />
             @endif
-            {{-- <img src="https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/jlhsgro2k4kjkczi63qt/killshot-2-leather-shoe-DqWZ4j.png"
-                alt="img product" /> --}}
         </div>
 
         <div class="product-details">
@@ -29,7 +27,10 @@
             </div>
 
             <p class="label">Màu:</p>
-                <div class="product-color-option">
+            <div class="product-color-option">  
+                @foreach($product->colors as $color)
+                <label class="radio-button-color" name="color" style="background-color: {{ $color->hex_code }};"></label>
+                @endforeach
             </div>
 
             <p class="label">Kích thước:</p>
@@ -81,7 +82,7 @@
                         <div class="rating">
 
                         </div>
-                        <p id="date">{{ $comment->created_at }}</p>
+                        <p class="date">{{ $comment->created_at }}</p>
                     </div>
 
                     <div class="cmt-heading">
