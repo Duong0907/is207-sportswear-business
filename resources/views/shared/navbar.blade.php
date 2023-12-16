@@ -228,7 +228,7 @@
                         </div>
                     </div>
                 </div>
-                <a class="cartImg" href="/sportswear/pages/cart/">
+                <a class="cartImg" href="{{ route('cart')}}">
                     <img src="{{ asset('assets/svg/navbar_logined/cart.svg') }}" alt="">
                     <p>10</p>
                 </a>
@@ -244,20 +244,20 @@
     <div class="modalInfo">
         <img src="{{ asset('assets/svg/navbar_logined/avatar.svg') }}" class="modalImg" alt="">
         <h2> Jacob Jones</h2>
-        <a href="/sportswear/pages/profile/">Chỉnh sửa thông tin</a>
+        <a href="{{ route('profile')}}">Chỉnh sửa thông tin</a>
     </div>
     <div class="modalDetail">
-        <a href="/sportswear/pages/profile/" class="modalDetailProfile modalDetailItem">
+        <a href="{{ route('profile')}}" class="modalDetailProfile modalDetailItem">
             <img src="{{ asset('assets/svg/navbar_logined/profile2.svg') }}" alt="">
             <p>Hồ sơ</p>
             <i class="ti-angle-right"></i>
         </a>
-        <a href="/sportswear/pages/cart/" class="modalDetailCart modalDetailItem">
+        <a href="{{ route('cart') }}" class="modalDetailCart modalDetailItem">
             <img src="{{ asset('assets/svg/navbar_logined/cart2.svg') }}" alt="">
             <p>Giỏ hàng</p>
             <i class="ti-angle-right"></i>
         </a>
-        <a href="/sportswear/pages/purchase-history/" class="modalDetailPurchase modalDetailItem">
+        <a href="{{ route('purchase-history') }}" class="modalDetailPurchase modalDetailItem">
             <img src="{{ asset('assets/svg/navbar_logined/purchaseHistory.svg') }}" alt="">
             <p>Lịch sử mua hàng</p>
             <i class="ti-angle-right"></i>
