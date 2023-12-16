@@ -1,3 +1,4 @@
+<div class="footer-padding"></div>
 <footer class="footer">
     <div class="footer-container">
         <div class="footer-grid__row">
