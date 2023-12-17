@@ -21,17 +21,17 @@
                     @foreach ($filter_values as $key => $value)
 
                     @if (in_array($value['item'], $data['filter_checked']))
-                        <div class="filter-values">
-                            <input type="checkbox" checked>
-                            <label>{{ $value['item'] }}</label>
-                            <br>
-                        </div>
+                    <div class="filter-values">
+                        <input type="checkbox" id="<?= $value['item'] ?>" checked>
+                        <label for="<?= $value['item'] ?>">{{ $value['item'] }}</label>
+                        <br>
+                    </div>
                     @else
-                        <div class="filter-values">
-                            <input type="checkbox">
-                            <label>{{ $value['item'] }}</label>
-                            <br>
-                        </div>
+                    <div class="filter-values">
+                        <input type="checkbox" id="<?= $value['item'] ?>" />
+                        <label for="<?= $value['item'] ?>">{{ $value['item'] }}</label>
+                        <br>
+                    </div>
                     @endif
 
                     @endforeach
@@ -39,7 +39,7 @@
                 <br>
                 @endforeach
                 <br>
-                <button class="apply-filter-btn">Áp dụng bộ lọc</button>
+                <button class=" apply-filter-btn">Áp dụng bộ lọc</button>
 
         </aside>
 
@@ -61,12 +61,14 @@
                 <div class="show-product" onclick="window.location.href='/product/{{ $product->id }}'">
                     <div class="product-img">
                         @if ($product->images->isNotEmpty())
-                            @foreach ($product->images as $image)
-                                <img class="product-img-inner" src="{{ $image->image_link }}" alt="product-img">
-                                @break
+                        @foreach ($product->images as $image)
+                        <img class="product-img-inner" src="{{ $image->image_link }}" alt="product-img">
+                        @break
                         @endforeach
                         @else
-                            <img class="product-img-inner" src="https://st3.depositphotos.com/17828278/33150/v/450/depositphotos_331503262-stock-illustration-no-image-vector-symbol-missing.jpg" alt="product-img">
+                        <img class="product-img-inner"
+                            src="https://st3.depositphotos.com/17828278/33150/v/450/depositphotos_331503262-stock-illustration-no-image-vector-symbol-missing.jpg"
+                            alt="product-img">
                         @endif
                     </div>
                     <div class="product-name">{{ $product->product_name }}</div>
