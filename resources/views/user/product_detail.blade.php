@@ -7,39 +7,42 @@
 @section('content')
     <div class="product-container">
         <div class="product-imgs">
-            @if($product->images->count() > 0)
-                @foreach($product->images as $image)
-                    <img src="{{ $image->image_link }}" alt="img product" />
+            @if ($product->images->count() > 0)
+                @foreach ($product->images as $image)
+                    <div class="cover-imgs">
+                        <img src="{{ $image->image_link }}" alt="img product" />
+                    </div>
                 @endforeach
-            @else 
+            @else
                 <img src="https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/jlhsgro2k4kjkczi63qt/killshot-2-leather-shoe-DqWZ4j.png"
-                alt="img product" />
+                    alt="img product" />
             @endif
         </div>
 
         <div class="product-details">
-            <h1 id="product-name">{{$product->product_name}}</h1>
+            <h1 id="product-name">{{ $product->product_name }}</h1>
             <p id="product-price" product-price="{{ $product->product_price }}">{{ $product->product_price }}</p>
             <div id="p-decription">
                 <p id="product-decription">
-                    {{$product->product_description }}
+                    {{ $product->product_description }}
                 </p>
             </div>
 
             <p class="label">Màu:</p>
-            <div class="product-color-option">  
-                @foreach($product->colors as $color)
-                <label class="radio-button-color" name="color" style="background-color: {{ $color->hex_code }};"></label>
+            <div class="product-color-option">
+                @foreach ($product->colors as $color)
+                    <label class="radio-button-color" name="color"
+                        style="background-color: {{ $color->hex_code }};"></label>
                 @endforeach
             </div>
 
             <p class="label">Kích thước:</p>
             <div class="product-size-option">
-                @foreach($product->sizes as $size)
-                <label class="radio-button-size">
-                    <input type="radio" id="size-s" name="size" value="S" />
-                    <span class="label-text">{{ $size->size_name }}</span>
-                </label>
+                @foreach ($product->sizes as $size)
+                    <label class="radio-button-size">
+                        <input type="radio" id="size-s" name="size" value="S" />
+                        <span class="label-text">{{ $size->size_name }}</span>
+                    </label>
                 @endforeach
             </div>
 
@@ -61,8 +64,8 @@
     <div class="review-container">
 
         <div class="review-left">
-            <h2>Đánh giá</h2>
-            <h3 id="reviews-counter"> {{ $product->comments->count() }} đánh giá </h3>
+            <h1>Đánh giá</h1>
+            <h2 id="reviews-counter"> {{ $product->comments->count() }} đánh giá </h2>
         </div>
 
         <div class="review-right">
@@ -75,38 +78,37 @@
             <div class="review-comments">
                 <!-- Chèn components comment vào đây -->
                 @if ($product->comments->count() > 0)
-                @foreach ($product->comments as $comment)
-                <div class="cmt-container">
+                    @foreach ($product->comments as $comment)
+                        <div class="cmt-container">
 
-                    <div class="cmt-top">
-                        <div class="rating">
+                                <div class="cmt-top">
+                                    <div class="rating">
 
+                                    </div>
+                                    <p class="date">{{ $comment->created_at }}</p>
+                                </div>
+
+                                <div class="cmt-heading">
+                                    <h2 id="cmt-title">
+                                        {{ $comment->title }}
+                                    </h2>
+                                    <p id="cmt-username">{{ $comment->user->username }}</p>
+                                </div>
+
+                                <div class="cmt-main">
+                                    <div class="cmt-content">
+                                        <p>{{ $comment->content }}</p>
+                                    </div>
+                                    <div class="upvote">
+                                        <p>Đánh giá hữu ích? </p>
+                                        <a href="#" id="yes">Có</a>
+                                        <p id="vote-yes">(1)</p>
+                                        <a href="#" id="no">Không</a>
+                                        <p id="vote-no">(1)</p>
+                                    </div>
+                                </div>
                         </div>
-                        <p class="date">{{ $comment->created_at }}</p>
-                    </div>
-
-                    <div class="cmt-heading">
-                        <h2 id="cmt-title">
-                            {{ $comment->title }}
-                        </h2>
-                        <p id="cmt-username">{{ $comment->user->username }}</p>
-                    </div>
-
-                    <div class="cmt-main">
-                        <div class="cmt-content">
-                            <p>{{ $comment->content }}</p>
-                        </div>
-                        <div class="upvote">
-                            <p>Đánh giá hữu ích? </p>
-                            <a href="#" id="yes">Có</a>
-                            <p id="vote-yes">(1)</p>
-                            <a href="#" id="no">Không</a>
-                            <p id="vote-no">(1)</p>
-                        </div>
-                    </div>
-
-                </div>  
-                @endforeach
+                    @endforeach
                 @endif
             </div>
         </div>

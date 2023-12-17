@@ -108,7 +108,7 @@
                 <a href="/products?object=3">Trẻ em</a>
                 <ul class="subnavKids sub-navbar--animation">
                     <li><a href="/products?object=3">Tất cả sản phẩm</a></li>
-                    <li><a href="/products?object=3&type=3">Giày</a></li>
+                    <li><a href="/products?object=3&type=3" class="subnav__content">Giày</a></li>
                     <li><a href="/products?object=3&type=1">Áo</a></li>
                     <li><a href="/products?object=3&type=2">Quần</a></li>
                     <li><a href="/products?object=3&type=4">Tất</a></li>
