@@ -53,3 +53,24 @@ if (accountBtn) {
     body.onclick = hideAccountModal;
 }
 
+// Ger cart nummber from local storage
+function getCartNumber() {
+    let cart = localStorage.getItem('cart');
+    if (!cart) {
+        return 0;
+    }
+    cart = JSON.parse(cart);
+    let total = 0;
+    for (let cartItem of cart) {
+        total += parseInt(cartItem.quantity);
+    }
+    return total;
+}
+
+// Render cart number
+function renderCartNumber() {
+    let cartNumber = document.querySelector('.cartImg p');
+    cartNumber.innerHTML = getCartNumber();
+}
+
+renderCartNumber();

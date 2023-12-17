@@ -39,9 +39,7 @@ Route::prefix('/')->group(function () {
         return view('user.product_detail');
     })->name('product-detail');
 
-    Route::get('/cart', function () {
-        return view('user.cart');
-    })->name('cart');
+    Route::get('/cart', [ProductController::class, 'renderCart'])->name('cart');
     
     Route::get('/purchase-history', function () {
         return view('user.purchase_history');
@@ -105,3 +103,7 @@ Route::prefix('admin')->middleware('adminAuth')->group(function () {
 Route::get('/error', function () {
     return view('error.404');
 })->name('error');
+
+Route::prefix('/api')->group(function () {
+    Route::get('/product/{id}',  [ProductController::class, 'gerProductInfo'])->name('get-product-info');
+});
