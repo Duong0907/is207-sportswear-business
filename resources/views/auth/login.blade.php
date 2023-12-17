@@ -52,8 +52,8 @@
             </div>
         </div>
     </div>
-    <script src="{{ asset('assets/js/shared/toast.js') }}"></script>
-    <div id="toast"></div>
+    <script src="{{ asset('assets/j<div id="toast"></div>s/shared/toast.js') }}"></script>
+    
     @if ($message = Session::get('error'))
         <script>
             toast({

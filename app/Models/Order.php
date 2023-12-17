@@ -31,6 +31,8 @@ class Order extends Model
     {
         return $this->belongsToMany(Product::class, 'order_details', 'order_id', 'product_id')
                     ->withPivot('quantity')
+                    ->withPivot('color_hex_code')
+                    ->withPivot('size_name')
                     ->withTimestamps();
     }
 }
