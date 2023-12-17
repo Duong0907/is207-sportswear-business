@@ -63,8 +63,6 @@
                     </li>
                 </ul>
             </div>
-            <div class="footer-grid__column-3">
-            </div>
         </div>
     </div>
 </footer>
