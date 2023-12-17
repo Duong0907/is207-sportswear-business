@@ -28,7 +28,7 @@
 
 .navListFirst,
 .navListMiddle,
-.navListEndUn {
+.navListEndUnlogined {
     display: flex;
 
 }
@@ -37,6 +37,9 @@
     flex: 0.7;
     justify-content: flex-start;
     padding-left: 50px;
+    position: relative;
+    overflow:hidden;
+    /* font-size: 22px; */
 }
 
 .navListMiddle {
@@ -379,10 +382,14 @@
 /* Animation */
 .navListFirst--animation>a {
     transition: transform 0.25s;
-}
 
+}
+.navListFirst > a {
+    transform: scale(1.4) translateY(-8px);
+    transform-origin: top left;
+}
 .navListFirst--animation>a:hover {
-    transform: scale(1.5, 1.5) rotate(3deg);
+    transform: scale(1.5, 1.5) translateY(-8px);
 }
 
 .sub-navbar--animation {
@@ -408,7 +415,7 @@
 
 
 /* Animation */
-.navListFirst--animation>a {
+/* .navListFirst--animation>a {
     transition: transform 0.25s;
 }
 
@@ -428,4 +435,4 @@
     to {
         opacity: 1;
     }
-}
+} */

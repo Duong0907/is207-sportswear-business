@@ -127,7 +127,7 @@ function addProductToCartLocalStorage() {
             message: 'Vui lòng chọn màu sắc',
             type: 'error',
             duration: 5000
-        })
+        });
         return;
     } else if (!product.size_name) {
         toast({
@@ -135,7 +135,7 @@ function addProductToCartLocalStorage() {
             message: 'Vui lòng chọn kích thước',
             type: 'error',
             duration: 5000
-        })
+        });
         return;
     }
 

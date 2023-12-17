@@ -24,7 +24,7 @@
         @yield('content')
         @include('shared.footer')
     </div>
-    <script src="{{ asset('assets/js/shared/navbar.js')}}"></script>
+
     @yield('js')
 </body>
 

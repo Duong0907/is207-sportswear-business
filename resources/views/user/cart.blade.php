@@ -1,6 +1,8 @@
 @extends('layouts.app')
 @section('css')
     <link rel="stylesheet" href="{{ asset('assets/css/user/cart.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/shared/toast.css') }}">
+
 @endsection
 
 @section('content')
@@ -50,14 +52,16 @@
                 <p>Tổng</p>
                 <p id="total-pay" class="money">...</p>
             </div>
-            <div class="pay-button">
+            <div class="pay-button" onclick="window.location.href = '/payment'">
                 <p>Tiếp tục thanh toán</p>
             </div>
         </div>
     </div>
+    <div id="toast"></div>
 @endsection
 
 @section('js')
     <script src="{{ asset('assets/js/base.js') }}"></script>
+    <script src="{{ asset('assets/js/shared/toast.js') }}"></script>
     <script src="{{ asset('assets/js/user/cart.js') }}"></script>
 @endsection

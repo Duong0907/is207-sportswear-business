@@ -40,6 +40,10 @@ Route::prefix('/')->group(function () {
     })->name('product-detail');
 
     Route::get('/cart', [ProductController::class, 'renderCart'])->name('cart');
+
+    Route::get('/payment', function () {
+        return view('user.payment');
+    })->name('payment');
     
     Route::get('/purchase-history', function () {
         return view('user.purchase_history');
@@ -50,16 +54,6 @@ Route::prefix('/')->group(function () {
         return "profile page";
     })->name('profile');    
 });
-
-// // authorized users
-// Route::prefix('/user')->middleware('auth')->group(function () {
-//     Route::get('/cart', function () {
-//         return view('user.cart');
-//     })->name('cart');
-//     Route::get('/purchase-history', function () {
-//         return view('user.purchase_history');
-//     })->name('purchase-history');
-// });
 
 // admin login
 Route::prefix('/admin')->group(function () {
