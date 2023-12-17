@@ -2,6 +2,8 @@
 
 @section('css')
     <link rel="stylesheet" href="{{ asset('assets/css/user/product_detail.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/shared/toast.css') }}">
+
 @endsection
 
 @section('content')
@@ -29,20 +31,19 @@
             </div>
 
             <p class="label">Màu:</p>
-            <div class="product-color-option">
-                @foreach ($product->colors as $color)
-                    <label class="radio-button-color" name="color"
-                        style="background-color: {{ $color->hex_code }};"></label>
+            <div class="product-color-option">  
+                @foreach($product->colors as $color)
+                <label class="radio-button-color" name="color" style="background-color: {{ $color->hex_code }};" value="{{ $color->hex_code }}" data-checked="false"></label>
                 @endforeach
             </div>
 
             <p class="label">Kích thước:</p>
             <div class="product-size-option">
-                @foreach ($product->sizes as $size)
-                    <label class="radio-button-size">
-                        <input type="radio" id="size-s" name="size" value="S" />
-                        <span class="label-text">{{ $size->size_name }}</span>
-                    </label>
+                @foreach($product->sizes as $size)
+                <label class="radio-button-size">
+                    <input type="radio" id="size-{{ $size->size_name }}" name="size" value="{{ $size->size_name }}" />
+                    <span class="label-text">{{ $size->size_name }}</span>
+                </label>
                 @endforeach
             </div>
 
@@ -113,9 +114,11 @@
             </div>
         </div>
     </div>
+    <div id="toast"></div>
 @endsection
 
 @section('js')
     <script src="{{ asset('assets/js/base.js') }}"></script>
     <script src="{{ asset('assets/js/user/product_detail.js') }}"></script>
+    <script src="{{ asset('assets/js/shared/toast.js') }}"></script>
 @endsection

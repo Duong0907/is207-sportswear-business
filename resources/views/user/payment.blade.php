@@ -1,6 +1,7 @@
 @extends('layouts.app')
 @section('css')
     <link rel="stylesheet" href="{{ asset('assets/css/user/payment.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/shared/toast.css') }}">
 @endsection
 @section('content')
     <div class="page-content">
@@ -28,60 +29,47 @@
                     <h2>Giỏ hàng của bạn</h2>
                     <div class="cart-product-list" id="style-3">
                         <!-- Generate cart-product-item từ cartProductItem components -->
-                        <?php
-                        $query =
-                            'select product_image, product_name, product_price, product_size, order_details.quantity
-                                                from products join order_details join orders
-                                                where order_details.order_id = orders.id and order_details.product_id = products.id
-                                                and payed = 0 and orders.user_id = ' .
-                            $user['user_id'] .
-                            ' limit 5';
-                        $result = execQuery($query);
-                        if ($result && $result->num_rows > 0) {
-                            $rows = $result->fetch_all();
-                            foreach ($rows as $row) {
-                                PaymentProductItem($row[0], $row[1], $row[2], $row[3], $row[4]);
-                                echo '<div id="line"></div>';
-                            }
-                        } else {
-                            echo '<p>Không có sản phẩm nào trong giỏ hàng</p>';
-                        }
-                        
-                        ?>
+                        {{-- <div class="cart-product-container">
+                            <div class="cart-product-img">
+                                <img src="" alt="Hình ảnh sản phẩm">
+                            </div>
+                            <div class="cart-product-detail">
+                                <div id="product-name-div">
+                                    <h3 id="product-name"></h3>
+                                </div>
+                                <p id="product-size">Kích cỡ: </p>
+                                <p id="product-quantity">Số lượng: </p>
+                                <h3 id="product-price" class="money"></h3>
+                            </div>
+                        </div> --}}
 
                     </div>
                 </div>
-
-                <?php
-                $query = 'select total_money from orders where user_id = ' . $user['user_id'] . ' and payed = 0';
-                $result = execQuery($query);
-                if ($result && $result->num_rows > 0) {
-                    $row = $result->fetch_assoc();
-                } else {
-                    $row = ['total_money' => 0];
-                }
-                ?>
 
                 <div class="total-container">
                     <h2>Tổng kết đặt hàng</h2>
                     <div class="total-div">
                         <p>Tổng tiền sản phẩm</p>
-                        <p id="total"><?php echo $row['total_money']; ?></p>
+                        <p id="total" class="money">0</p>
                     </div>
                     <div class="shipping-fee-div">
                         <p>Phí ship</p>
-                        <p id="shipping-fee">0</p>
+                        <p id="shipping-fee" class="money">0</p>
                     </div>
                     <div id="line"></div>
                     <div class="total-pay">
                         <p>Tổng</p>
-                        <p id="total-pay"></p>
+                        <p id="total-pay" class="money"></p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <div id="toast"></div>
 @endsection
 @section('js')
+    <script src="{{ asset('assets/js/base.js') }}"></script>
+    <script src="{{ asset('assets/js/shared/toast.js') }}"></script>
     <script src="{{ asset('assets/js/user/payment.js') }}"></script>
 @endsection
