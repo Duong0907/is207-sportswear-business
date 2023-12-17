@@ -50,8 +50,8 @@ Route::prefix('/')->group(function () {
     })->name('purchase-history');
 
     Route::get('/profile', function () {
-        // return view('user.profile');
-        return "profile page";
+        return view('user.profile');
+        // return "profile page";
     })->name('profile');    
 });
 
