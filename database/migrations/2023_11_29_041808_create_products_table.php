@@ -17,15 +17,15 @@ return new class extends Migration
                 $table->string('product_name');
                 $table->integer('product_price');
                 $table->integer('product_discount_price')->default(0);
-                $table->integer('rating');
-                $table->integer('purchasing_quantity');
+                $table->integer('rating')->default(0);
+                $table->integer('purchasing_quantity')->default(0);
                 $table->integer('quantity');
                 $table->longText('product_description');
                 $table->unsignedInteger('product_object_id');
                 $table->unsignedInteger('product_type_id');
                 $table->timestamp('created_at')->useCurrent();
                 $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();
-                
+
                 $table->foreign('product_object_id')
                     ->references('id')
                     ->on('product_objects')

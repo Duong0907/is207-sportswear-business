@@ -40,6 +40,7 @@ Route::prefix('/')->group(function () {
         return view('user.product_detail');
     })->name('product-detail');
 
+
     Route::get('/cart', [OrderController::class, 'renderCart'])->name('cart');
 
     Route::get('/payment', function () {
@@ -61,6 +62,7 @@ Route::prefix('/admin')->group(function () {
     Route::get('/login', [AdminController::class, 'login'])->name('admin-login');
     Route::post('/login', [AdminController::class, 'postLogin'])->name('admin-post-login');
 });
+
 
 // admin
 Route::prefix('admin')->middleware('adminAuth')->group(function () {
@@ -85,6 +87,7 @@ Route::prefix('admin')->middleware('adminAuth')->group(function () {
         Route::post('/create', [ProductController::class, 'store'])->name('admin-product-store');
         Route::get('/edit/{id}', [ProductController::class, 'edit'])->name('admin-product-edit');
         Route::put('/edit/{id}', [ProductController::class, 'update'])->name('admin-product-update');
+        Route::delete('/delete/{id}', [ProductController::class, 'destroy']);
     });
 
     // report

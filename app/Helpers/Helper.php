@@ -19,3 +19,7 @@ function helperConvertAttribute($allAttributes, $attributeKey)
     $temp = substr($temp, 0, -2);
     return $temp;
 }
+function helperConvertPrice($price)
+{
+    return number_format($price, 0, ',', '.') . "đ";
+}
