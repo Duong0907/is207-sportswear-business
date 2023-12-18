@@ -33,21 +33,20 @@ function pay() {
 }
     
 // order
-payButton.onclick = () => {
-    toast({
-        title: 'Thông báo',
-        message: 'Chức năng đang được phát triển',
-        type: 'error',
-        duration: 5000
-    });
-}
+// payButton.onclick = () => {
+//     toast({
+//         title: 'Thông báo',
+//         message: 'Chức năng đang được phát triển',
+//         type: 'error',
+//         duration: 5000
+//     });
+// }
 
 // cart-container
 const cartContainer = document.querySelector(".cart-container");
 function clearProductstList() {
     cartContainer.innerHTML = "<h2>Giỏ hàng của bạn</h2><p>Không có sản phẩm nào trong giỏ hàng</p>"
 }
-
 
 
 ////////////// RENDER CART PRODUCT LIST /////////////
@@ -83,7 +82,8 @@ async function getProductInfoFromId(id) {
 }
 
 async function readProductsFromLocalStorage() {
-    let cart = localStorage.getItem('cart');
+    // let cart = localStorage.getItem('cart');
+    let cart = getCookie('cart');
     if (!cart) {
         return [];
     }

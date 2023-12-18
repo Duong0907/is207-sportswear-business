@@ -217,16 +217,7 @@ class ProductController extends Controller
         return view('user.product_detail', compact('product'));
     }
 
-    public function renderCart(Request $request)
-    {
-        // Get user's id from auth
-        $user_id = auth()->user()->id;
-        // return $user_id;
-
-        // Get all order with unpaid = true
-        $cart = Order::where('user_id', $user_id)->where('paid', false)->get();
-        return view('user.cart', compact('cart'));
-    }
+    
 
     public function gerProductInfo(Request $request)
     {
@@ -245,6 +236,8 @@ class ProductController extends Controller
             'quantity' => $product->quantity
         ]);
     }
+
+    
 
     /**
      * Show the form for creating a new resource.

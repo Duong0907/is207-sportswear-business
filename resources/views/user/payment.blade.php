@@ -1,49 +1,36 @@
 @extends('layouts.app')
+
 @section('css')
     <link rel="stylesheet" href="{{ asset('assets/css/user/payment.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/shared/toast.css') }}">
 @endsection
+
 @section('content')
     <div class="page-content">
         <h1 id="heading">Thanh toán</h1>
         <div class="payment-page-container">
-            <form class="payment-form">
+            <form class="payment-form" method="post" action="{{ route('payment') }}">
+                @csrf
                 <p>Thông tin giao hàng</p>
                 <div id='customer-name'>
-                    <input type="text" placeholder="Họ" id="first-name" required>
-                    <input type="text" placeholder="Tên" id="last-name" required>
+                    <input type="text" placeholder="Họ" id="first-name" name="shipping_firstname" required>
+                    <input type="text" placeholder="Tên" id="last-name" name="shipping_lastname" required>
                 </div>
-                <input type="text" placeholder="Địa chỉ" id="address" required>
-                <input type="text" placeholder="Số điện thoại" id="phone-number" required>
-                <input type="text" placeholder="Ghi chú" id="note">
+                <input type="text" placeholder="Địa chỉ" id="address" name="shipping_address" required>
+                <input type="text" placeholder="Số điện thoại" id="phone-number" name="shipping_phonenumber" required>
+                <input type="text" placeholder="Ghi chú" id="note" name="shipping_note">
                 <div id="save-info-checkbox">
-                    <input type="checkbox" name="save-info" id="save-info" required>
+                    <input type="checkbox" name="save-info" id="save-info">
                     <label for="save-info">Lưu thông tin</label>
                 </div>
-                <div type="submit" class="order-button" role="button">
+                <button type="submit" class="order-button" role="button">
                     <p>Thanh toán</p>
-                </div>
+                </button>  
             </form>
             <div class="container">
                 <div class="cart-container">
                     <h2>Giỏ hàng của bạn</h2>
-                    <div class="cart-product-list" id="style-3">
-                        <!-- Generate cart-product-item từ cartProductItem components -->
-                        {{-- <div class="cart-product-container">
-                            <div class="cart-product-img">
-                                <img src="" alt="Hình ảnh sản phẩm">
-                            </div>
-                            <div class="cart-product-detail">
-                                <div id="product-name-div">
-                                    <h3 id="product-name"></h3>
-                                </div>
-                                <p id="product-size">Kích cỡ: </p>
-                                <p id="product-quantity">Số lượng: </p>
-                                <h3 id="product-price" class="money"></h3>
-                            </div>
-                        </div> --}}
-
-                    </div>
+                    <div class="cart-product-list" id="style-3"></div>
                 </div>
 
                 <div class="total-container">
@@ -67,9 +54,20 @@
     </div>
 
     <div id="toast"></div>
-@endsection
-@section('js')
-    <script src="{{ asset('assets/js/base.js') }}"></script>
-    <script src="{{ asset('assets/js/shared/toast.js') }}"></script>
+
+    @if ($message = Session::get('error'))
+    <script>
+        toast({
+            title: 'Lỗi',
+            message: '{{ $message }}',
+            type: 'error',
+            duration: 5000
+        })
+    </script>
+    @endif
+    @endsection
+    @section('js')
+    {{-- <script src="{{ asset('assets/js/base.js') }}"></script> --}}
+    {{-- <script src="{{ asset('assets/js/shared/toast.js') }}"></script> --}}
     <script src="{{ asset('assets/js/user/payment.js') }}"></script>
 @endsection

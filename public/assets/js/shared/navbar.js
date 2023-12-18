@@ -53,12 +53,14 @@ if (accountBtn) {
     body.onclick = hideAccountModal;
 }
 
-// Ger cart nummber from local storage
+// Ger cart nummber from cookie
 function getCartNumber() {
-    let cart = localStorage.getItem('cart');
+    // let cart = localStorage.getItem('cart');
+    let cart = getCookie('cart');
     if (!cart) {
         return 0;
     }
+    
     cart = JSON.parse(cart);
     let total = 0;
     for (let cartItem of cart) {

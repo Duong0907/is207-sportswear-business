@@ -118,7 +118,7 @@
 @endsection
 
 @section('js')
-    <script src="{{ asset('assets/js/base.js') }}"></script>
+    {{-- <script src="{{ asset('assets/js/base.js') }}"></script> --}}
     <script src="{{ asset('assets/js/user/product_detail.js') }}"></script>
-    <script src="{{ asset('assets/js/shared/toast.js') }}"></script>
+    {{-- <script src="{{ asset('assets/js/shared/toast.js') }}"></script> --}}
 @endsection
