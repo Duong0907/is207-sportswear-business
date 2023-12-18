@@ -44,7 +44,7 @@
                         <p>Dash Board</p>
                     </div>
                 </a>
-                <a href="{{ route('error') }}" class="sidebar-item">
+                <a href="{{ route('admin-order') }}" class="sidebar-item">
                     <div class="sidebar-item-container" id="order">
                         <div class="sidebar-item-icon">
                             <i class="fa-solid fa-cart-shopping"></i>

@@ -23,3 +23,7 @@ function helperConvertPrice($price)
 {
     return number_format($price, 0, ',', '.') . "đ";
 }
+function helperConvertDate($date)
+{
+    return date_format(date_create($date), "d/m/Y");
+}

@@ -210,7 +210,7 @@ class ProductController extends Controller
         return view('user.product_detail', compact('product'));
     }
 
-    
+
 
     public function gerProductInfo(Request $request)
     {
@@ -230,7 +230,7 @@ class ProductController extends Controller
         ]);
     }
 
-    
+
 
     /**
      * Show the form for creating a new resource.
@@ -264,6 +264,23 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         try {
+            // check if all field is filled 
+            if ($request->productName == "" || $request->productPrice == "" || $request->productDescription == "" || $request->productQuantity == "" || $request->productObject == "" || $request->productType == "" || $request->productSizeId == "" || $request->productColorId == "" || $request->productImage == "") {
+                return redirect()->back()->with('error', 'Vui lòng điền đầy đủ thông tin!');
+            }
+            // check if product name is exist 
+            $product = Product::where('product_name', $request->productName)->first();
+            if ($product) {
+                return redirect()->back()->with('error', 'Tên sản phẩm đã tồn tại!');
+            }
+            // check if product price and quantity is number, and > 0 and is integer
+            if (!is_numeric($request->productPrice) || !is_numeric($request->productQuantity) || $request->productPrice <= 0 || $request->productQuantity <= 0 || !is_int($request->productQuantity)) {
+                return redirect()->back()->with('error', 'Giá và số lượng sản phẩm không hợp lệ!');
+            }
+            // check if product price and quantity is integer
+            if (!is_int($request->productQuantity) || !is_int($request->productPrice)) {
+                return redirect()->back()->with('error', 'Giá và số lượng sản phẩm không hợp lệ!');
+            }
             $product = new Product();
             $product->product_name = $request->productName;
             $product->product_price = $request->productPrice;
@@ -350,6 +367,17 @@ class ProductController extends Controller
     public function update(Request $request, string $id)
     {
         try {
+            if ($request->productName == "" || $request->productPrice == "" || $request->productDescription == "" || $request->productQuantity == "" || $request->productObject == "" || $request->productType == "" || $request->productSizeId == "" || $request->productColorId == "") {
+                return redirect()->back()->with('error', 'Vui lòng điền đầy đủ thông tin!');
+            }
+            // check if product price and quantity is number, and > 0 and is integer
+            if (!is_numeric($request->productPrice) || !is_numeric($request->productQuantity) || $request->productPrice <= 0 || $request->productQuantity <= 0 || !is_int($request->productQuantity)) {
+                return redirect()->back()->with('error', 'Giá và số lượng sản phẩm không hợp lệ!');
+            }
+            // check if product price and quantity is integer
+            if (!is_int($request->productQuantity) || !is_int($request->productPrice)) {
+                return redirect()->back()->with('error', 'Giá và số lượng sản phẩm không hợp lệ!');
+            }
             // dd($request->all());
             $product = Product::find($id);
             $product->product_name = $request->productName;
@@ -365,6 +393,7 @@ class ProductController extends Controller
             $product->sizes()->sync($size_array);
             $product->colors()->sync($color_array);
             // image
+            // check if has image
             if ($request->hasFile('productImage')) {
                 $images = Image::where('product_id', $id)->get();
                 foreach ($images as $image) {

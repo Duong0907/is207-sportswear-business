@@ -16,6 +16,8 @@ Route::prefix('auth')->group(function () {
 });
 
 // unauthorized users
+
+// unauthorized users
 Route::prefix('/')->group(function () {
     Route::get('/', [ProductController::class, 'renderHome'])->name('home');
 
@@ -40,7 +42,6 @@ Route::prefix('/')->group(function () {
         return view('user.product_detail');
     })->name('product-detail');
 
-
     Route::get('/cart', [OrderController::class, 'renderCart'])->name('cart');
 
     Route::get('/payment', function () {
@@ -48,15 +49,14 @@ Route::prefix('/')->group(function () {
     })->name('payment');
 
     Route::post('/payment', [OrderController::class, 'pay'])->name('payment-controller');
-    
+
     Route::get('/purchase-history', [OrderController::class, 'renderPurchaseHistory'])->name('purchase-history');
 
     Route::get('/profile', function () {
         return view('user.profile');
         // return "profile page";
-    })->name('profile');    
+    })->name('profile');
 });
-
 // admin login
 Route::prefix('/admin')->group(function () {
     Route::get('/login', [AdminController::class, 'login'])->name('admin-login');
@@ -67,17 +67,13 @@ Route::prefix('/admin')->group(function () {
 // admin
 Route::prefix('admin')->middleware('adminAuth')->group(function () {
     // category
-    Route::get('/category', function () {
-        return view('admin.category.index');
-    })->name('admin-category');
+    Route::get('/category', [AdminController::class, 'categoryManager'])->name('admin-category');
     // coupon
-    Route::get('/coupon',  function () {
-        return view('admin.coupon.index');
-    })->name('admin-coupon');
+    Route::get('/coupon', [AdminController::class, 'couponManager'])->name('admin-coupon');
     // customer
-    Route::get('/customer', function () {
-        return view('admin.customer.index');
-    })->name('admin-customer');
+    Route::get('/customer', [AdminController::class, 'customerManager'])->name('admin-customer');
+    // order
+    Route::get('/order', [AdminController::class, 'orderManager'])->name('admin-order');
 
 
     // product

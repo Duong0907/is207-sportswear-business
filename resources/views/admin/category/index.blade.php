@@ -34,76 +34,30 @@
                     <th><label>Mã loại sản phẩm</label></th>
                     <th><label>Tên loại sản phẩm</label></th>
                     <th><label>Số lượng SP</label></th>
-                    <th><label>Ngày tạo</label></th>
-                    <th><label>Ngày sửa đổi gần nhất</label></th>
-                    <th><label>Hành động</label></th>
+                    {{-- <th><label>Ngày tạo</label></th>
+                    <th><label>Ngày sửa đổi gần nhất</label></th> --}}
+                    {{-- <th><label>Hành động</label></th> --}}
                 </tr>
 
-                <tr class="category-management-table-row">
-                    <th><input type="checkbox" class="category-row"></th>
-                    <th><label class="category-row">trungggggg</label></th>
-                    <th><label class="category-row">trungggggg</label></th>
-                    <th><label class="category-row">trungggggg</label></th>
-                    <th><label class="category-row">trungggggg</label></th>
-                    <th><label class="category-row">trungggggg</label></th>
-                    <th>
-                        <img src="{{ asset('assets/svg/detail.svg') }} " alt="detail">
-                        <img src="{{ asset('assets/svg/delete.svg') }} " alt="detail">
-                    </th>
-                </tr>
-                <tr class="category-management-table-row">
-                    <th><input type="checkbox" class="category-row"></th>
-                    <th><label class="category-row">trungggggg</label></th>
-                    <th><label class="category-row">trungggggg</label></th>
-                    <th><label class="category-row">trungggggg</label></th>
-                    <th><label class="category-row">trungggggg</label></th>
-                    <th><label class="category-row">trungggggg</label></th>
-                    <th>
-                        <img src="{{ asset('assets/svg/detail.svg') }} " alt="detail">
-                        <img src="{{ asset('assets/svg/delete.svg') }} " alt="detail">
-                    </th>
-                </tr>
-                <tr class="category-management-table-row">
-                    <th><input type="checkbox" class="category-row"></th>
-                    <th><label class="category-row">trungggggg</label></th>
-                    <th><label class="category-row">trungggggg</label></th>
-                    <th><label class="category-row">trungggggg</label></th>
-                    <th><label class="category-row">trungggggg</label></th>
-                    <th><label class="category-row">trungggggg</label></th>
-                    <th>
-                        <img src="{{ asset('assets/svg/detail.svg') }} " alt="detail">
-                        <img src="{{ asset('assets/svg/delete.svg') }} " alt="detail">
-                    </th>
-                </tr>
-                <tr class="category-management-table-row">
-                    <th><input type="checkbox" class="category-row"></th>
-                    <th><label class="category-row">trungggggg</label></th>
-                    <th><label class="category-row">trungggggg</label></th>
-                    <th><label class="category-row">trungggggg</label></th>
-                    <th><label class="category-row">trungggggg</label></th>
-                    <th><label class="category-row">trungggggg</label></th>
-                    <th>
-                        <img src="{{ asset('assets/svg/detail.svg') }} " alt="detail">
-                        <img src="{{ asset('assets/svg/delete.svg') }} " alt="detail">
-                    </th>
-                </tr>
-                <tr class="category-management-table-row">
-                    <th><input type="checkbox" class="category-row"></th>
-                    <th><label class="category-row">trungggggg</label></th>
-                    <th><label class="category-row">trungggggg</label></th>
-                    <th><label class="category-row">trungggggg</label></th>
-                    <th><label class="category-row">trungggggg</label></th>
-                    <th><label class="category-row">trungggggg</label></th>
-                    <th>
-                        <img src="{{ asset('assets/svg/detail.svg') }} " alt="detail">
-                        <img src="{{ asset('assets/svg/delete.svg') }} " alt="detail">
-                    </th>
-                </tr>
+                @foreach ($productTypes as $productType)
+                    <tr class="category-management-table-row">
+                        <th><input type="checkbox" class="category-row"></th>
+                        <th><label class="category-row"> {{ $productType->id }} </label></th>
+                        <th><label class="category-row"> {{ $productType->type_name }} </label></th>
+                        <th><label class="category-row"> {{ $productType->count }} </label></th>
+                        {{-- <th><label class="category-row">trungggggg</label></th>
+                        <th><label class="category-row">trungggggg</label></th> --}}
+                        {{-- <th>
+                            <img src="{{ asset('assets/svg/detail.svg') }} " alt="edit">
+                            <img src="{{ asset('assets/svg/delete.svg') }} " alt="delete">
+                        </th> --}}
+                    </tr>
+                @endforeach
             </table>
 
-            <div class="category-management-add-category">
+            {{-- <div class="category-management-add-category">
                 <button>Thêm loại sản phẩm</button>
-            </div>
+            </div> --}}
         </div>
     </main>
 @endsection

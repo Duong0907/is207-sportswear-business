@@ -54,79 +54,26 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td class="cell-center">
-                            <input type="checkbox" name="check-one" />
-                        </td>
-                        <td class="cell-center"> KM001</td>
-                        <td class="cell-center">30% </td>
-                        <td class="list-container__name cell-center"> Giày nam</td>
-                        <td class="cell-center"> 1/9/2022</td>
-                        <td class="cell-center"> 7/9/2022</td>
-                        <td class="cell-center cell-action">
-                            <a onclick="openUpdateModal()">
-                                <img src="{{ asset('assets/svg/detail.svg') }}" alt="customer infomation detail" />
-                            </a>
-                            <a onclick="deleteCoupon()">
-                                <img src="{{ asset('assets/svg/delete.svg') }}" alt="customer infomation delete" />
-                            </a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="cell-center">
-                            <input type="checkbox" name="check-one" />
-                        </td>
-                        <td class="cell-center"> KM001</td>
-                        <td class="cell-center">30% </td>
-                        <td class="list-container__name cell-center"> Giày nam</td>
-                        <td class="cell-center"> 1/9/2022</td>
-                        <td class="cell-center"> 7/9/2022</td>
-                        <td class="cell-center cell-action">
-                            <a onclick="openUpdateModal()">
-                                <img src="{{ asset('assets/svg/detail.svg') }}" alt="customer infomation detail" />
-                            </a>
-                            <a onclick="deleteCoupon()">
-                                <img src="{{ asset('assets/svg/delete.svg') }}" alt="customer infomation delete" />
-                            </a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="cell-center">
-                            <input type="checkbox" name="check-one" />
-                        </td>
-                        <td class="cell-center"> KM001</td>
-                        <td class="cell-center">30% </td>
-                        <td class="list-container__name cell-center"> Giày nam</td>
-                        <td class="cell-center"> 1/9/2022</td>
-                        <td class="cell-center"> 7/9/2022</td>
-                        <td class="cell-center cell-action">
-                            <a onclick="openUpdateModal()">
-                                <img src="{{ asset('assets/svg/detail.svg') }}" alt="customer infomation detail" />
-                            </a>
-                            <a onclick="deleteCoupon()">
-                                <img src="{{ asset('assets/svg/delete.svg') }}" alt="customer infomation delete" />
-                            </a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="cell-center">
-                            <input type="checkbox" name="check-one" />
-                        </td>
-                        <td class="cell-center"> KM001</td>
-                        <td class="cell-center">30% </td>
-                        <td class="list-container__name cell-center"> Giày nam</td>
-                        <td class="cell-center"> 1/9/2022</td>
-                        <td class="cell-center"> 7/9/2022</td>
-                        <td class="cell-center cell-action">
-                            <a onclick="openUpdateModal()">
-                                <img src="{{ asset('assets/svg/detail.svg') }}" alt="customer infomation detail" />
-                            </a>
-                            <a onclick="deleteCoupon()">
-                                <img src="{{ asset('assets/svg/delete.svg') }}" alt="customer infomation delete" />
-                            </a>
-                        </td>
-                    </tr>
-                    {{--  CouponItem('KM001', '30%', 'Giày nam', '1/9/2022', '7/9/2022'); --}}
+                    @foreach ($coupons as $coupon)
+                        <tr>
+                            <td class="cell-center">
+                                <input type="checkbox" name="check-one" />
+                            </td>
+                            <td class="cell-center"> {{ $coupon->id }} </td>
+                            <td class="cell-center"> {{ $coupon->discount_percent }}% </td>
+                            <td class="list-container__name cell-center"> Giày nam</td>
+                            <td class="cell-center"> {{ helperConvertDate($coupon->start_date) }} </td>
+                            <td class="cell-center"> {{ helperConvertDate($coupon->end_date) }} </td>
+                            <td class="cell-center cell-action">
+                                <a onclick="openUpdateModal()">
+                                    <img src="{{ asset('assets/svg/detail.svg') }}" alt="customer infomation detail" />
+                                </a>
+                                <a onclick="alert('Tính năng chưa được hỗ trợ');">
+                                    <img src="{{ asset('assets/svg/delete.svg') }}" alt="customer infomation delete" />
+                                </a>
+                            </td>
+                        </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>
