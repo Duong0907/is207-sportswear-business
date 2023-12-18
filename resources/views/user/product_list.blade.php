@@ -88,6 +88,6 @@
 @endsection
 
 @section('js')
-<script src="{{ asset('assets/js/base.js') }}"></script>
+{{-- <script src="{{ asset('assets/js/base.js') }}"></script> --}}
 <script src="{{ asset('assets/js/user/product_list.js') }}"></script>
 @endsection

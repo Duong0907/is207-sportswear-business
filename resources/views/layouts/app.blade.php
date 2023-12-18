@@ -19,12 +19,17 @@
 </head>
 
 <body>
+    {{-- Put this script on top so that it can be loaded first --}}
+    <script src="{{ asset('assets/js/base.js') }}"></script>
+    <script src="{{ asset('assets/js/shared/toast.js') }}"></script>
+
     <div class="root-main">
         @include('shared.navbar')
         @yield('content')
         @include('shared.footer')
     </div>
 
+    {{-- <script src="{{ asset('assets/js/shared/navbar.js') }}"></script> --}}
     @yield('js')
 </body>
 

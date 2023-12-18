@@ -34,7 +34,8 @@ async function getProductInfoFromId(id) {
 }
 
 async function readProductsFromLocalStorage() {
-    let cart = localStorage.getItem('cart');
+    // let cart = localStorage.getItem('cart');
+    let cart = getCookie('cart');
     if (!cart) {
         return [];
     }
@@ -88,13 +89,15 @@ function formatPrices() {
 
 
 function removeProductFromCart(product_id, color_hex_code, size_name) {
-    let cart = localStorage.getItem('cart');
+    // let cart = localStorage.getItem('cart');
+    let cart = getCookie('cart');
     cart = cart ? JSON.parse(cart) : [];
     let productIndex = cart.findIndex(item => item.id == product_id && item.color_hex_code == color_hex_code && item.size_name == size_name);
     if (productIndex != -1) {
         cart.splice(productIndex, 1);
     }
-    localStorage.setItem('cart', JSON.stringify(cart));
+    // localStorage.setItem('cart', JSON.stringify(cart));
+    setCookie('cart', JSON.stringify(cart), 30);
 }
 
 async function main() {

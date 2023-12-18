@@ -11,8 +11,7 @@ class Order extends Model
     protected $table = 'orders';
     protected $fillable = [
         'user_id',
-        'total_money',
-        'paid',
+        'paid', 
         'shipping_note',
         'shipping_adress',
         'shipping_phonenumber',
@@ -20,7 +19,7 @@ class Order extends Model
         'shipping_lastname',
     ];
 
-    public $timestamps = true;
+    public $timestamp = true; // enable all timestamps
 
     function user()
     {

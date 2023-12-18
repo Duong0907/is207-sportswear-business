@@ -1,9 +1,10 @@
 <?php
 
-use App\Http\Controllers\ProductController;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\ProductController;
 
 // register, login
 Route::prefix('auth')->group(function () {
@@ -39,15 +40,15 @@ Route::prefix('/')->group(function () {
         return view('user.product_detail');
     })->name('product-detail');
 
-    Route::get('/cart', [ProductController::class, 'renderCart'])->name('cart');
+    Route::get('/cart', [OrderController::class, 'renderCart'])->name('cart');
 
     Route::get('/payment', function () {
         return view('user.payment');
     })->name('payment');
+
+    Route::post('/payment', [OrderController::class, 'pay'])->name('payment-controller');
     
-    Route::get('/purchase-history', function () {
-        return view('user.purchase_history');
-    })->name('purchase-history');
+    Route::get('/purchase-history', [OrderController::class, 'renderPurchaseHistory'])->name('purchase-history');
 
     Route::get('/profile', function () {
         return view('user.profile');

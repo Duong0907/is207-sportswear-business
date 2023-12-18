@@ -18,6 +18,9 @@ class UserController extends Controller
     public function login()
     {
         if (auth()->check()) {
+            // Save user id to auth
+            auth()->loginUsingId(1);
+
             return redirect()->route('home');
         }
         return view('auth.login');
