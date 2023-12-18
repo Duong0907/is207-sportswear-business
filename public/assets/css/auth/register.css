@@ -15,19 +15,21 @@ html {
     flex-direction: row-reverse;
     column-gap: 10px;
     color: #333333;
-    padding: 50px 150px 50px 50px;
+    padding: 20px 150px 50px 50px;
+    /* overflow: hidden; */
 }
 
 .form {
     /* font: 16px Poppins; */
     font-weight: 400;
     /* margin: 50px; */
-    flex: 40%;
+    flex: 32%;
+    height: 95vh;
     border: 2px solid #333;
     border-radius: 24px;
     display: grid;
     grid-template-rows: auto auto auto;
-    row-gap: 40px;
+    row-gap: 25px;
     padding: 32px 50px;
 }
 

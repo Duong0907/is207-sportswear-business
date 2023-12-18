@@ -5,6 +5,9 @@ const quantityDisplay = document.getElementById('product-quantity');
 const addToCartButton = document.querySelector('.add-to-cart');
 const productPrice = document.querySelector('#product-price');
 
+// console.log(colorButtons)
+// console.log(sizeButtons);
+
 addToCartButton.innerHTML = `Thêm vào giỏ hàng - ${formatPrice(productPrice.getAttribute('product-price'))} `
 
 // Format price
@@ -22,7 +25,8 @@ const handleQuantityButtonClick = (calculaton) => {
     val = (calculaton === '-') ? val - 1 : val + 1;
     val = (val < 1) ? 1 : val;
     quantityDisplay.value = val;
-    console.log(price, val);
+    // console.log(price, val);
+    console.log(quantityDisplay.value)
     
     price *= val;
     addToCartButton.innerHTML = `Thêm vào giỏ hàng - ${formatPrice(price)} `;
@@ -49,18 +53,21 @@ const handleQuantity = () => {
 sizeButtons.forEach(element => {
     element.addEventListener('click', () => {
         for (let sizeButton of sizeButtons) {
-            sizeButton.parentElement.style.borderColor = '#b7b7b7'
+            sizeButton.parentElement.style.borderColor = '#b7b7b7';
+            
         }
-        element.parentElement.style.borderColor = 'black';
+        element.parentElement.style.borderColor = '#000000';
     })
 });
 
 colorButtons.forEach(element => {
     element.addEventListener('click', () => {
         for (let colorButton of colorButtons) {
-            colorButton.style.borderColor = '#b7b7b7'
+            colorButton.style.borderColor = '#b7b7b7';
+            element.setAttribute('data-checked', 'false');
         }
-        element.style.borderColor = 'black';
+        element.style.borderColor = '#000000';
+        element.setAttribute('data-checked', 'true');
     })
 });
 
@@ -72,38 +79,78 @@ const total = reviewCounterArray.reduce((ans, number) => {
     return ans + number;
 }, 0)
 
-// Add to cart
+
+
+// CART FEATURE
 function handleAddToCartButton() {
-    if (document.getElementById('account')) {
-    addProductToCart()
-        .then(data => {
-            getCartNumber();
-            notify(data['message']);
-        })
-    } else {
-        notify('Bạn cần đăng nhập để thêm sản phẩm vào giỏ hàng');
-    }
+    addProductToCartLocalStorage();
 }
 
-// Add to cart 
-function addProductToCart() {
+// Add to cart in local storage
+function getProductInfo() {
     let url = window.location.href;
     url = new URL(url);
-    var product_id = url.searchParams.get("id");
+    let urlArry = url.pathname.split('/');
+    var product_id = urlArry[urlArry.length - 1];
 
-    var requestOptions = {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-        
-        },
-        body : JSON.stringify({
-            "product_id": product_id,
-            "quantity": quantityDisplay.value
-        })
-    };
+    var color_hex_code = null;
+    for (let colorButton of colorButtons) {
+        if (colorButton.getAttribute('data-checked') == "true") {
+            color_hex_code = colorButton.getAttribute('value');
+            break;
+        }
+    }
+    
+    var size_name = null;
 
-    return fetch("http://localhost/sportswear/controllers/cart.php?action=add", requestOptions)
-        .then(response => response.json())
+    for (let sizeButton of sizeButtons) {
+        if (sizeButton.checked) {
+            size_name = sizeButton.value;
+            break;
+        }
+    }
+
+    let product = {
+        id: product_id,
+        quantity: quantityDisplay.value,
+        color_hex_code: color_hex_code,
+        size_name: size_name
+    }
+    return product;
+}
+
+function addProductToCartLocalStorage() {
+    let product = getProductInfo();
+    if (!product.color_hex_code) {
+        toast({
+            title: 'Lỗi',
+            message: 'Vui lòng chọn màu sắc',
+            type: 'error',
+            duration: 5000
+        });
+        return;
+    } else if (!product.size_name) {
+        toast({
+            title: 'Lỗi',
+            message: 'Vui lòng chọn kích thước',
+            type: 'error',
+            duration: 5000
+        });
+        return;
+    }
+
+    // let cart = localStorage.getItem('cart');
+    let cart = getCookie('cart');
+    cart = cart ? JSON.parse(cart) : [];
+    let productIndex = cart.findIndex(item => item.id == product.id && item.color_hex_code == product.color_hex_code && item.size_name == product.size_name);
+    if (productIndex != -1) {
+        cart[productIndex].quantity = parseInt(cart[productIndex].quantity) + parseInt(product.quantity);
+    } else {
+        cart.push(product);
+    }
+
+    // localStorage.setItem('cart', JSON.stringify(cart));
+    setCookie('cart', JSON.stringify(cart), 30);
+
+    window.location.href = '/cart';
 }

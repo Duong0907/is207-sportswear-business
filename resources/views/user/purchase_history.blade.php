@@ -34,87 +34,26 @@
                         <p>THÔNG TIN NGƯỜI NHẬN</p>
                     </div>
                 </div>
+                
                 <div class="table-content" id="style-3">
                     <!-- Generate data from database -->
+                    @foreach($orders as $order)
                     <div class="table-row">
-                        <div class="table-data narrow">TS0047</div>
-                        <div class="table-data narrow">27/11/2023</div>
-                        <div class="table-data narrow" id="total-money">1.200.000 ₫</div>
-                        <div class="table-data">
-                            Ký túc xá khu B: Đường Mạc Đĩnh Chi, Khu phố Tân Hòa, Phường Đông Hòa,
-                            Thành phố Dĩ An, Tỉnh Bình Dương
-                        </div>
+                        <div class="table-data narrow">{{ $order->id }}</div>
+                        <div class="table-data narrow order-date">{{ $order->created_at }}</div>
+                        <div class="table-data narrow total-money">{{ $order->total_money }}</div>
+                        <div class="table-data">{{ $order->shipping_address }}</div>
                     </div>
-                    <div class="table-row">
-                        <div class="table-data narrow">FS0028</div>
-                        <div class="table-data narrow">27/10/2023</div>
-                        <div class="table-data narrow" id="total-money">2.500.000 ₫</div>
-                        <div class="table-data">
-                            Ký túc xá khu B: Đường Mạc Đĩnh Chi, Khu phố Tân Hòa, Phường Đông Hòa, Thành phố Dĩ An, Tỉnh
-                            Bình Dương
-                        </div>
-                    </div>
-
-                    <div class="table-row">
-                        <div class="table-data narrow">FS0028</div>
-                        <div class="table-data narrow">27/10/2023</div>
-                        <div class="table-data narrow" id="total-money">2.500.000 ₫</div>
-                        <div class="table-data">
-                            Ký túc xá khu B: Đường Mạc Đĩnh Chi, Khu phố Tân Hòa, Phường Đông Hòa, Thành phố Dĩ An, Tỉnh
-                            Bình Dương
-                        </div>
-                    </div>
-
-                    <div class="table-row">
-                        <div class="table-data narrow">FS0028</div>
-                        <div class="table-data narrow">27/10/2023</div>
-                        <div class="table-data narrow" id="total-money">2.500.000 ₫</div>
-                        <div class="table-data">
-                            Ký túc xá khu B: Đường Mạc Đĩnh Chi, Khu phố Tân Hòa, Phường Đông Hòa, Thành phố Dĩ An, Tỉnh
-                            Bình Dương
-                        </div>
-                    </div>
-                    <div class="table-row">
-                        <div class="table-data narrow">FS0028</div>
-                        <div class="table-data narrow">27/10/2023</div>
-                        <div class="table-data narrow" id="total-money">2.500.000 ₫</div>
-                        <div class="table-data">
-                            Ký túc xá khu B: Đường Mạc Đĩnh Chi, Khu phố Tân Hòa, Phường Đông Hòa, Thành phố Dĩ An, Tỉnh
-                            Bình Dương
-                        </div>
-                    </div>
-
-                    <div class="table-row">
-                        <div class="table-data narrow">FS0028</div>
-                        <div class="table-data narrow">27/10/2023</div>
-                        <div class="table-data narrow" id="total-money">2.500.000 ₫</div>
-                        <div class="table-data">
-                            Ký túc xá khu B: Đường Mạc Đĩnh Chi, Khu phố Tân Hòa, Phường Đông Hòa, Thành phố Dĩ An, Tỉnh
-                            Bình Dương
-                        </div>
-                    </div>
-                    <div class="table-row">
-                        <div class="table-data narrow">FS0028</div>
-                        <div class="table-data narrow">27/10/2023</div>
-                        <div class="table-data narrow" id="total-money">2.500.000 ₫</div>
-                        <div class="table-data">
-                            Ký túc xá khu B: Đường Mạc Đĩnh Chi, Khu phố Tân Hòa, Phường Đông Hòa, Thành phố Dĩ An, Tỉnh
-                            Bình Dương
-                        </div>
-                    </div>
-
-                    <div class="table-row">
-                        <div class="table-data narrow">FS0028</div>
-                        <div class="table-data narrow">27/10/2023</div>
-                        <div class="table-data narrow" id="total-money">2.500.000 ₫</div>
-                        <div class="table-data">
-                            Ký túc xá khu B: Đường Mạc Đĩnh Chi, Khu phố Tân Hòa, Phường Đông Hòa, Thành phố Dĩ An, Tỉnh
-                            Bình Dương
-                        </div>
-                    </div>
-
+                    @endforeach
                 </div>
             </div>
         </div>
     </div>
+
+
+@endsection
+
+
+@section('js')
+    <script src="{{ asset('assets/js/user/purchase_history.js') }}"></script>
 @endsection
