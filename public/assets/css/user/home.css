@@ -388,11 +388,15 @@ button {
     height: 360px;
     overflow: hidden;
 }
+.homeListImg:hover img {
+    transform: scale(1.2);
+}
 
 .homeListImg img {
     width: 100%;
     object-fit: contain;
     object-position: auto;
+    transition: all 0.4s ease;
 }
 
 .ListImgContainer{

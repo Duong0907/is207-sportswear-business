@@ -74,14 +74,24 @@
         </div>
         <div class="homeNewestProductImg">
             @foreach($products as $product)
-            <img class="cursor-pointer" onclick="window.location.href='/product/{{ $product->id }}'"
-                src="{{ $product->images[0]->image_link }}}}" alt="GIÀY ĐÁ BÓNG MỚI NHẤT">
-            {{-- <img src="https://i.pinimg.com/564x/3c/a8/e5/3ca8e5a7e8509b84dd31620e22544065.jpg"
-                alt="GIÀY ĐÁ BÓNG MỚI NHẤT">
-            <img src="https://images.unsplash.com/photo-1616124619460-ff4ed8f4683c?q=80&w=1898&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                alt="ÁO ĐẤU CHÍNH HÃNG MÙA GIẢI MỚI NHẤT">
-            <img src="https://i.pinimg.com/736x/ad/47/9d/ad479d5aaa731d35d8c2e09ee06a073d.jpg"
-                alt="BỘ SƯU TẬP GIÀY CR7 MỚI NHẤT"> --}}
+            <div class="homeListImg">
+                <img class="cursor-pointer" onclick="window.location.href='/product/{{ $product->id }}'"
+                    src="{{ $product->images[0]->image_link }}}}" alt="GIÀY ĐÁ BÓNG MỚI NHẤT">
+            </div>
+            {{--
+            <div class="homeListImg">
+                <img src="https://i.pinimg.com/564x/3c/a8/e5/3ca8e5a7e8509b84dd31620e22544065.jpg"
+                    alt="GIÀY ĐÁ BÓNG MỚI NHẤT">
+            </div>
+            <div class="homeListImg">
+                <img src="https://images.unsplash.com/photo-1616124619460-ff4ed8f4683c?q=80&w=1898&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    alt="ÁO ĐẤU CHÍNH HÃNG MÙA GIẢI MỚI NHẤT">
+            </div>
+            <div class="homeListImg">
+                <img src="https://i.pinimg.com/736x/ad/47/9d/ad479d5aaa731d35d8c2e09ee06a073d.jpg"
+                    alt="BỘ SƯU TẬP GIÀY CR7 MỚI NHẤT">
+            </div>
+            --}}
             @endforeach
         </div>
     </div>
