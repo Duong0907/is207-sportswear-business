@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Size;
 use App\Models\Color;
 use App\Models\Image;
+use App\Models\Order;
 use App\Models\Product;
 use App\Models\ProductType;
+use Illuminate\Http\Request;
 use App\Models\ProductObject;
 
 class ProductController extends Controller
@@ -178,7 +179,7 @@ class ProductController extends Controller
         $color_products = getProductsByFilter($type_products, 'colors', 'color_name', $color_names);
         $size_products = getProductsByFilter($color_products, 'sizes', 'size_name', $size_names);
         
-        $products = $size_products->get();
+        // $products = $size_products->get();
 
         // Pagination
         $result = $this->paginateProducts($request, $size_products);
@@ -214,6 +215,35 @@ class ProductController extends Controller
 
         $product = Product::find($id);
         return view('user.product_detail', compact('product'));
+    }
+
+    public function renderCart(Request $request)
+    {
+        // Get user's id from auth
+        $user_id = auth()->user()->id;
+        // return $user_id;
+
+        // Get all order with unpaid = true
+        $cart = Order::where('user_id', $user_id)->where('paid', false)->get();
+        return view('user.cart', compact('cart'));
+    }
+
+    public function gerProductInfo(Request $request)
+    {
+        // include first image of product
+        $id = $request->id;
+        $product = Product::find($id);
+        if ($product->images->count() > 0)
+            $image_link = 'https://st3.depositphotos.com/17828278/33150/v/450/depositphotos_331503262-stock-illustration-no-image-vector-symbol-missing.jpg';
+        $image_link = $product->images->first()->image_link;
+
+        return json_encode([
+            'id' => $product->id,
+            'product_name' => $product->product_name,
+            'image_link' => $image_link,
+            'product_price' => $product->product_price,
+            'quantity' => $product->quantity
+        ]);
     }
 
     /**

@@ -15,6 +15,8 @@ return new class extends Migration
             $table->unsignedInteger('order_id');
             $table->unsignedInteger('product_id');
             $table->integer('quantity')->default(0);
+            $table->string('color_hex_code')->default(0);
+            $table->string('size_name')->default(0);
             $table->timestamp('created_at')->useCurrent();
 
             $table->foreign('order_id')

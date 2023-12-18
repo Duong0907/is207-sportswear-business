@@ -24,6 +24,7 @@
         @yield('content')
         @include('shared.footer')
     </div>
+
     @yield('js')
 </body>
 
