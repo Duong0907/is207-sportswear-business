@@ -41,7 +41,7 @@ Route::prefix('/')->group(function () {
     Route::get('/product-detail/1', function () {
         return view('user.product_detail');
     })->name('product-detail');
-
+    
     Route::get('/cart', [OrderController::class, 'renderCart'])->name('cart');
 
     Route::get('/payment', function () {
