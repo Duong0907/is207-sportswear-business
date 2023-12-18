@@ -34,16 +34,16 @@
                         <td class="cell-center">
                             <input type="checkbox" name="check-one" />
                         </td>
-                        <td class="cell-center">test 1</td>
-                        <td class="cell-center">test 1</td>
-                        <td class="cell-center">test 1</td>
-                        <td class="cell-center">test 1</td>
-                        <td class="cell-center">test 1</td>
+                        <td class="cell-center">2023</td>
+                        <td class="cell-center">11</td>
+                        <td class="cell-center">09</td>
+                        <td class="cell-center">20</td>
+                        <td class="cell-center"> {{ helperConvertPrice(25000000) }} </td>
                         <td class="cell-center cell-action">
-                            <a onclick="openDetailModal(1);">
+                            <a onclick="alert('Tính năng chưa được hỗ trợ');">
                                 <img class="item-img" src="{{ asset('assets/svg/detail.svg') }}" alt="detail" />
                             </a>
-                            <a onclick="handlePrint();">
+                            <a onclick="alert('Tính năng chưa được hỗ trợ');">
                                 <img class="item-img" src="{{ asset('assets/svg/printer.svg') }}" alt="printer" />
                             </a>
                         </td>
@@ -52,16 +52,16 @@
                         <td class="cell-center">
                             <input type="checkbox" name="check-one" />
                         </td>
-                        <td class="cell-center">test 1</td>
-                        <td class="cell-center">test 1</td>
-                        <td class="cell-center">test 1</td>
-                        <td class="cell-center">test 1</td>
-                        <td class="cell-center">test 1</td>
+                        <td class="cell-center">2023</td>
+                        <td class="cell-center">11</td>
+                        <td class="cell-center">10</td>
+                        <td class="cell-center">30</td>
+                        <td class="cell-center">{{ helperConvertPrice(45000000) }}</td>
                         <td class="cell-center cell-action">
-                            <a onclick="openDetailModal(1);">
+                            <a onclick="alert('Tính năng chưa được hỗ trợ');">
                                 <img class="item-img" src="{{ asset('assets/svg/detail.svg') }}" alt="detail" />
                             </a>
-                            <a onclick="handlePrint();">
+                            <a onclick="alert('Tính năng chưa được hỗ trợ');">
                                 <img class="item-img" src="{{ asset('assets/svg/printer.svg') }}" alt="printer" />
                             </a>
                         </td>
@@ -70,16 +70,16 @@
                         <td class="cell-center">
                             <input type="checkbox" name="check-one" />
                         </td>
-                        <td class="cell-center">test 1</td>
-                        <td class="cell-center">test 1</td>
-                        <td class="cell-center">test 1</td>
-                        <td class="cell-center">test 1</td>
-                        <td class="cell-center">test 1</td>
+                        <td class="cell-center">2023</td>
+                        <td class="cell-center">11</td>
+                        <td class="cell-center">11</td>
+                        <td class="cell-center">10</td>
+                        <td class="cell-center">{{ helperConvertPrice(15000000) }}</td>
                         <td class="cell-center cell-action">
-                            <a onclick="openDetailModal(1);">
+                            <a href="#" onclick="alert('Tính năng chưa được hỗ trợ');">
                                 <img class="item-img" src="{{ asset('assets/svg/detail.svg') }}" alt="detail" />
                             </a>
-                            <a onclick="handlePrint();">
+                            <a href="#" onclick="alert('Tính năng chưa được hỗ trợ');">
                                 <img class="item-img" src="{{ asset('assets/svg/printer.svg') }}" alt="printer" />
                             </a>
                         </td>

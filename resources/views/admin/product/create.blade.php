@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add</title>
     <link rel="stylesheet" href="{{ asset('assets/css/admin/product/create.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+        integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+        crossorigin="anonymous" />
+    <link rel="stylesheet" href="{{ asset('assets/css/shared/toast.css') }}">
 </head>
 
 <body>
@@ -105,6 +109,28 @@
         </div>
     </div>
     <script src="{{ asset('assets/js/admin/product/create.js') }}"></script>
+    <script src="{{ asset('assets/js/shared/toast.js') }}"></script>
+    <div id="toast"></div>
+    @if ($message = Session::get('error'))
+        <script>
+            toast({
+                title: 'Lỗi',
+                message: '{{ $message }}',
+                type: 'error',
+                duration: 5000
+            })
+        </script>
+    @endif
+    @if ($message = Session::get('success'))
+        <script>
+            toast({
+                title: 'Thành công',
+                message: '{{ $message }}',
+                type: 'success',
+                duration: 5000
+            })
+        </script>
+    @endif
 </body>
 
 </html>
