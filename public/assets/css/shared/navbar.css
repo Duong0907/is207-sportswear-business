@@ -399,7 +399,7 @@
     transform-origin: top left;
 }
 .navListFirst--animation>a:hover {
-    transform: scale(1.5, 1.5) translateY(-8px);
+    transform: scale(1.2, 1.2);
 }
 
 .sub-navbar--animation {
@@ -420,29 +420,5 @@
 /* @media only screen and (max-width: 426px) {
     .navList {
         display: none;
-    }
-} */
-
-
-/* Animation */
-/* .navListFirst--animation>a {
-    transition: transform 0.25s;
-}
-
-.navListFirst--animation>a:hover {
-    transform: scale(1.5, 1.5) rotate(3deg);
-}
-
-.sub-navbar--animation {
-    animation: subnavbar 0.25s;
-}
-
-@keyframes subnavbar {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
     }
 } */

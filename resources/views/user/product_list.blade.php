@@ -39,7 +39,7 @@
                 <br>
                 @endforeach
                 <br>
-                <button class=" apply-filter-btn">Áp dụng bộ lọc</button>
+                <button class="apply-filter-btn">Áp dụng bộ lọc</button>
 
         </aside>
 
