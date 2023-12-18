@@ -6,7 +6,7 @@ This project runs with Laravel version 10.0.
 
 Assuming you've already installed on your machine: PHP (>= 8.0.0), [Laravel](https://laravel.com), [Composer](https://getcomposer.org) and [Node.js](https://nodejs.org).
 
-``` bash
+```bash
 # install dependencies
 composer install
 npm install
@@ -24,8 +24,12 @@ php artisan db:seed
 
 Then launch the server:
 
-``` bash
+```bash
 php artisan serve
 ```
 
 The Laravel sample project is now up and running! Access it at http://localhost:8000.
+
+## Preview UI
+
+<img src="~/public/assets/images/Web capture.jpeg" style="display: block; margin: 0 auto>
