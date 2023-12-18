@@ -26,6 +26,7 @@ class users_seeder extends Seeder
             ['username' => 'SamWilson', 'password' => Hash::make('sampass'), 'email' => 'sam@example.com', 'phonenumber' => '6667778888', 'address' => '987 Elm St', 'is_admin' => false],
             ['username' => 'LucyMiller', 'password' => Hash::make('lucypass'), 'email' => 'lucy@example.com', 'phonenumber' => '2223334444', 'address' => '654 Oak St', 'is_admin' => false],
             ['username' => 'MikeJohnson', 'password' => Hash::make('mikepass'), 'email' => 'mike@example.com', 'phonenumber' => '3334445555', 'address' => '789 Willow St', 'is_admin' => false],
+            ['username' => 'admin2', 'password' => Hash::make('123'), 'email' => 'admin2@example.com', 'phonenumber' => '123', 'address' => '123', 'is_admin' => true],
         ]);
     }
 }

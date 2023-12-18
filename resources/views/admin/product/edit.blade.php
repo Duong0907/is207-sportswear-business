@@ -6,6 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add</title>
     <link rel="stylesheet" href="{{ asset('assets/css/admin/product/create.css') }}">
+    <style>
+        .product-image {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .product-image-item {
+            --size: 164px;
+            width: var(--size);
+            height: var(--size);
+            object-fit: cover;
+            margin: 10px;
+        }
+    </style>
 
 </head>
 
@@ -15,8 +29,9 @@
     </header> --}}
     <div class="main">
         <div class="container">
-            <form action="" method="POST">
+            <form action="/admin/product/edit/{{ $product->id }}" method="POST" enctype="multipart/form-data">
                 @csrf
+                @method('PUT')
                 <h2>Sửa sản phẩm</h2>
                 <br>
                 <input type="hidden" name="action" value="create">
@@ -49,6 +64,12 @@
                     <label for="productPrice">Giá : </label>
                     <input class="form-control" type="text" id="productPrice" name="productPrice"
                         value="{{ $product->product_price }}">
+                </div>
+
+                <div>
+                    <label for="productQuantity">Số lượng : </label>
+                    <input class="form-control" type="text" id="productQuantity" name="productQuantity"
+                        value="{{ $product->quantity }}">
                 </div>
 
                 <!-- description -->
@@ -92,14 +113,23 @@
                         value="{{ $allSizeOfProduct }}">
                 </div>
 
+                <div>
+                    {{-- display image that product had --}}
+                    <label for="productImage">Ảnh sản phẩm hiện tại: </label>
+                    <div class="product-image">
+                        @foreach ($images as $image)
+                            <img src="{{ asset($image->image_link) }}" alt="product image" class="product-image-item">
+                        @endforeach
+                    </div>
+                </div>
                 <!-- ảnh -->
                 <div>
                     <label for="productImage">Ảnh : </label>
-                    <input class="form-control" type="file" id="productImage" name="productImage" multiple>
+                    <input class="form-control" type="file" id="productImage" name="productImage[]" multiple>
                     {{-- <input class="form-control" type="text" id="productImage" name="productImage"
                         placeholder="nhập image link của sản phẩm"> --}}
                 </div>
-                <button style="cursor: pointer;">
+                <button class="btn-save">
                     Lưu
                 </button>
             </form>

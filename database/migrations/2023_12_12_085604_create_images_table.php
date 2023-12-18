@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::create('images', function (Blueprint $table) {
             $table->increments('id');
             $table->string('image_link');
+            $table->timestamps();
+            $table->string('public_id')->nullable();
             $table->unsignedInteger('product_id');
 
             $table->foreign('product_id')

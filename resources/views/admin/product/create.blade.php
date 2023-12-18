@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add</title>
     <link rel="stylesheet" href="{{ asset('assets/css/admin/product/create.css') }}">
-
 </head>
 
 <body>
@@ -15,11 +14,10 @@
     </header> --}}
     <div class="main">
         <div class="container">
-            <form action="" method="POST">
+            <form action="{{ route('admin-product-store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <h2>Thêm sản phẩm</h2>
                 <br>
-                <input type="hidden" name="action" value="create">
                 <div>
                     <label for="productName">Tên sản phẩm : </label>
                     <input class="form-control" type="text" id="productName" name="productName"
@@ -32,7 +30,6 @@
                         @foreach ($productObjects as $productObject)
                             <option value={{ $productObject->id }}> {{ $productObject->object_name }} </option>
                         @endforeach
-
                     </select>
                 </div>
 
@@ -49,6 +46,11 @@
                     <label for="productPrice">Giá : </label>
                     <input class="form-control" type="text" id="productPrice" name="productPrice"
                         placeholder="Nhập giá sản phẩm">
+                </div>
+                <div>
+                    <label for="productQuantity">Số lượng : </label>
+                    <input class="form-control" type="text" id="productQuantity" name="productQuantity"
+                        placeholder="Nhập số lượng sản phẩm">
                 </div>
 
                 <!-- description -->
@@ -92,11 +94,11 @@
                 <!-- ảnh -->
                 <div>
                     <label for="productImage">Ảnh : </label>
-                    <input class="form-control" type="file" id="productImage" name="productImage" multiple>
-                    {{-- <input class="form-control" type="text" id="productImage" name="productImage"
-                        placeholder="nhập image link của sản phẩm"> --}}
+                    {{-- <input class="form-control" type="file" id="productImage" name="file" multiple> --}}
+                    {{-- <input type="file" name="productImage" --}}
+                    <input type="file" name="productImage[]" class="form-control" multiple>
                 </div>
-                <button style="cursor: pointer;">
+                <button class="btn-save">
                     Lưu
                 </button>
             </form>

@@ -42,7 +42,7 @@ Route::prefix('/')->group(function () {
     Route::get('/cart', function () {
         return view('user.cart');
     })->name('cart');
-    
+
     Route::get('/purchase-history', function () {
         return view('user.purchase_history');
     })->name('purchase-history');
@@ -50,7 +50,7 @@ Route::prefix('/')->group(function () {
     Route::get('/profile', function () {
         // return view('user.profile');
         return "profile page";
-    })->name('profile');    
+    })->name('profile');
 });
 
 // // authorized users
@@ -68,6 +68,7 @@ Route::prefix('/admin')->group(function () {
     Route::get('/login', [AdminController::class, 'login'])->name('admin-login');
     Route::post('/login', [AdminController::class, 'postLogin'])->name('admin-post-login');
 });
+
 
 // admin
 Route::prefix('admin')->middleware('adminAuth')->group(function () {
@@ -92,6 +93,7 @@ Route::prefix('admin')->middleware('adminAuth')->group(function () {
         Route::post('/create', [ProductController::class, 'store'])->name('admin-product-store');
         Route::get('/edit/{id}', [ProductController::class, 'edit'])->name('admin-product-edit');
         Route::put('/edit/{id}', [ProductController::class, 'update'])->name('admin-product-update');
+        Route::delete('/delete/{id}', [ProductController::class, 'destroy']);
     });
 
     // report
