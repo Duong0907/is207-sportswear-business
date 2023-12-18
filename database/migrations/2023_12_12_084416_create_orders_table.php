@@ -15,13 +15,14 @@ return new class extends Migration
             $table->increments('id');
             $table->unsignedInteger('user_id');
             $table->integer('total_money')->default(0);
-            $table->timestamp('created_at')->useCurrent();
             $table->boolean('paid')->default(false);
             $table->string('shipping_note');
             $table->string('shipping_address');
             $table->string('shipping_phonenumber');
             $table->string('shipping_firstname');
             $table->string('shipping_lastname');
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();  
 
             $table->foreign('user_id')
                 ->references('id')

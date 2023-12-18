@@ -39,7 +39,7 @@
                 <br>
                 @endforeach
                 <br>
-                <button class=" apply-filter-btn">Áp dụng bộ lọc</button>
+                <button class="apply-filter-btn">Áp dụng bộ lọc</button>
 
         </aside>
 
@@ -88,6 +88,6 @@
 @endsection
 
 @section('js')
-<script src="{{ asset('assets/js/base.js') }}"></script>
+{{-- <script src="{{ asset('assets/js/base.js') }}"></script> --}}
 <script src="{{ asset('assets/js/user/product_list.js') }}"></script>
 @endsection

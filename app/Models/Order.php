@@ -11,8 +11,7 @@ class Order extends Model
     protected $table = 'orders';
     protected $fillable = [
         'user_id',
-        'total_money',
-        'paid',
+        'paid', 
         'shipping_note',
         'shipping_adress',
         'shipping_phonenumber',
@@ -20,7 +19,7 @@ class Order extends Model
         'shipping_lastname',
     ];
 
-    public $timestamps = true;
+    public $timestamp = true; // enable all timestamps
 
     function user()
     {
@@ -31,6 +30,8 @@ class Order extends Model
     {
         return $this->belongsToMany(Product::class, 'order_details', 'order_id', 'product_id')
                     ->withPivot('quantity')
+                    ->withPivot('color_hex_code')
+                    ->withPivot('size_name')
                     ->withTimestamps();
     }
 }

@@ -114,6 +114,7 @@ body {
     flex-direction: column;
     justify-content: space-between;
     padding: 5px 10px;
+    min-width: 200px;
 }
 
 .cart-product-delete {

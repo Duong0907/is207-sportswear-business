@@ -12,7 +12,7 @@
                     <li>
                         <ul>
                             <li class="bold mb1">
-                                <a href="/products/new?object=1">Nam</a>
+                                <a href="/products/new?object=1" id="heading-subnav">Nam</a>
                             </li>
                             <li>
                                 <a href="/products/new?object=1">Tất cả sản phẩm</a>
@@ -35,7 +35,7 @@
                     <li>
                         <ul>
                             <li class="bold mb1">
-                                <a href="/products/new?object=2">Nữ</a>
+                                <a href="/products/new?object=2" id="heading-subnav">Nữ</a>
                             </li>
                             <li>
                                 <a href="/products/new?object=2">Tất cả sản phẩm</a>
@@ -58,7 +58,7 @@
                     <li>
                         <ul>
                             <li class="bold mb1">
-                                <a href="/products/new?object=3">Trẻ em</a>
+                                <a href="/products/new?object=3" id="heading-subnav">Trẻ em</a>
                             </li>
                             <li>
                                 <a href="/products/new?object=3">Tất cả sản phẩm</a>
@@ -108,7 +108,7 @@
                 <a href="/products?object=3">Trẻ em</a>
                 <ul class="subnavKids sub-navbar--animation">
                     <li><a href="/products?object=3">Tất cả sản phẩm</a></li>
-                    <li><a href="/products?object=3&type=3" class="subnav__content">Giày</a></li>
+                    <li><a href="/products?object=3&type=3">Giày</a></li>
                     <li><a href="/products?object=3&type=1">Áo</a></li>
                     <li><a href="/products?object=3&type=2">Quần</a></li>
                     <li><a href="/products?object=3&type=4">Tất</a></li>
@@ -122,7 +122,7 @@
                     <li>
                         <ul>
                             <li class="bold mb1">
-                                <a href="/products?object=1&type=1">Nam</a>
+                                <a href="/products?object=1&type=1" id="heading-subnav">Nam</a>
                             </li>
                             <li>
                                 <a href="/products?object=1&type=1">Tất cả sản phẩm</a>
@@ -146,7 +146,7 @@
                     <li>
                         <ul>
                             <li class="bold mb1">
-                                <a href="/products?object=1&type=1">Nữ</a>
+                                <a href="/products?object=1&type=1" id="heading-subnav">Nữ</a>
                             </li>
                             <li>
                                 <a href="/products?object=1&type=1">Tất cả sản phẩm</a>
@@ -170,7 +170,7 @@
                     <li>
                         <ul>
                             <li class="bold mb1">
-                                <a href="/products?object=1&type=1">Trẻ em</a>
+                                <a href="/products?object=1&type=1" id="heading-subnav">Trẻ em</a>
                             </li>
                             <li>
                                 <a href="/products?object=1&type=1">Tất cả sản phẩm</a>
@@ -228,7 +228,7 @@
                         </div>
                     </div>
                 </div>
-                <a class="cartImg" href="{{ route('cart')}}">
+                <a class="cartImg" href="{{ route('cart') }}">
                     <img src="{{ asset('assets/svg/navbar_logined/cart.svg') }}" alt="">
                     <p>10</p>
                 </a>
@@ -244,10 +244,10 @@
     <div class="modalInfo">
         <img src="{{ asset('assets/svg/navbar_logined/avatar.svg') }}" class="modalImg" alt="">
         <h2> Jacob Jones</h2>
-        <a href="{{ route('profile')}}">Chỉnh sửa thông tin</a>
+        <a href="{{ route('profile') }}">Chỉnh sửa thông tin</a>
     </div>
     <div class="modalDetail">
-        <a href="{{ route('profile')}}" class="modalDetailProfile modalDetailItem">
+        <a href="{{ route('profile') }}" class="modalDetailProfile modalDetailItem">
             <img src="{{ asset('assets/svg/navbar_logined/profile2.svg') }}" alt="">
             <p>Hồ sơ</p>
             <i class="ti-angle-right"></i>
@@ -270,4 +270,5 @@
     </div>
 </div>
 @endif
+
 <script src="{{ asset('assets/js/shared/navbar.js') }}"></script>
