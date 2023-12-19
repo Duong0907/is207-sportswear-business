@@ -38,24 +38,22 @@ Route::prefix('/')->group(function () {
         return view('user.introduce');
     })->name('introduce');
 
-    Route::get('/product-detail/1', function () {
-        return view('user.product_detail');
-    })->name('product-detail');
+    Route::prefix('/')->middleware('auth')->group(function () {
+        Route::get('/cart', [OrderController::class, 'renderCart'])->name('cart');
 
-    Route::get('/cart', [OrderController::class, 'renderCart'])->name('cart');
+        Route::get('/payment', function () {
+            return view('user.payment');
+        })->name('payment');
 
-    Route::get('/payment', function () {
-        return view('user.payment');
-    })->name('payment');
+        Route::post('/payment', [OrderController::class, 'pay'])->name('payment-controller');
 
-    Route::post('/payment', [OrderController::class, 'pay'])->name('payment-controller');
+        Route::get('/purchase-history', [OrderController::class, 'renderPurchaseHistory'])->name('purchase-history');
 
-    Route::get('/purchase-history', [OrderController::class, 'renderPurchaseHistory'])->name('purchase-history');
-
-    Route::get('/profile', function () {
-        return view('user.profile');
-        // return "profile page";
-    })->name('profile');
+        Route::get('/profile', function () {
+            return view('user.profile');
+            // return "profile page";
+        })->name('profile');
+    });
 });
 // admin login
 Route::prefix('/admin')->group(function () {
