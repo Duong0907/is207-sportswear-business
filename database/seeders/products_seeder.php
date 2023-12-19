@@ -32,7 +32,7 @@ class products_seeder extends Seeder
                 'quantity' => 30,
                 'product_description' => 'Thể hiện phong cách lớn với chiếc áo PSG này. Thiết kế rộng rãi, với họa tiết voi động trên toàn bộ và huy hiệu PSG tạo nên một diện mạo nổi bật.',
                 'product_object_id' => 1,
-                'product_type_id' => 1,
+                'product_type_id' => 3,
             ],
             [
                 'product_name' => 'Nike Dri-FIT Challenger',
@@ -42,7 +42,7 @@ class products_seeder extends Seeder
                 'quantity' => 40,
                 'product_description' => 'Thiết kế cho chạy, tập luyện và yoga, quần Dri-FIT Challenger của chúng tôi giữ cho bạn nhẹ nhàng và thoáng khí với kiểu dáng thoải mái giúp bạn tận hưởng tối đa chuyển động của mình. Chúng tôi thiết kế chúng không chỉ cho việc chạy, mà còn có túi thoải mái không làm kích thích khi bạn chuyển từ đường chạy sang phòng tập.',
                 'product_object_id' => 1,
-                'product_type_id' => 2,
+                'product_type_id' => 3,
             ],
             [
                 'product_name' => 'Nike Everyday Lightweight',
@@ -52,7 +52,7 @@ class products_seeder extends Seeder
                 'quantity' => 20,
                 'product_description' => 'Vượt qua bài tập của bạn với tất Nike Everyday. Sợi mềm với công nghệ chống mồ hôi giúp giữ cho đôi chân của bạn thoải mái và khô ráo.',
                 'product_object_id' => 1,
-                'product_type_id' => 4,
+                'product_type_id' => 3,
             ],
             [
                 'product_name' => 'Nike Indy',
@@ -62,7 +62,7 @@ class products_seeder extends Seeder
                 'quantity' => 15,
                 'product_description' => 'Bạn không cần phải gián đoạn ngày của mình với việc thay đổi trang phục. Có tất cả trong chiếc áo tank top này có sẵn bra Indy tích hợp. Chất liệu mềm mại, co giãn siêu cao giúp bạn thoải mái, trong khi dây đeo mảnh và có thể điều chỉnh làm cho chiếc áo của bạn trở nên linh hoạt. Với 2 miếng lót có thể tháo rời, bạn có thể chọn độ che phủ phù hợp để sẵn sàng điều chỉnh giữa công ty, phòng tập, bữa trưa và thậm chí là dạo chơi với bạn bè trong khi vẫn giữ mát nhờ công nghệ chống mồ hôi.',
                 'product_object_id' => 2,
-                'product_type_id' => 1,
+                'product_type_id' => 3,
             ],
             [
                 'product_name' => 'Nike Dunk Low',
@@ -82,7 +82,7 @@ class products_seeder extends Seeder
                 'quantity' => 10,
                 'product_description' => 'Đây là trò chơi của bạn, và chưa bao giờ là lúc chơi tốt hơn. Làm từ ít nhất 75% polyester tái chế, quần này rộng ở chân và hông, với một eo an toàn và thoải mái và chiều dài độ ưu tiên.',
                 'product_object_id' => 2,
-                'product_type_id' => 2,
+                'product_type_id' => 3,
             ],
             [
                 'product_name' => 'Nike Everyday Plus',
@@ -92,7 +92,7 @@ class products_seeder extends Seeder
                 'quantity' => 30,
                 'product_description' => 'Vượt qaua bài tập của bạn với tất Nike Everyday Cushioned. Đế dày terry mang lại sự thoải mái cho các bài tập chân và nhảy, trong khi dải cổ chân có rãnh ôm chặt phía giữa chân giúp cảm giác hỗ trợ.',
                 'product_object_id' => 2,
-                'product_type_id' => 4,
+                'product_type_id' => 3,
             ],
             [
                 'product_name' => 'Nike Air Max 90 LTR',
@@ -112,7 +112,7 @@ class products_seeder extends Seeder
                 'quantity' => 22,
                 'product_description' => 'Chúng tôi chia sẻ một trong những địa điểm yêu thích của chúng tôi với bạn. Mount Hood chỉ là một trong những khu vui chơi tự nhiên chúng tôi may mắn có gần trụ sở của Nike ở Oregon. Làm từ bông mềm, chiếc áo thun cổ điển này hoàn hảo để khám phá các công viên và khu vực thiên nhiên trong khu vực địa phương của bạn.',
                 'product_object_id' => 3,
-                'product_type_id' => 1,
+                'product_type_id' => 3,
             ],
             [
                 'product_name' => 'Nike Dri-FIT Multi+',
@@ -122,7 +122,7 @@ class products_seeder extends Seeder
                 'quantity' => 22,
                 'product_description' => 'Cho dù bạn đang đi tập thể dục, tập luyện nhóm hay đơn giản là leo núi với bạn bè, quần Nike Dri-FIT Multi+ Training Shorts giúp bạn làm điều đó thoải mái. Và mồ hôi? Với chất liệu nhẹ, thấm mồ hôi của chúng tôi, đó không phải là điều bạn cần phải lo lắng. Được thiết kế để giúp bạn giữ mát, chúng là sự lựa chọn cho tất cả mọi thứ vui vẻ.',
                 'product_object_id' => 3,
-                'product_type_id' => 2,
+                'product_type_id' => 3,
             ],
         ]);
     }

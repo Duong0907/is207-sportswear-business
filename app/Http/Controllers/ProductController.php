@@ -274,13 +274,13 @@ class ProductController extends Controller
                 return redirect()->back()->with('error', 'Tên sản phẩm đã tồn tại!');
             }
             // check if product price and quantity is number, and > 0 and is integer
-            if (!is_numeric($request->productPrice) || !is_numeric($request->productQuantity) || $request->productPrice <= 0 || $request->productQuantity <= 0 || !is_int($request->productQuantity)) {
-                return redirect()->back()->with('error', 'Giá và số lượng sản phẩm không hợp lệ!');
-            }
+            // if (!is_numeric($request->productPrice) || !is_numeric($request->productQuantity) || $request->productPrice <= 0 || $request->productQuantity <= 0 || !is_int($request->productQuantity)) {
+            //     return redirect()->back()->with('error', 'Giá và số lượng sản phẩm không hợp lệ!');
+            // }
             // check if product price and quantity is integer
-            if (!is_int($request->productQuantity) || !is_int($request->productPrice)) {
-                return redirect()->back()->with('error', 'Giá và số lượng sản phẩm không hợp lệ!');
-            }
+            // if (!is_int($request->productQuantity) || !is_int($request->productPrice)) {
+            //     return redirect()->back()->with('error', 'Giá và số lượng sản phẩm không hợp lệ!');
+            // }
             $product = new Product();
             $product->product_name = $request->productName;
             $product->product_price = $request->productPrice;
@@ -371,13 +371,13 @@ class ProductController extends Controller
                 return redirect()->back()->with('error', 'Vui lòng điền đầy đủ thông tin!');
             }
             // check if product price and quantity is number, and > 0 and is integer
-            if (!is_numeric($request->productPrice) || !is_numeric($request->productQuantity) || $request->productPrice <= 0 || $request->productQuantity <= 0 || !is_int($request->productQuantity)) {
-                return redirect()->back()->with('error', 'Giá và số lượng sản phẩm không hợp lệ!');
-            }
+            // if (!is_numeric($request->productPrice) || !is_numeric($request->productQuantity) || $request->productPrice <= 0 || $request->productQuantity <= 0 || !is_int($request->productQuantity)) {
+            //     return redirect()->back()->with('error', 'Giá và số lượng sản phẩm không hợp lệ!');
+            // }
             // check if product price and quantity is integer
-            if (!is_int($request->productQuantity) || !is_int($request->productPrice)) {
-                return redirect()->back()->with('error', 'Giá và số lượng sản phẩm không hợp lệ!');
-            }
+            // if (!is_int($request->productQuantity) || !is_int($request->productPrice)) {
+            //     return redirect()->back()->with('error', 'Giá và số lượng sản phẩm không hợp lệ!');
+            // }
             // dd($request->all());
             $product = Product::find($id);
             $product->product_name = $request->productName;
