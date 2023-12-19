@@ -32,6 +32,10 @@
                 <div class="admin-button">
                     <i class="fa-regular fa-user"></i>
                 </div>
+                {{-- create for me a button to logout --}}
+                <div class="log-out">
+                    <a id="logout-button" href="{{ route('logout') }}">Logout</a>
+                </div>
             </div>
         </header>
         <main class="admin-layout">
@@ -100,6 +104,20 @@
         </main>
     </div>
     <script src="https://kit.fontawesome.com/34f5218fc0.js" crossorigin="anonymous" defer></script>;
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const adminBtn = document.querySelector('.admin-button');
+            const logoutBtn = document.querySelector('.log-out');
+
+            adminBtn.addEventListener('click', (event) => {
+                // Prevent the default behavior of the anchor element
+                event.preventDefault();
+
+                // Toggle the display of the logout button
+                logoutBtn.style.display = (logoutBtn.style.display === 'none') ? 'block' : 'none';
+            });
+        });
+    </script>
     @yield('js')
 </body>
 
