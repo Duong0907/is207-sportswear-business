@@ -49,10 +49,7 @@ Route::prefix('/')->group(function () {
 
         Route::get('/purchase-history', [OrderController::class, 'renderPurchaseHistory'])->name('purchase-history');
 
-        Route::get('/profile', function () {
-            return view('user.profile');
-            // return "profile page";
-        })->name('profile');
+        Route::get('/profile', [UserController::class, 'renderProfile'])->name('profile');
     });
 });
 // admin login

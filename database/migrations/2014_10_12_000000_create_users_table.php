@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('email')->unique()->nullable();
             $table->string('password')->nullable();
             $table->boolean('is_admin')->default(false);
+            $table->string('avatar_link')->default('https://random.imagecdn.app/480/480');
             $table->timestamps();
             $table->rememberToken();
         });
