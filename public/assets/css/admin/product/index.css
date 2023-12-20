@@ -63,6 +63,8 @@ html,
     /* justify-content: space-between; */
     padding: 2em;
     border-bottom: 1px solid #E5E5E5;
+    height: 12px;
+    max-height: 12px;
 }
 
 .product-management-table tr:not(:first-child) th:nth-child(2) {
@@ -99,7 +101,7 @@ th a {
 }
 
 .product-management-list {
-    flex: 1;
+    /* flex: 1; */
     display: flex;
     overflow: hidden;
     overflow-y: auto;
@@ -121,4 +123,11 @@ th a {
     border: none;
     cursor: pointer;
     background-color: white;
+}
+
+.product-management-filter-button {
+    display: flex;
+    padding: 0.5em;
+    width: 180%;
+    transform: translateY(1.5em);
 }

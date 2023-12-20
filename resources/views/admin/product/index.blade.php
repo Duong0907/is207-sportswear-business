@@ -12,32 +12,33 @@
             <h1>Quản lí sản phẩm</h1>
         </div>
 
-        <div class="product-management-filter">
-            <div class="product-management-filter-option">
-                <label>Mã sản phẩm</label>
-                <input type="text" id="product-id" class="product-management-filter-text" placeholder="Mã sản phẩm">
-            </div>
-            <div class="product-management-filter-option">
-                <label>Tên sản phẩm</label>
-                <input type="text" id="product-name" class="product-management-filter-text" placeholder="Tên sản phẩm">
-            </div>
-            <div class="product-management-filter-option">
-                <label>Giá sản phẩm</label>
-                <div class="product-management-filter-option-range">
-                    <input type="text" id="product-min-price" class="product-management-filter-text" value="0">
-                    <input type="text" id="product-max-price" class="product-management-filter-text" value="500.000">
+        <form action="{{ route('admin-search-products') }}" method="post">
+            <div class="product-management-filter">
+                @csrf
+                <div class="product-management-filter-option">
+                    <label>Mã sản phẩm</label>
+                    <input type="text" id="product-id" class="product-management-filter-text" placeholder="Mã sản phẩm"
+                        name="productId">
+                </div>
+                <div class="product-management-filter-option">
+                    <label>Tên sản phẩm</label>
+                    <input type="text" id="product-name" class="product-management-filter-text" name="productName"
+                        placeholder="Tên sản phẩm">
+                </div>
+                <div class="product-management-filter-option">
+                    <label>Giá sản phẩm</label>
+                    <div class="product-management-filter-option-range">
+                        <input type="text" id="product-min-price" class="product-management-filter-text" name="minPrice">
+                        <input type="text" id="product-max-price" class="product-management-filter-text" name="maxPrice">
+                    </div>
+                </div>
+                <div class="product-management-filter-option">
+                    <div class="product-management-filter-option-range">
+                        <button type="submit" class="product-management-filter-button">Tìm kiếm</button>
+                    </div>
                 </div>
             </div>
-            <div class="product-management-filter-option">
-                <label>Số lượt mua</label>
-                <div class="product-management-filter-option-range">
-                    <input type="text" id="product-min-sale-number" class="product-management-filter-text"
-                        value="0">
-                    <input type="text" id="product-max-sale-number" class="product-management-filter-text"
-                        value="200">
-                </div>
-            </div>
-        </div>
+        </form>
 
         <div class="product-management-list">
             <table class="product-management-table">

@@ -84,6 +84,7 @@ Route::prefix('admin')->middleware('adminAuth')->group(function () {
         Route::get('/edit/{id}', [ProductController::class, 'edit'])->name('admin-product-edit');
         Route::put('/edit/{id}', [ProductController::class, 'update'])->name('admin-product-update');
         Route::delete('/delete/{id}', [ProductController::class, 'destroy']);
+        Route::post('/search',  [ProductController::class, 'adminSearch'])->name('admin-search-products');
     });
 
     // report
