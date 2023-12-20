@@ -94,4 +94,37 @@ class UserController extends Controller
         // return json_encode($user);
         return view('user.profile', compact('user'));
     }
+
+    public function editUserProfile()
+    {
+        // <form>
+        //     <label for="address">
+        //         <h4>Địa chỉ</h4>
+        //         <textarea class="text-content" name="address" id="address" cols="70" rows="3" disabled>
+        //             {{ $user['email'] }}
+        //         </textarea>
+        //     </label>
+
+        //     <label for="email">
+        //         <h4>Email</h4>
+        //         <input class="text-content" type="text" value="{{ $user['email'] }}" disabled>
+        //     </label>
+
+        //     <label for="phone-number">
+        //         <h4>Số điện thoại</h4>
+        //         <input class="text-content" type="text" value="{{ $user['phonenumber'] }}" disabled>
+        //     </label>
+        //     <br>
+        //     <div class="btn">
+        //         <input id="save" type="submit" value="Lưu">
+        //         <button type="button" id="edit">Sửa</button>
+        //     </div>
+        // </form>
+
+        //  edit user profile (address, email, phone number):
+
+
+        $user = auth()->user();
+        return view('user.edit', compact('user'));
+    }
 }
