@@ -26,7 +26,7 @@
                     <div class="header__item" id="narrow"><a class="filter__link" href="#">NGÀY ĐẶT HÀNG</a>
                     </div>
                     <div class="header__item" id="narrow">
-                        <a class="filter__link filter__link--number" href="#">
+                        <a class="filter__link filter__link--number" href="#" name='redirect'>
                             TỔNG TIỀN
                         </a>
                     </div>
@@ -34,23 +34,21 @@
                         <p>THÔNG TIN NGƯỜI NHẬN</p>
                     </div>
                 </div>
-                
+
                 <div class="table-content" id="style-3">
                     <!-- Generate data from database -->
-                    @foreach($orders as $order)
-                    <div class="table-row">
-                        <div class="table-data narrow">{{ $order->id }}</div>
-                        <div class="table-data narrow order-date">{{ $order->created_at }}</div>
-                        <div class="table-data narrow total-money">{{ $order->total_money }}</div>
-                        <div class="table-data">{{ $order->shipping_address }}</div>
-                    </div>
+                    @foreach ($orders as $order)
+                        <div class="table-row">
+                            <div class="table-data narrow">{{ $order->id }}</div>
+                            <div class="table-data narrow order-date">{{ $order->created_at }}</div>
+                            <div class="table-data narrow total-money">{{ $order->total_money }}</div>
+                            <div class="table-data">{{ $order->shipping_address }}</div>
+                        </div>
                     @endforeach
                 </div>
             </div>
         </div>
     </div>
-
-
 @endsection
 
 

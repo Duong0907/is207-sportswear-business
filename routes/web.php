@@ -38,8 +38,9 @@ Route::prefix('/')->group(function () {
         return view('user.introduce');
     })->name('introduce');
 
+    Route::get('/cart', [OrderController::class, 'renderCart'])->name('cart');
+
     Route::prefix('/')->middleware('auth')->group(function () {
-        Route::get('/cart', [OrderController::class, 'renderCart'])->name('cart');
 
         Route::get('/payment', function () {
             return view('user.payment');
@@ -48,6 +49,8 @@ Route::prefix('/')->group(function () {
         Route::post('/payment', [OrderController::class, 'pay'])->name('payment-controller');
 
         Route::get('/purchase-history', [OrderController::class, 'renderPurchaseHistory'])->name('purchase-history');
+        Route::post('/vn-pay', [OrderController::class, 'vnPay'])->name('vn-pay');
+        Route::get('/vn-pay', [OrderController::class, 'vnPayHandle'])->name('vn-pay');
 
         Route::get('/profile', [UserController::class, 'renderProfile'])->name('profile');
     });

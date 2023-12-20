@@ -39,7 +39,7 @@ function getFitlerURL() {
         });
     });
 
-    console.log(filterData);
+    // console.log(filterData);
 
     // Convert filterData to string to add to URL
     let filterDataSubmit = filterData;
