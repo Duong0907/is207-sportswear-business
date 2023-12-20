@@ -47,6 +47,8 @@ Route::prefix('/')->group(function () {
         })->name('payment');
 
         Route::post('/payment', [OrderController::class, 'pay'])->name('payment-controller');
+        Route::post('/payment-vnpay', [OrderController::class, 'payVnpay'])->name('payment-vnpay-controller');
+        Route::get('/vnpay-return', [OrderController::class, 'return'])->name('vnpay-return');
 
         Route::get('/purchase-history', [OrderController::class, 'renderPurchaseHistory'])->name('purchase-history');
         Route::post('/vn-pay', [OrderController::class, 'vnPay'])->name('vn-pay');

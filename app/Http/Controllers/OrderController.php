@@ -55,15 +55,16 @@ class OrderController extends Controller
         return redirect()->route('purchase-history')->cookie($cookie);
     }
 
+
     public function renderCart(Request $request)
     {
         // Get user's id from auth
-        $user_id = auth()->user()->id;
+        // $user_id = auth()->user()->id;
         // return $user_id;
 
         // Get all order with unpaid = true
-        $cart = Order::where('user_id', $user_id)->where('paid', false)->get();
-        return view('user.cart', compact('cart'));
+        // $cart = Order::where('user_id', $user_id)->where('paid', false)->get();
+        return view('user.cart');
     }
 
     public function renderPurchaseHistory(Request $request)
@@ -74,6 +75,7 @@ class OrderController extends Controller
         $orders = Order::select("id", "created_at", "total_money", "shipping_address")->where('user_id', $user_id)->get();
         return view('user.purchase_history', compact('orders'));
     }
+    
     public function vnPay()
     {
         $vnp_Url = "https://sandbox.vnpayment.vn/paymentv2/vpcpay.html";

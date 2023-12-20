@@ -62,5 +62,5 @@
     </div>
 @endsection
 @section('js')
-    <script src="{{ asset('assets/js/profile.js') }}"></script>
+    <script src="{{ asset('assets/js/user/profile.js') }}"></script>
 @endsection
