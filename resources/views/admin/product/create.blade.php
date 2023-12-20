@@ -39,7 +39,7 @@
 
                 <div>
                     <label for="productType">Loại sản phẩm : </label>
-                    <select name="productType" id="productType" onchange="changSize()">
+                    <select name="productType" id="productType" onchange="changeSize()">
                         @foreach ($productTypes as $productType)
                             <option value={{ $productType->id }}>{{ $productType->type_name }}</option>
                         @endforeach
