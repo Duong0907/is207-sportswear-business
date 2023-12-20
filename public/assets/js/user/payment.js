@@ -14,7 +14,7 @@ function pay() {
     const phoneNumber = document.querySelector("#phone-number").value;
     const note = document.querySelector("#note").value;
 
-    console.log(firstname, lastname, address, phoneNumber, note);
+    // console.log(firstname, lastname, address, phoneNumber, note);
 
     // return fetch("http://localhost/sportswear/controllers/payment.php", {
     //     method: "POST",
@@ -131,7 +131,7 @@ async function renderCartProducts() {
 
 function formatPrices() {
     const moneyElements = document.querySelectorAll('.money');
-    console.log(moneyElements);
+    // console.log(moneyElements);
     for (let moneyElement of moneyElements) {
         moneyElement.textContent = formatPrice(moneyElement.textContent);
     }

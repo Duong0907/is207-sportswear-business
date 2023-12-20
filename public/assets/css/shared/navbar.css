@@ -41,7 +41,7 @@
 
 .navListMiddle {
     justify-content: space-between;
-    flex: 3;
+    flex: 2.3;
 }
 
 .navListEndUnlogined {
@@ -51,6 +51,18 @@
     justify-content: flex-end;
     gap: 1rem;
     display: flex;
+}
+
+.navListEndUnlogined .cartImg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.navListEndUnlogined .cartImg img {
+    height: 25px;
+    color: white;
 }
 
 .subnavNewProduct,
@@ -87,6 +99,7 @@
     color: #767676;
     font-weight: 500;
 }
+
 .subnavNewProduct ul li>a:hover,
 .subnavPromotion ul li>a:hover,
 .subnavMen li>a:hover,
@@ -191,7 +204,7 @@
     border-radius: 20px;
 }
 
-.navListEndUnlogined .navSearchContent:hover input {
+.navListEndUnlogined .navSearchContent input {
     width: 176px;
     cursor: text;
     padding-left: 6px;
@@ -248,7 +261,7 @@
     border-radius: 20px;
 }
 
-.navListEndLogined .navSearchContent:hover input {
+.navListEndLogined .navSearchContent input {
     width: 176px;
     cursor: text;
     padding-left: 6px;
@@ -394,10 +407,12 @@
     transition: transform 0.25s;
 
 }
-.navListFirst > a {
+
+.navListFirst>a {
     transform: scale(1.4) translateY(-8px);
     transform-origin: top left;
 }
+
 .navListFirst--animation>a:hover {
     transform: scale(1.2, 1.2);
 }
