@@ -243,11 +243,12 @@
         @endguest
 </ul>
 </div>
+
 @if (auth()->check())
 <div class="modalAccount">
     <div class="modalInfo">
-        <img src="{{ asset('assets/svg/navbar_logined/avatar.svg') }}" class="modalImg" alt="">
-        <h2> Jacob Jones</h2>
+        <img src="{{ auth()->user()->avatar_link }}" class="modalImg" alt="">
+        <h2> {{ auth()->user()->username }} </h2>
         <a href="{{ route('profile') }}">Chỉnh sửa thông tin</a>
     </div>
     <div class="modalDetail">
