@@ -40,8 +40,8 @@ const updateColor = (checkbox) => {
 // take size for product
 let productType = document.getElementById('productType');
 let allSize = document.getElementsByClassName('size-btn');
-const changSize = () => {
-    if (productType.value >= 3) {
+const changeSize = () => {
+    if (productType.value == 3) {
         for (let i = 0; i < allSize.length; ++i) {
             if (allSize[i].value <= 7) {
                 allSize[i].style.display = 'none';
@@ -63,7 +63,7 @@ const changSize = () => {
         }
     }
 }
-changSize();
+changeSize();
 
 // handle size
 let selectedSizesInputId = document.getElementById('productSizeId');
