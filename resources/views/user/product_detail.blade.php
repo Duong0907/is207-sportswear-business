@@ -83,7 +83,7 @@
                         <div class="cmt-container">
 
                                 <div class="cmt-top">
-                                    <div class="rating">
+                                    <div class="rating" rating="{{  $comment->rating }}">
 
                                     </div>
                                     <p class="date">{{ $comment->created_at }}</p>

@@ -24,7 +24,10 @@
                     <label for="save-info">Lưu thông tin</label>
                 </div>
                 <button type="submit" class="order-button" role="button">
-                    <p>Thanh toán</p>
+                    <p>Thanh toán tiền mặt</p>
+                </button>  
+                <button class="order-button" role="button">
+                    <p>Thanh toán bằng VN Pay</p>
                 </button>  
             </form>
             <div class="container">

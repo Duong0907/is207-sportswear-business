@@ -58,6 +58,7 @@ class OrderController extends Controller
         return redirect()->route('purchase-history')->cookie($cookie);
     }
 
+
     public function renderCart(Request $request)
     {
         // Get user's id from auth
