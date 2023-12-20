@@ -445,4 +445,30 @@ class ProductController extends Controller
             dd($th);
         }
     }
+
+    public function adminSearch(Request $request)
+    {
+        // dd($request->all());
+        $productId = $request->productId;
+        $productName = $request->productName;
+        $minPrice = $request->minPrice;
+        $maxPrice = $request->maxPrice;
+        // lọc theo id, name, price nếu có
+        $products = Product::select('*');
+        if ($productId != "") {
+            $products = $products->where('id', $productId);
+        }
+        if ($productName != "") {
+            $products = $products->where('product_name', 'like', '%' . $productName . '%');
+        }
+        if ($minPrice != "") {
+            $products = $products->where('product_price', '>=', $minPrice);
+        }
+        if ($maxPrice != "") {
+            $products = $products->where('product_price', '<=', $maxPrice);
+        }
+        return view('admin.product.index', [
+            'products' => $products->get()
+        ]);
+    }
 }

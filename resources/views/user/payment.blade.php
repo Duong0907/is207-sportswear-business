@@ -32,7 +32,7 @@
                 <div style="margin-top: 12px">
                     <form action="{{ route('vn-pay') }}" method="POST">
                         @csrf
-                        <button type="submit" class="order-button" role="button">
+                        <button type="submit" class="order-button" role="button" name="redirect">
                             <p>Thanh toán bằng vnpay</p>
                         </button>
                     </form>
