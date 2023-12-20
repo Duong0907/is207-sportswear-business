@@ -115,7 +115,7 @@
                 </ul>
             </div>
 
-            <div class="navPromotion subnav-blur nav-subnav-item">
+            {{-- <div class="navPromotion subnav-blur nav-subnav-item">
                 <a href="/products?object=1&type=1">Khuyến mãi</a>
                 <ol class="subnavPromotion sub-navbar--animation">
                     <!-- Nam -->
@@ -190,7 +190,7 @@
                         </ul>
                     </li>
                 </ol>
-            </div>
+            </div> --}}
 
             <div class="navHelp subnav-blur">
                 <a href="{{ route('guide') }}">Hướng dẫn</a>
@@ -205,7 +205,7 @@
         {{-- if(not login) --}}
         {{-- user in secsion --}}
         @if (auth()->guest())
-            <li class="navListEndUnlogined">s
+            <li class="navListEndUnlogined">
                 <div class="navSearch">
                     <div class="navSearchContent">
                         <input type="text" id="search-input" placeholder='Bạn muốn lựa gì :3'>
@@ -214,12 +214,16 @@
                         </div>
                     </div>
                 </div>
+                <a class="cartImg" href="{{ route('cart') }}">
+                    <img src="{{ asset('assets/svg/navbar_logined/cart.svg') }}" alt="">
+                    <p>10</p>
+                </a>
                 <a class="login" href="{{ route('login') }}">Đăng nhập</a>
                 <a class="signup" href="{{ route('register') }}">Đăng ký</a>
             </li>
         @else
             {{-- else --}}
-            <li class="navListEndLogined">s
+            <li class="navListEndLogined">
                 <div class="navSearch">
                     <div class="navSearchContent">
                         <input type="text" id="search-input" placeholder='Bạn muốn lựa gì :3'>

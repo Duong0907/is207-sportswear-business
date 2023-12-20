@@ -26,11 +26,11 @@ const handleQuantityButtonClick = (calculaton) => {
     val = (val < 1) ? 1 : val;
     quantityDisplay.value = val;
     // console.log(price, val);
-    console.log(quantityDisplay.value)
+    // console.log(quantityDisplay.value)
     
     price *= val;
     addToCartButton.innerHTML = `Thêm vào giỏ hàng - ${formatPrice(price)} `;
-    console.log(quantityDisplay.value)
+    // console.log(quantityDisplay.value)
 }
 
 const quantityBtns = document.querySelectorAll('.quantity-btn');

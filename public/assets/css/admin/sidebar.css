@@ -115,3 +115,27 @@ i {
     height: 100%;
     flex: 1;
 }
+
+.admin-button {
+    cursor: pointer;
+    position: relative;
+}
+
+.log-out {
+    position: absolute;
+    top: 12%;
+    right: 5px;
+    background-color: #F8F8F8;
+    border: 1px solid #E5E5E5;
+    padding: 10px;
+    border-radius: 3px;
+    display: none;
+}
+
+/* set when click on .admin-button .log-out will display */
+#logout-button {
+    text-decoration: none;
+    color: black;
+    font-size: 14px;
+    font-weight: 500;
+}

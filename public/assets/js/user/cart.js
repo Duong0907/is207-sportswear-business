@@ -53,7 +53,7 @@ async function readProductsFromLocalStorage() {
             size_name: cartItem.size_name,
             price: productInfo.product_price
         }
-        products.push(product); 
+        products.push(product);
     }
     return products;
 }
@@ -81,7 +81,7 @@ async function renderCartProducts() {
 
 function formatPrices() {
     const moneyElements = document.querySelectorAll('.money');
-    console.log(moneyElements);
+    // console.log(moneyElements);
     for (let moneyElement of moneyElements) {
         moneyElement.textContent = formatPrice(moneyElement.textContent);
     }
