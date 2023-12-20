@@ -10,21 +10,21 @@
         <div class="profile-container">
             <div class="profile-left">
                 <div class="avatar">
-                    <img src="" alt="User avatar">
+                    <img src="{{ $user['avatar_link'] }}" alt="User avatar">
                 </div>
                 <div class="bio">
-                    <h2 id="name"></h2>
-                    <p id="biography"></p>
+                    <h2 id="name">{{ $user['username'] }}</h2>
+                    <p id="biography">{{ $user['firstname'] }} {{ $user['lastname'] }}</p>
                 </div>
                 <div class="statistics">
                     <div class="total-paid">
                         <h4></h4>
-                        <p>Đã chi</p>
+                        <p>Đã chi: {{ $user['totalMoneySpent'] }}</p>
                     </div>
                     <div class="line-y"></div>
                     <div class="purchased">
                         <h4></h4>
-                        <p>Đơn hàng</p>
+                        <p>Đơn hàng: {{ $user['totalOrders'] }} </p>
                     </div>
                 </div>
             </div>
@@ -38,18 +38,18 @@
                     <label for="address">
                         <h4>Địa chỉ</h4>
                         <textarea class="text-content" name="address" id="address" cols="70" rows="3" disabled>
-                           
+                           {{ $user['email'] }}
                         </textarea>
                     </label>
 
                     <label for="email">
                         <h4>Email</h4>
-                        <input class="text-content" type="text" value="" disabled>
+                        <input class="text-content" type="text" value="{{ $user['email'] }}" disabled>
                     </label>
 
                     <label for="phone-number">
                         <h4>Số điện thoại</h4>
-                        <input class="text-content" type="text" value="" disabled>
+                        <input class="text-content" type="text" value="{{ $user['phonenumber'] }}" disabled>
                     </label>
                     <br>
                     <div class="btn">

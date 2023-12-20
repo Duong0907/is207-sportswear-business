@@ -78,9 +78,20 @@ class UserController extends Controller
             dd($th);
         }
     }
+
     public function logout()
     {
         auth()->logout();
         return redirect()->route('home');
+    }
+
+    public function renderProfile()
+    {
+        $user = auth()->user();
+        // return user with total number of orders (a number) and total money spent
+        $user->totalOrders = $user->orders->count();
+        $user->totalMoneySpent = $user->orders->sum('total_money');
+        // return json_encode($user);
+        return view('user.profile', compact('user'));
     }
 }
