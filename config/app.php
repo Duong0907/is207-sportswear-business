@@ -184,5 +184,6 @@ return [
     'aliases' => Facade::defaultAliases()->merge([
         // 'Example' => App\Facades\Example::class,
     ])->toArray(),
-
+    
+    'asset_url' => env('ASSET_URL', 'https://sportswear.up.railway.app/public/')
 ];
