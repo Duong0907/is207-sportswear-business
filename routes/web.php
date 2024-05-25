@@ -16,8 +16,6 @@ Route::prefix('auth')->group(function () {
 });
 
 // unauthorized users
-
-// unauthorized users
 Route::prefix('/')->group(function () {
     Route::get('/', [ProductController::class, 'renderHome'])->name('home');
 
@@ -57,6 +55,7 @@ Route::prefix('/')->group(function () {
         Route::get('/profile', [UserController::class, 'renderProfile'])->name('profile');
     });
 });
+
 // admin login
 Route::prefix('/admin')->group(function () {
     Route::get('/login', [AdminController::class, 'login'])->name('admin-login');
@@ -74,7 +73,6 @@ Route::prefix('admin')->middleware('adminAuth')->group(function () {
     Route::get('/customer', [AdminController::class, 'customerManager'])->name('admin-customer');
     // order
     Route::get('/order', [AdminController::class, 'orderManager'])->name('admin-order');
-
 
     // product
     Route::prefix('/product')->group(function () {

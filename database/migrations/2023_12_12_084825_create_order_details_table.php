@@ -11,6 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
+        \Illuminate\Support\Facades\DB::statement('SET SESSION sql_require_primary_key=0');
         Schema::create('order_details', function (Blueprint $table) {
             $table->unsignedInteger('order_id');
             $table->unsignedInteger('product_id');
